@@ -1,0 +1,45 @@
+name: Frontend quality
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      desktop_and_mobile_ready:
+        description: Desktop and mobile are ready for browser QA
+        required: true
+        default: false
+        type: boolean
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run test:audit
+      - run: npm run test:tokens
+      - run: npm run test:motion
+      - run: npm run build
+      - run: npm run typecheck:storybook
+      - run: npm run build:storybook
+      - name: Install browsers after layout readiness
+        if: github.event_name == 'workflow_dispatch' && inputs.desktop_and_mobile_ready == true
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run final browser QA
+        if: github.event_name == 'workflow_dispatch' && inputs.desktop_and_mobile_ready == true
+        run: npm run test:browsers
+      - uses: actions/upload-artifact@v4
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.desktop_and_mobile_ready == true
+        with:
+          name: browser-evidence
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

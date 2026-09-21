@@ -1,0 +1,32 @@
+node_modules
+.next
+out
+playwright-report
+test-results
+package-lock.json
+next-env.d.ts
+src/styles/tokens.css
+docs/evidence
+
+# Preserve user-provided skill snapshots; validated by inventory hashes.
+.agents/skills/better-accessibility/
+.agents/skills/better-colors/
+.agents/skills/better-interface/
+.agents/skills/better-layout/
+.agents/skills/better-typography/
+.agents/skills/better-ui/
+.agents/skills/better-writing/
+.agents/skills/design-taste-frontend/
+.agents/skills/animate/
+.agents/skills/animation-vocabulary/
+.agents/skills/apple-design/
+
+# Preserve official GSAP snapshots.
+.agents/skills/gsap-core/
+.agents/skills/gsap-performance/
+.agents/skills/gsap-plugins/
+.agents/skills/gsap-react/
+.agents/skills/gsap-scrolltrigger/
+.agents/skills/gsap-timeline/
+
+storybook-static/

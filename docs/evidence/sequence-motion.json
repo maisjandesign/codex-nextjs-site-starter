@@ -1,0 +1,17 @@
+{
+  "scenario": "Catalog replay, observed intermediate frame, then explicit Finish control",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "frames": [
+    27.942,
+    21.5448,
+    0
+  ],
+  "result": {
+    "passed": true,
+    "travel": 27.942
+  },
+  "limitation": "Explicit Finish verifies the finish control; natural completion was observed separately."
+}

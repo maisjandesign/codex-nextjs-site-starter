@@ -1,0 +1,329 @@
+{
+  "checked": "2026-09-08",
+  "purpose": "User-requested project-local snapshots; original installations unchanged.",
+  "skills": [
+    {
+      "name": "better-accessibility",
+      "source": "~/.codex/skills/better-accessibility",
+      "destination": ".agents/skills/better-accessibility",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a240b853d5fcb82f70d560484100b59291fdb1eb47bfeab0cb53d586c4778c2b"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "98699206d4fb00b72bcaf69bb446f541644cc0cc3d23967e266731e100a55563"
+        },
+        {
+          "path": "focus-and-keyboard.md",
+          "sha256": "c3a06d4f3002760a459da608fd74832a1445476c7fd76c848499ebe2ad031019"
+        },
+        {
+          "path": "forms.md",
+          "sha256": "01a23db15fa32e4110198f2fd99a3ae85383f5feae57715f959184f6efe79a27"
+        },
+        {
+          "path": "hit-areas.md",
+          "sha256": "dbe5a28eec3fcce7f0d3278b22656637748dfe48f4e474abc8d79aacaf7215fa"
+        },
+        {
+          "path": "motion-and-zoom.md",
+          "sha256": "8bac5b6c45133abe77aaba93ddaa70a6ad811e27647f1dab54edc8bbb46bb7c9"
+        },
+        {
+          "path": "screen-readers.md",
+          "sha256": "4ee2ac09a35678406bd1af4220a72706f8a052d0d8d12067dd436e42633c6ee5"
+        },
+        {
+          "path": "semantics-and-aria.md",
+          "sha256": "3290a83e1795f148dc41727a0c5724b67397532873561ba39d7018f93bb1ace8"
+        }
+      ]
+    },
+    {
+      "name": "better-colors",
+      "source": "~/.codex/skills/better-colors",
+      "destination": ".agents/skills/better-colors",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ed532c387bb93c94df4f48a8f035d8627df9b6c3a26d09c16f305248b51d307a"
+        },
+        {
+          "path": "accessibility-contrast.md",
+          "sha256": "4dce9edf6afc4fddfe06d7d63382503423a1b65a86f4ec5fe00074215fa6005d"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "cda9853d8173026d956fb0ca2829f9f9035345f3c885df0e52537f318b1a39d5"
+        },
+        {
+          "path": "color-conversion.md",
+          "sha256": "cca032df7f66828df596d9dc4ad94cb8e0aa0887654aaec099e76a966a6c2687"
+        },
+        {
+          "path": "color-usage.md",
+          "sha256": "1eefac184ad33b64aa054ecbef6263357fd80788fab027115a952e65bf183294"
+        },
+        {
+          "path": "gamut-and-tailwind.md",
+          "sha256": "18e410dd1dfd985fa43c1ae1cba9a843641f13baf211c25ca95c2f3d247c158e"
+        },
+        {
+          "path": "palette-generation.md",
+          "sha256": "3ad02b3cc7c2abbd7d643de9d6275f15e49dac2afd0dc2093261189f9571cff1"
+        }
+      ]
+    },
+    {
+      "name": "better-interface",
+      "source": "~/.codex/skills/better-interface",
+      "destination": ".agents/skills/better-interface",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "597ba2b155069cd5dc40863dbe1e950774c6580eeaff8d09c569d62a6ea70ed8"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "fee6da27cba45cca3f2db2b9109c85a0e222cda61aab9e8985a1b30bf0f8dee8"
+        }
+      ]
+    },
+    {
+      "name": "better-layout",
+      "source": "~/.codex/skills/better-layout",
+      "destination": ".agents/skills/better-layout",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "413d7ec94c19b518330724c7003e5aa72b4a48c3676fc603fad452df4a8ccd89"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d51a2ca663c9331f8f23b7a550e5f848f83e81361e21f2280cc384e99cc0ae15"
+        },
+        {
+          "path": "grouping-and-alignment.md",
+          "sha256": "9e619838e3175cafb7837a52ca83a9a9fbe91a88001fde606a73adba6f0fee90"
+        },
+        {
+          "path": "spacing-and-adaptivity.md",
+          "sha256": "3204ff8756b452989c6d713964e91f7f9293394ffc82ba4b920db599bf10b6e5"
+        }
+      ]
+    },
+    {
+      "name": "better-typography",
+      "source": "~/.codex/skills/better-typography",
+      "destination": ".agents/skills/better-typography",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e22f30804f1dfaab5581000c17af5b25aa2e0e7d8186da4f192ff7c95ebbf2e8"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "6760b6d92ff84272ef37b524816e26626dd43bd07fe2f53cbff8f85cfbff457e"
+        },
+        {
+          "path": "choosing-fonts.md",
+          "sha256": "90a7c4f93e5d82a1f59aef20bfaec8f9297a63018b4ab8523e4eb8bfbda6dd8c"
+        },
+        {
+          "path": "css-cheat-sheet.md",
+          "sha256": "45c77f0d1954e12e76c3903361f52703cb4f4287d54c651710f60926247165fb"
+        },
+        {
+          "path": "details-and-accessibility.md",
+          "sha256": "b8a3beb706d974d5cba962edaf954b2417b1d2b2ffb05c948a8eb8640249522b"
+        },
+        {
+          "path": "spacing-and-sizing.md",
+          "sha256": "df78e8fcf74953e5762340d7f793dcc9823b614f0e2ef7e67234ffb9ad3a5aba"
+        },
+        {
+          "path": "variable-fonts-and-opentype.md",
+          "sha256": "5aa349721fa1f667ce4a9515199e866d83b9fd8eb1d815e6265f092201a44dfe"
+        },
+        {
+          "path": "wrapping-and-punctuation.md",
+          "sha256": "8717deaab5b71c9531f936b9f6ea53de2df776f52f188e5cabff1b78f724f745"
+        }
+      ]
+    },
+    {
+      "name": "better-ui",
+      "source": "~/.codex/skills/better-ui",
+      "destination": ".agents/skills/better-ui",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d0ad037f2f5bdf510ad78c501745cfb96804951925339da5a834684a0f2d1b19"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "799e0b58bded32edf5c217f97e08c364660ec24234978b2e3f7dee1868bea871"
+        },
+        {
+          "path": "animations.md",
+          "sha256": "08a3476fde72d7399539d6885e6ad8b018962fe16764303cf835173aebba93b7"
+        },
+        {
+          "path": "icons.md",
+          "sha256": "e401bdabd358825ca51b20d10635a7b42d655f13819a1d6fbfa0ddae1686245a"
+        },
+        {
+          "path": "performance.md",
+          "sha256": "8450bd42fa61ee425a07de94abba0815119e7ee481eba53ef4ff42e70ca81de5"
+        },
+        {
+          "path": "surfaces.md",
+          "sha256": "b0276679502ab5cf3de64a65c5bc196c92b362bde04ded74c4304e711fdaecfd"
+        }
+      ]
+    },
+    {
+      "name": "better-writing",
+      "source": "~/.codex/skills/better-writing",
+      "destination": ".agents/skills/better-writing",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "23c459bfbb8c7e097eaf9b1ebd7c1b7677e52343f06437aaec5f4bb065661984"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "a5aec7e0cbc87930962f139eff4341dcf87e83fd19b9447e3f614db2bc71de67"
+        }
+      ]
+    },
+    {
+      "name": "design-taste-frontend",
+      "source": "~/.codex/skills/design-taste-frontend",
+      "destination": ".agents/skills/design-taste-frontend",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89"
+        }
+      ]
+    },
+    {
+      "name": "animate",
+      "source": "Video Director/.agents/skills/animate (project-local)",
+      "destination": ".agents/skills/animate",
+      "files": [
+        {
+          "path": "RECIPES.md",
+          "sha256": "21ff63d84391db8d96ecdf9170095f55a42c836ccc36fd3269c4772bab031ba2"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2a99870e61971553c0af3185a194c0e557f33aaa81e0422ca2fcec52195a4341"
+        }
+      ]
+    },
+    {
+      "name": "animation-vocabulary",
+      "source": "Video Director/.agents/skills/animation-vocabulary (project-local)",
+      "destination": ".agents/skills/animation-vocabulary",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d718b48fe3c7898804d588f050a2e266d82c9f5ef51da256c8cb8b5951527757"
+        }
+      ]
+    },
+    {
+      "name": "apple-design",
+      "source": "Video Director/.agents/skills/apple-design (project-local)",
+      "destination": ".agents/skills/apple-design",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "11840b24a11d7f94f39c6aaab074750ae4e4de4ef54ee4b1dd97e16ebd485e61"
+        }
+      ]
+    },
+    {
+      "name": "gsap-core",
+      "source": "https://github.com/greensock/gsap-skills",
+      "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "destination": ".agents/skills/gsap-core",
+      "license": "MIT; docs/GSAP-SKILLS-LICENSE.txt",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3"
+        }
+      ]
+    },
+    {
+      "name": "gsap-performance",
+      "source": "https://github.com/greensock/gsap-skills",
+      "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "destination": ".agents/skills/gsap-performance",
+      "license": "MIT; docs/GSAP-SKILLS-LICENSE.txt",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e"
+        }
+      ]
+    },
+    {
+      "name": "gsap-plugins",
+      "source": "https://github.com/greensock/gsap-skills",
+      "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "destination": ".agents/skills/gsap-plugins",
+      "license": "MIT; docs/GSAP-SKILLS-LICENSE.txt",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4"
+        }
+      ]
+    },
+    {
+      "name": "gsap-react",
+      "source": "https://github.com/greensock/gsap-skills",
+      "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "destination": ".agents/skills/gsap-react",
+      "license": "MIT; docs/GSAP-SKILLS-LICENSE.txt",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "88e2a5312b45e8cc7b3c496637ff5bc9af2ae9c925b555c8b235b34cbc989d74"
+        }
+      ]
+    },
+    {
+      "name": "gsap-scrolltrigger",
+      "source": "https://github.com/greensock/gsap-skills",
+      "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "destination": ".agents/skills/gsap-scrolltrigger",
+      "license": "MIT; docs/GSAP-SKILLS-LICENSE.txt",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4"
+        }
+      ]
+    },
+    {
+      "name": "gsap-timeline",
+      "source": "https://github.com/greensock/gsap-skills",
+      "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "destination": ".agents/skills/gsap-timeline",
+      "license": "MIT; docs/GSAP-SKILLS-LICENSE.txt",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02"
+        }
+      ]
+    }
+  ]
+}

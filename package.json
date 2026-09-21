@@ -1,0 +1,52 @@
+{
+  "name": "codex-site-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "tokens": "node scripts/tokens.mjs",
+    "audit": "node scripts/audit.mjs",
+    "test:audit": "node --test scripts/audit.test.mjs",
+    "typecheck": "next typegen && tsc --noEmit",
+    "build": "npm run audit && next build --webpack",
+    "test:e2e": "playwright test",
+    "test:browsers": "playwright test --config playwright.browsers.config.ts",
+    "check": "npm run format:check && npm run test:audit && npm run test:motion && npm run test:tokens && npm run build && npm run typecheck:storybook && npm run build:storybook && npm run test:e2e",
+    "start": "next start --hostname 127.0.0.1",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:motion": "node --test scripts/motion.test.mjs scripts/motion-evidence.test.mjs",
+    "test:motion:browser": "playwright test tests/motion.spec.ts",
+    "storybook": "storybook dev -p 6006 --host 127.0.0.1 --no-open --disable-telemetry",
+    "build:storybook": "storybook build --disable-telemetry",
+    "typecheck:storybook": "tsc --noEmit -p tsconfig.storybook.json",
+    "test:tokens": "node --test scripts/token-editor.test.mjs"
+  },
+  "dependencies": {
+    "@gsap/react": "2.1.2",
+    "gsap": "3.15.0",
+    "next": "^16.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.55.0",
+    "@storybook/addon-a11y": "10.6.0",
+    "@storybook/addon-docs": "10.6.0",
+    "@storybook/nextjs-vite": "10.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "postcss": "^8.5.6",
+    "postcss-value-parser": "^4.2.0",
+    "prettier": "^3.9.6",
+    "storybook": "10.6.0",
+    "typescript": "~5.9.2",
+    "vite": "8.2.1"
+  }
+}

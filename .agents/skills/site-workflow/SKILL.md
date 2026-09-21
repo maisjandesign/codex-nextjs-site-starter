@@ -1,0 +1,30 @@
+---
+name: site-workflow
+description: Build screenshot-led Next.js desktops with polished motion and an editable design system, then adapt mobile after approval and run final browser QA.
+---
+
+# site-workflow
+
+Read AGENTS.md, docs/BRIEF.md, docs/SKILL-ROUTING.md, and docs/WORKFLOW.md for the stage order. Follow the supplied-design implementation rules in AGENTS.md. Preserve section inventory/order, content hierarchy, layout, grid, alignment, image placement, visual character, palette, and user flows. Normalize only isolated inconsistencies through shared semantic tokens and components, preserving intentional role differences. When intent is uncertain, keep the supplied composition. Structural suggestions stay separate and require an explicit user request or approval before implementation. Before desktop review, record the normalized inconsistencies and shared rules applied. Once desktop is accepted, preserve that baseline during mobile adaptation and QA unless the user requests a redesign; a new image alone does not reset approval. Record uncertain assets or measurements, then implement promptly.
+
+Read docs/MOTION-LIBRARIES.md and docs/IMAGE-ASSETS.md during startup. Use the installed GSAP engine and inspect suitable gallery examples for distinctive project-specific effects. Use site-assets to generate needed high-resolution raster imagery from reference composition; screenshot crops are not production assets. Show a meaningful desktop preview early. Start npm run storybook alongside npm run dev. Build the pages, real component stories, and /design-system token lab together using site-tokens, site-spacing, site-typography, site-components, and site-motion. Use docs/DOCUMENTATION-TEMPLATE.md for the native Storybook hierarchy, Autodocs, Controls, and per-component state stories; fill it with project-specific content and isolate its appearance from project token edits. The first preview may be rough; desktop completion includes polished interaction/entrance motion, consistent shared roles, and the synchronized catalog with a working token editor and source persistence. See docs/DESIGN-SYSTEM.md; the included Design tools panel covers registered desktop/shared colors, sizes, typography and spacing; Motion Studio covers motion. Storybook is included.
+
+Apply desktop revisions until explicit acceptance. Then ask about mobile and wait unless that exact next step was already authorized. If declined, deliver desktop and defer mobile and combined QA. If authorized, use site-responsive while preserving the approved desktop.
+
+Use site-qa only when approved desktop and authorized mobile are ready with known requested changes complete. Desktop motion/interaction browser review is required earlier under docs/MOTION-LIBRARIES.md; implement and inspect effects with each section/control. Focused automated reproduction, runtime fixes, token input validation, and user revisions remain allowed. Keep readiness pending for required unverified motion states, and show early drafts with clear limitations. Use site-accessibility to preserve usability without automatic recoloring or dimming.
+
+Record readiness, approval evidence, normalized inconsistencies, and shared rules in docs/BRIEF.md. The eleven requested design/motion skills are bundled locally and must be routed through docs/SKILL-ROUTING.md. Read the six Better domain skills during initial implementation, apply design-taste-frontend when the surface fits, and use animate during desktop motion work; use animation-vocabulary/apple-design for relevant tasks. Explicitly invoke better-interface quick before desktop completion and full during stage 4. Its verdict does not replace user approval. No external plugin is required. Do not add approval gates or publish without a publication request.
+
+Motion engine selection: follow docs/MOTION-LIBRARIES.md. GSAP is installed for the demo, but choose GSAP, Anime.js, Motion, or a suitable library component after analyzing each project. No engine is mandatory for every site; keep a coherent shared motion layer and remove unused runtimes.
+
+## Motion studio release
+
+The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the existing 21 skills (27 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. Lenis, WebGL, and a second animation engine remain project-specific choices.
+
+Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
+
+## Required motion coverage
+
+Follow AGENTS.md, Mandatory desktop motion: header, hero, shared buttons/button-links and each major section must have implemented, observed motion before desktop completion. Color-only hover, press-only scale, an installed library or an isolated catalog demo does not satisfy it. Implement motion alongside the supplied layout; preserve its composition. Record actual role-by-role browser evidence and unverified states in BRIEF.md. Reduced-motion fallbacks remain required; the full cross-browser/viewport matrix stays in final QA.
+
+At startup read docs/DESIGN-TOOLS.md and record a short reference passport in BRIEF.md without delaying the first render. For annotated screenshots, map each mark to its actual component/token and requested correction; preserve structure unless a change is explicitly requested.

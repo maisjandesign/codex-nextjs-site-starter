@@ -1,0 +1,22 @@
+/* Documentation fixture layout only; site styles are scoped by main.ts. */
+.project-preview {
+  padding: var(--space-6);
+  min-block-size: var(--size-control);
+}
+.project-preview .story-stack {
+  display: grid;
+  gap: var(--space-6);
+}
+.project-preview .story-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+.project-preview .story-field {
+  max-inline-size: var(--size-container);
+}
+.project-preview .story-swatch {
+  inline-size: var(--size-swatch);
+  block-size: var(--size-control);
+}
