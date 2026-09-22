@@ -1,6 +1,6 @@
 # Required skill routing
 
-Required desktop defaults: **GSAP ScrollSmoother + masked entrances**. Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md) at startup and verify both before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+Required desktop defaults: **GSAP ScrollSmoother + masked entrances + GSAP button/tab hovers**. Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md) at startup and verify all applicable roles before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
 
 ## Startup contract
 
@@ -57,7 +57,7 @@ Verified on September 8, 2026:
 
 [SKILL-INVENTORY.json](SKILL-INVENTORY.json) records origins, files, and SHA-256 hashes. Preserve these personal snapshots and any attribution when moving the starter. Their presence does not install external packages, validate linked web claims, or guarantee referenced optional skills exist. Project routing and actual checks remain necessary.
 
-Motion baseline: GSAP ScrollSmoother and GSAP-powered masked entrances are required by default under docs/MOTION-DEFAULTS.md. Implement them during desktop work without waiting for another request. Other libraries may supplement distinct effects; replacing the baseline requires an explicit user instruction or approval. Use one scroll owner and shared motion tokens.
+Motion baseline: GSAP ScrollSmoother, GSAP-powered masked entrances, and GSAP button/button-link/tab hover interactions are required by default under docs/MOTION-DEFAULTS.md. Implement them during desktop work without waiting for another request. Other libraries may supplement distinct effects; replacing the baseline requires an explicit user instruction or approval. Use one scroll owner and shared motion tokens.
 
 ## Official GSAP skill stage map
 

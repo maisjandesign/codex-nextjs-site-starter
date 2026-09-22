@@ -1,14 +1,14 @@
 # Motion libraries and reference selection
 
-Read AGENTS.md, Mandatory desktop motion, before implementing. Header entrance, coordinated hero, shared expressive button/button-link hover/focus, and major section entrances are required. Color-only hover and press-only scale are insufficient. Missing motion blocks completed desktop handoff. Verify actual page behavior at normal and slow speed; preserve supplied composition and reduced-motion fallback.
+Read AGENTS.md, Mandatory desktop motion, before implementing. Header entrance, coordinated hero, shared expressive GSAP button/button-link/tab hover/focus, and major section entrances are required. Color-only hover and press-only scale are insufficient. Missing motion blocks completed desktop handoff. Verify actual page behavior at normal and slow speed; preserve supplied composition and reduced-motion fallback.
 
 ## Required baseline
 
-Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md): GSAP ScrollSmoother and masked entrances are mandatory defaults, including their startup, fallback and acceptance contract. This supersedes earlier optional smoothing and freely interchangeable engine guidance. The current demo still needs ScrollSmoother integration; do not confuse this policy update with runtime completion.
+Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md): GSAP ScrollSmoother, masked entrances and GSAP button/tab hovers are mandatory defaults, including their startup, fallback and acceptance contract. This supersedes earlier optional smoothing and freely interchangeable engine guidance. The current demo still needs ScrollSmoother integration; do not confuse this policy update with runtime completion.
 
 ## Required approach
 
-Use library-powered motion during desktop implementation. The starter installs GSAP and @gsap/react with exact versions in package-lock.json. MotionReveal provides ScrollTrigger entrances, child staggering, and a directional clip reveal; MotionShowcase renders replayable examples in /design-system. These are reusable starting patterns, not a claim that the same three effects fit every site. CSS remains appropriate for simple color/focus/press feedback; a desktop finished with only generic CSS fades does not meet the requested motion brief.
+Use library-powered motion during desktop implementation. The starter installs GSAP and @gsap/react with exact versions in package-lock.json. MotionReveal provides ScrollTrigger entrances, child staggering, and a directional clip reveal; MotionShowcase renders replayable examples in /design-system. These are reusable starting patterns, not a claim that the same three effects fit every site. CSS remains appropriate for static color/focus/press feedback alongside the required GSAP hover layer; a desktop finished with only generic CSS fades does not meet the requested motion brief.
 
 Before choosing distinctive effects, inspect relevant live examples from at least two of the sources below and choose a coherent motion direction for the screenshots. Record exact component/demo URLs and the reason for the selection in docs/BRIEF.md. This focused selection can happen alongside the first visible desktop; it must not become a long research prerequisite. If a source cannot be opened, use another and record the limitation. Never claim to have visually evaluated a demo from its title alone.
 

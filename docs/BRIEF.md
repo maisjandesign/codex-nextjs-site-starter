@@ -36,7 +36,8 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 - Motion direction and actual inspected demo URLs:
 - Header entrance: component/trigger, implemented status, observed normal/slow result:
 - Hero headline/copy/actions/visual sequence: implementation and observed load result:
-- Shared button/button-link hover/focus beyond color, exit reversal, press, disabled/loading: implementation and observed result:
+- Shared GSAP button/button-link hover/focus beyond color, exit reversal, press, disabled/loading: implementation and observed result:
+- Existing tabs: shared GSAP hover/focus, selected indicator, interruption and keyboard/activation behavior; implementation and observed result (not applicable if absent):
 - Major section coverage: section name, heading/content/media effect, scroll-entry/back observation:
 - Required motion exceptions: explicit user instruction or applicable reduced-motion state; never assume an exception from a static screenshot:
 - Motion map: surface (hero / section / control / carousel if present), effect, purpose, engine, trigger, token roles, interruption behavior, fallback, implementation status:

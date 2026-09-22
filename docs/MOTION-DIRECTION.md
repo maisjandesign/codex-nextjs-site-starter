@@ -26,7 +26,7 @@ Keep the previous galleries in MOTION-LIBRARIES.md as additional discovery sourc
 
 ## Engine and ownership decisions
 
-GSAP + ScrollTrigger are the installed base. SplitText and Flip ship in the installed GSAP package and are used by the starter. Read official [SplitText](https://gsap.com/docs/v3/Plugins/SplitText/) and [Flip](https://gsap.com/docs/v3/Plugins/Flip/) docs for the current APIs. GSAP ScrollSmoother and masked entrances are mandatory defaults under [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md). Motion and Anime.js may supplement distinct effects; baseline replacement requires explicit user direction or approval.
+GSAP + ScrollTrigger are the installed base. SplitText and Flip ship in the installed GSAP package and are used by the starter. Read official [SplitText](https://gsap.com/docs/v3/Plugins/SplitText/) and [Flip](https://gsap.com/docs/v3/Plugins/Flip/) docs for the current APIs. GSAP ScrollSmoother, masked entrances and GSAP button/tab hovers are mandatory defaults under [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md). Motion and Anime.js may supplement distinct effects; baseline replacement requires explicit user direction or approval.
 
 Use ScrollSmoother as the single smoothing system. [Lenis](https://github.com/darkroomengineering/lenis) is an alternative only if the user explicitly requests or approves replacing ScrollSmoother. Follow MOTION-DEFAULTS.md for native touch/reduced-motion fallbacks and lifecycle checks.
 

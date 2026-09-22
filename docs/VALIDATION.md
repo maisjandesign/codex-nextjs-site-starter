@@ -2,6 +2,10 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 22 GSAP hover clarification
+
+Explicitly require GSAP-powered hovers for buttons, button-links and existing tabs in the baseline, root rules, startup prompt, skill routing and desktop acceptance checks. Cover reversible entry/exit, keyboard focus, selected-tab indicators, interruption, disabled/loading and static reduced-motion feedback. Hover does not activate panels; absent tabs remain not applicable. This is a documentation/skill-only correction, not a new tab implementation or new runtime verification. Validate changed skill entrypoints, local links, formatting and unchanged upstream hashes before publishing; CI checks the existing implementation separately.
+
 ## September 22 required motion defaults
 
 Documentation and authored skill routing now require GSAP ScrollSmoother and masked text/content/media entrances during desktop implementation. Removed conflicting optional-smoothing and freely interchangeable baseline-engine guidance. Preserved native touch/reduced-motion fallbacks, visible server-rendered content, supplied composition, no first-screen parallax and the deferred full browser matrix. See MOTION-DEFAULTS.md for the implementation and observation requirements.

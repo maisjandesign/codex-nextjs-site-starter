@@ -1,6 +1,6 @@
 # Foundation · Next.js Site Starter
 
-Required desktop defaults: **GSAP ScrollSmoother + masked entrances**. Read [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) at startup and verify both before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+Required desktop defaults: **GSAP ScrollSmoother + masked entrances + GSAP button/tab hovers**. Read [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) at startup and verify all applicable roles before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
 
 A portable foundation for building websites in Codex: a working Next.js project, local skills, a shared token system, and executable quality checks.
 

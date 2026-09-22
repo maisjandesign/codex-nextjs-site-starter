@@ -81,3 +81,7 @@ Use [MOTION-SEQUENCES.md](MOTION-SEQUENCES.md) for the shared opening/section AP
 ## Required smoothing and mask checks
 
 During desktop implementation, apply [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md): observe ScrollSmoother on wheel/trackpad input, scroll reversal, anchors, keyboard/focus navigation, route changes and cleanup. Observe actual text/content/media masks, fast scroll past triggers, replay/interruption, font reflow and already-revealed content. Confirm native scrolling and fully readable unclipped content with reduced motion. Extend these checks to the agreed browser/viewport matrix at final QA; do not defer desktop observations or mark library presence as visual proof.
+
+## Required GSAP button and tab hovers
+
+Before desktop acceptance, observe actual GSAP hover entry/exit on primary/secondary buttons, button-links and every existing tab variant. Color-only feedback, CSS-only transitions or selected-indicator movement alone do not pass. Check rapid enter/leave, keyboard focus remaining after pointer exit, tab selection during hover, press/release, disabled/loading, stable hit areas and static reduced-motion feedback. Hover must not activate tab panels. Inspect the shared Storybook stories and real page; absent tabs are not applicable, not a reason to invent them. Full browser/viewport coverage stays at final QA.
