@@ -1,5 +1,7 @@
 # Required skill routing
 
+Required desktop defaults: **GSAP ScrollSmoother + masked entrances**. Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md) at startup and verify both before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+
 ## Startup contract
 
 This project includes 27 local skills: ten site-* workflow skills, the eleven original skills requested by the user, and six official GSAP skills. They are actual skill files, not names that require a future installation. Resolve project-local .agents/skills/<name>/SKILL.md first. Read this document together with AGENTS.md and WORKFLOW.md before implementation, then load the skills needed for the current stage. Read supporting references when their subject is needed; do not load every reference or run every audit at startup.
@@ -55,7 +57,7 @@ Verified on September 8, 2026:
 
 [SKILL-INVENTORY.json](SKILL-INVENTORY.json) records origins, files, and SHA-256 hashes. Preserve these personal snapshots and any attribution when moving the starter. Their presence does not install external packages, validate linked web claims, or guarantee referenced optional skills exist. Project routing and actual checks remain necessary.
 
-Motion engine selection: follow docs/MOTION-LIBRARIES.md. GSAP is installed for the demo, but choose GSAP, Anime.js, Motion, or a suitable library component after analyzing each project. No engine is mandatory for every site; keep a coherent shared motion layer and remove unused runtimes.
+Motion baseline: GSAP ScrollSmoother and GSAP-powered masked entrances are required by default under docs/MOTION-DEFAULTS.md. Implement them during desktop work without waiting for another request. Other libraries may supplement distinct effects; replacing the baseline requires an explicit user instruction or approval. Use one scroll owner and shared motion tokens.
 
 ## Official GSAP skill stage map
 

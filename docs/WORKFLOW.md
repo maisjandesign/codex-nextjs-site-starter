@@ -1,5 +1,7 @@
 # Screenshot-led desktop delivery workflow
 
+Required desktop defaults: **GSAP ScrollSmoother + masked entrances**. Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md) at startup and verify both before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+
 This sequence governs new sites built from this Next.js starter. The user's current instructions take precedence. Start rendering promptly; the first preview and the completed desktop milestone are different deliverables.
 
 ## 1. Implement the supplied desktop design
@@ -68,7 +70,7 @@ This documentation defines what to implement for each screenshot-led project. Th
 
 Historical demo test results do not validate a new site. Report deferred or unperformed work accurately, and update docs/VALIDATION.md with actual final results and limitations.
 
-Motion engine selection: follow docs/MOTION-LIBRARIES.md. GSAP is installed for the demo, but choose GSAP, Anime.js, Motion, or a suitable library component after analyzing each project. No engine is mandatory for every site; keep a coherent shared motion layer and remove unused runtimes.
+Motion baseline: GSAP ScrollSmoother and GSAP-powered masked entrances are required by default under docs/MOTION-DEFAULTS.md. Implement them during desktop work without waiting for another request. Other libraries may supplement distinct effects; replacing the baseline requires an explicit user instruction or approval. Use one scroll owner and shared motion tokens.
 
 ## Required motion coverage
 

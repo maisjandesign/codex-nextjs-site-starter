@@ -89,7 +89,11 @@ Reset this section for each new website; historical demo checks are not approval
 - Exact inspected Osmo/Codrops/other demo URLs and selected mechanics:
 - Six official GSAP entrypoints: pending verification
 - GSAP skills actually loaded and purpose:
-- Property ownership and optional Lenis/WebGL decision:
+- ScrollSmoother owner, token and route/anchor behavior (required):
+- Masked heading/content/media variants and role coverage (required):
+- Reduced-motion/native-touch fallbacks and visible-content exceptions:
+- Observed smoothing/mask scenarios and outstanding checks:
+- Property ownership and optional WebGL decision:
 - Motion studio source save/reload result:
 - Full color/size editor readiness (separate from motion editor):
 - Project Storybook inventory, Controls, Docs, and motion review readiness:

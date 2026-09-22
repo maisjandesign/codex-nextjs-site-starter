@@ -24,4 +24,4 @@ Optional additions such as interface-design (a separate skill from better-interf
 
 For each addition: define its purpose → limit the scope → integrate with tokens → add a live example → verify automatically and manually. Install what is needed; having a tool is not evidence that its checks have passed.
 
-Read MOTION-DIRECTION.md for Osmo/Codrops research and optional Lenis/OGL/Three.js choices. Six official GSAP skills are now bundled (27 total skills), including gsap-core, gsap-react, gsap-timeline, gsap-scrolltrigger, gsap-plugins and gsap-performance; do not reinstall them as optional suggestions.
+Read MOTION-DIRECTION.md for Osmo/Codrops research and required ScrollSmoother/masking baseline and optional OGL/Three.js choices; replacing ScrollSmoother with Lenis requires explicit user direction. Six official GSAP skills are now bundled (27 total skills), including gsap-core, gsap-react, gsap-timeline, gsap-scrolltrigger, gsap-plugins and gsap-performance; do not reinstall them as optional suggestions.

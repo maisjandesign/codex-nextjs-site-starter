@@ -2,6 +2,10 @@
 
 Read AGENTS.md, Mandatory desktop motion, before implementing. Header entrance, coordinated hero, shared expressive button/button-link hover/focus, and major section entrances are required. Color-only hover and press-only scale are insufficient. Missing motion blocks completed desktop handoff. Verify actual page behavior at normal and slow speed; preserve supplied composition and reduced-motion fallback.
 
+## Required baseline
+
+Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md): GSAP ScrollSmoother and masked entrances are mandatory defaults, including their startup, fallback and acceptance contract. This supersedes earlier optional smoothing and freely interchangeable engine guidance. The current demo still needs ScrollSmoother integration; do not confuse this policy update with runtime completion.
+
 ## Required approach
 
 Use library-powered motion during desktop implementation. The starter installs GSAP and @gsap/react with exact versions in package-lock.json. MotionReveal provides ScrollTrigger entrances, child staggering, and a directional clip reveal; MotionShowcase renders replayable examples in /design-system. These are reusable starting patterns, not a claim that the same three effects fit every site. CSS remains appropriate for simple color/focus/press feedback; a desktop finished with only generic CSS fades does not meet the requested motion brief.
@@ -28,7 +32,7 @@ Create a short motion map: element, purpose, reference URL, chosen effect, engin
 
 Inspect the selected component's source, dependency versions, and license before integrating it. Paid-only code requires access; choose an available alternative if it is not accessible. Preserve required attribution. Adapt styles to the existing CSS system and token roles; do not import the gallery's typography, gradients, buttons, or unrelated theme. Reuse the project's shared components and place the effect in a reusable client component with a real catalog specimen and a replay control.
 
-Choose the engine after analyzing the project, existing dependencies, target effects, interaction frequency, browser support, bundle cost, and team maintainability. The shipped demo uses GSAP; that is not a requirement to use it on every future site. GSAP is a candidate for coordinated timelines and scroll storytelling; Anime.js for animation/timeline/SVG work when its API fits; Motion for React state/layout/gesture transitions. These are starting heuristics, not exclusive capabilities. A gallery component may provide the strongest fit. Inspect its real implementation before deciding. If selecting another engine, adapt the shared motion layer and remove unused dependencies rather than retaining the demo engine without a purpose. Do not add a second engine for an effect already covered. Use current official documentation for the chosen version; do not mix Anime.js v3 snippets with v4 APIs or Motion import paths from different packages. Two engines must not write transform, opacity, or layout on the same element. Do not replace a chosen library effect with a generic CSS fade simply because it is easier.
+Keep GSAP + ScrollTrigger + ScrollSmoother as the required baseline and use GSAP-powered masks for entrances. Analyze the project to select choreography and supplementary effects, not to silently remove the baseline. Anime.js, Motion and gallery components may serve distinct needs; replacing GSAP or ScrollSmoother requires explicit user direction or approval. Never install a second engine for an effect already covered or let two engines own the same property. Use current official documentation and APIs matching installed versions.
 
 ## GSAP implementation contract
 

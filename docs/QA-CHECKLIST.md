@@ -77,3 +77,7 @@ Follow AGENTS.md, Mandatory desktop motion: header, hero, shared buttons/button-
 ## Coordinated sequence implementation
 
 Use [MOTION-SEQUENCES.md](MOTION-SEQUENCES.md) for the shared opening/section API and focused behavior checks. Implement header and hero as one planned opening; each major section owns its heading/content sequence. The same implementation must appear in the live catalog. First-screen parallax is excluded: do not add it as a default or inherit it from a reference sandbox. Desktop motion remains required, with full browser/viewport QA at its existing later stage.
+
+## Required smoothing and mask checks
+
+During desktop implementation, apply [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md): observe ScrollSmoother on wheel/trackpad input, scroll reversal, anchors, keyboard/focus navigation, route changes and cleanup. Observe actual text/content/media masks, fast scroll past triggers, replay/interruption, font reflow and already-revealed content. Confirm native scrolling and fully readable unclipped content with reduced motion. Extend these checks to the agreed browser/viewport matrix at final QA; do not defer desktop observations or mark library presence as visual proof.

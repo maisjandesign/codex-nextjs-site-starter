@@ -2,6 +2,12 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 22 required motion defaults
+
+Documentation and authored skill routing now require GSAP ScrollSmoother and masked text/content/media entrances during desktop implementation. Removed conflicting optional-smoothing and freely interchangeable baseline-engine guidance. Preserved native touch/reduced-motion fallbacks, visible server-rendered content, supplied composition, no first-screen parallax and the deferred full browser matrix. See MOTION-DEFAULTS.md for the implementation and observation requirements.
+
+This change does not modify application source, dependencies or tests. ScrollSmoother is not initialized by the shipped demo yet; existing mask examples do not establish full role coverage. New runtime behavior and visual motion checks were not run or claimed. Documentation formatting/links, authored skill validation and upstream snapshot hashes are checked before publishing; repository CI runs the existing static/build checks separately.
+
 ## September 18 local design tools release
 
 Added a development-only shared token editor with validated preview, persistent source saving, cancellation, explicit baseline reset, and source conflict detection. Added a registered-role spacing inspector and four native Storybook Typography Playground stories. The index now contains 35 stories and 10 Docs entries. Updated startup rules and skills for a short reference passport, annotated corrections, and targeted image editing. The earlier release notes below are historical; the wider token editor is now implemented.

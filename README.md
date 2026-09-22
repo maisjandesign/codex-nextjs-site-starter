@@ -1,5 +1,7 @@
 # Foundation · Next.js Site Starter
 
+Required desktop defaults: **GSAP ScrollSmoother + masked entrances**. Read [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) at startup and verify both before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+
 A portable foundation for building websites in Codex: a working Next.js project, local skills, a shared token system, and executable quality checks.
 
 Begin with **START-HERE.md** and the required stage map in **docs/SKILL-ROUTING.md**. The eleven requested design/motion skills and their supporting files are included locally, alongside ten site-* skills. Original global/project installations are unchanged. Verified versions and test results are recorded in **docs/VALIDATION.md**.
@@ -81,7 +83,7 @@ Audit limits: only registered routes and tested states are covered. The CSS chec
 
 ## Motion studio release
 
-The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the existing 21 skills (27 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. Lenis, WebGL, and a second animation engine remain project-specific choices.
+The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the existing 21 skills (27 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
 
 Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
 
