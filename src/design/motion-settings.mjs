@@ -1,9 +1,9 @@
-export const motionFields = ['enter', 'delay', 'stagger', 'distance', 'library-ease'];
+export const motionFields = ['enter', 'delay', 'smooth', 'distance', 'library-ease'];
 export const motionEases = ['power2.out', 'power3.out', 'power4.out', 'sine.inOut'];
 export const motionLimits = {
   enter: [0, 2000],
   delay: [0, 500],
-  stagger: [0, 200],
+  smooth: [0, 2000],
   distance: [0, 96],
 };
 

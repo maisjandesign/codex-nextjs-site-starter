@@ -25,7 +25,7 @@ Figma layer access and image generation depend on the tools available in your Co
 
 ### 3. Send this starting prompt
 
-> Use this repository as the starter for my website. First run npm run setup under docs/STARTUP.md: install missing required local skills and dependencies, skip installed ones, and resolve/report setup failures before dependent work. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and expressive GSAP button hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
+> Use this repository as the starter for my website. First run npm run setup under docs/STARTUP.md: install missing required local skills and dependencies, skip installed ones, and resolve/report setup failures before dependent work. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, only the three effects in docs/MOTION-DEFAULTS.md: GSAP ScrollSmoother, upward masked entrances and GSAP object hovers. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
 
 The full starting prompt and workflow are in [START-HERE.md](START-HERE.md). The bundled demo is a starting point; the rules describe the project-specific work to complete, not proof that every required effect is already implemented.
 
@@ -74,9 +74,9 @@ Alongside the pages, Codex builds and adapts:
 - **Shared tokens and components:** consistent heading roles, integer source dimensions, repeated gutters and spacing, and reusable buttons, cards and navigation.
 - **Real Storybook:** the same Foundations / Components / Patterns / Motion / Pages hierarchy in every project, populated with that project's actual components and states.
 - **The token editor:** preview and save shared values so changes to a button size or color propagate to the components that use them.
-- **Desktop motion:** GSAP ScrollSmoother, masked element entrances and expressive shared button hovers, with the documented reduced-motion and touch fallbacks. First-screen parallax is not a default.
+- **Desktop motion:** GSAP ScrollSmoother, upward masked entrances and GSAP hovers on interactive objects, with the documented reduced-motion and touch fallbacks.
 
-Review the site, request revisions and use Storybook to inspect repeated elements. Codex checks page load, scrolling, repeated hovers and interrupted transitions in the browser during desktop work, fixes observed defects, and records which states were verified. An installed library or successful build is not proof that the effects work. The required motion and synchronized catalog must be ready before desktop is presented as complete; the shipped demo still needs project-specific implementation of the motion contract.
+Review the site, request revisions and use Storybook to inspect repeated elements. Codex checks page load, scrolling, repeated hovers and interrupted transitions in the browser during desktop work, fixes observed defects, and records which states were verified. An installed library or successful build is not proof that the effects work. The required motion and synchronized catalog must be ready before desktop is presented as complete; each new site must apply and verify the retained primitives for its actual content.
 
 ### 6. Approve desktop, then decide on mobile
 
@@ -90,17 +90,17 @@ Commit your website changes to **your own repository**. Future updates to this t
 
 ## What the starter includes
 
-Motion policy: **GSAP ScrollSmoother + element masks + expressive GSAP button hovers**. Follow [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) as the single motion contract.
+Motion policy: **GSAP ScrollSmoother + upward masked entrances + GSAP object hovers**. Follow [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) as the single motion contract.
 
 A portable foundation for building websites in Codex: a working Next.js project, local skills, a shared token system, and executable quality checks.
 
-Begin with **START-HERE.md** and the required stage map in **docs/SKILL-ROUTING.md**. The eight design skills and their supporting files are included locally, alongside six site-* skills. Original global/project installations are unchanged. Verified versions and test results are recorded in **docs/VALIDATION.md**.
+Begin with **START-HERE.md** and the required stage map in **docs/SKILL-ROUTING.md**. The eight design skills and their supporting files are included locally, alongside six site-* skills. Global installations are unchanged; project-local motion-policy adaptations are recorded in docs/SKILL-INVENTORY.json. Verified versions and test results are recorded in **docs/VALIDATION.md**.
 
 ## Delivery order
 
 Implement and show the desktop first, even if the first draft needs polish. Build Storybook stories and the /design-system token lab alongside the pages. Complete reference-led refinements, entrance/interaction animations, shared components and spacing, and the live token editor before desktop acceptance. Apply the user's desktop changes until approval. Then ask whether to create the mobile adaptation and wait for authorization. Build mobile/tablet if requested. Only after both layouts are ready, run browser QA and fix confirmed defects.
 
-See **docs/WORKFLOW.md** for the phase boundaries, mobile deferral, and permitted draft checks. Keep the current phase and approval evidence in **docs/BRIEF.md**. Token consistency is an implementation convention from the start; a finished catalog is not a prerequisite to the first preview, but its synchronized components and working token editor are required for desktop completion. Desktop motion and interactive-state review in the browser is required during implementation under **docs/MOTION-LIBRARIES.md**. Watch load, scroll down/back, repeated hover, interruption, and actual catalog replay; fix observed defects before a completed desktop handoff. The full browser regression suite and cross-browser/multi-viewport matrix remain the final stage. Report checked and unverified states separately; a dependency, successful build, or static screenshot is not motion verification.
+See **docs/WORKFLOW.md** for the phase boundaries, mobile deferral, and permitted draft checks. Keep the current phase and approval evidence in **docs/BRIEF.md**. Token consistency is an implementation convention from the start; a finished catalog is not a prerequisite to the first preview, but its synchronized components and working token editor are required for desktop completion. Desktop motion and interactive-state review in the browser is required during implementation under **docs/MOTION-DEFAULTS.md**. Watch load, scroll down/back, repeated hover, interruption, and actual catalog replay; fix observed defects before a completed desktop handoff. The full browser regression suite and cross-browser/multi-viewport matrix remain the final stage. Report checked and unverified states separately; a dependency, successful build, or static screenshot is not motion verification.
 
 ## Structure
 
@@ -128,7 +128,7 @@ The official Graft skill and pinned local CLI are included for code orientation 
 
 ## Motion and imagery
 
-GSAP and @gsap/react are installed, with reusable ScrollTrigger rise/stagger/mask patterns and replayable examples in /design-system. Use **docs/MOTION-LIBRARIES.md** to select distinctive effects from the supplied sources for each project. Simple CSS feedback remains useful, but it is no longer the complete motion layer. **docs/DESIGN-SOURCE.md** requires inspecting structured Figma, flat or mixed sources first. **docs/IMAGE-ASSETS.md** routes original Figma images/SVG icons/logos to export and flat reference imagery to high-resolution generation, with per-region decisions for mixed frames and verified local assets. No unrelated sample imagery was generated for this template.
+GSAP and @gsap/react are installed. The only motion specification is **docs/MOTION-DEFAULTS.md**: upward masked entrances, reversible GSAP object hovers and ScrollSmoother. Shared examples use this same contract. **docs/DESIGN-SOURCE.md** requires inspecting structured Figma, flat or mixed sources first. **docs/IMAGE-ASSETS.md** routes original Figma images/SVG icons/logos to export and flat reference imagery to high-resolution generation, with per-region decisions for mixed frames and verified local assets. No unrelated sample imagery was generated for this template.
 
 ## Permanent documentation style
 
@@ -178,12 +178,6 @@ The project deliberately uses one CSS system. Next.js and strict typing are conf
 `npm run build` checks types through Next.js. `npm run check` is a final-stage quality gate that includes browser tests; do not run it during desktop review or unfinished mobile work. CI runs static checks on push/PR and all three browser engines only through a manual dispatch with the readiness input enabled. Screenshots are saved in test-results and the HTML report in playwright-report. The archive excludes node_modules, the .next cache, and secrets; dependencies and build output are created on the destination machine.
 
 Audit limits: only registered routes and tested states are covered. The CSS checks do not analyze every possible JavaScript mutation, external widget, or dynamic dataset. Register new states in the tests; an absence of reported errors does not prove complete accessibility.
-
-## Motion studio release
-
-The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Use docs/MOTION-DEFAULTS.md for required behavior; docs/MOTION-DIRECTION.md and docs/MOTION-STUDIO.md describe optional references and existing demo controls. Six official GSAP skills are included alongside six site workflow skills, eight design skills and Graft (21 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
-
-Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
 
 ## Run the component catalog
 

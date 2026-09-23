@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "specification": "docs/MOTION-DEFAULTS.md",
+  "runtime": "gsap",
+  "tokenSource": "src/design/tokens.json",
+  "effects": {
+    "entrance": {
+      "component": "MotionReveal",
+      "direction": "up",
+      "mask": "stationary-wrapper",
+      "trigger": "first-viewport-entry",
+      "once": true
+    },
+    "hover": {
+      "engine": "gsap",
+      "targets": [
+        "buttons",
+        "button-links",
+        "navigation-links",
+        "existing-tabs",
+        "clickable-cards"
+      ],
+      "reversible": true,
+      "stableHitArea": true
+    },
+    "scroll": {
+      "plugin": "ScrollSmoother",
+      "instances": 1,
+      "effects": false,
+      "touch": "native",
+      "reducedMotion": "native"
+    }
+  },
+  "additionalEffects": false
+}

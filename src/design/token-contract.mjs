@@ -2,15 +2,16 @@ import { validateMotionSettings, motionFields } from './motion-settings.mjs';
 
 export function validateTokens(t) {
   const errors = [];
+  if ('motionProfiles' in t)
+    errors.push('Remove legacy motionProfiles; use the single GSAP settings group.');
+  const supportedMotion = new Set([...motionFields, 'fast', 'normal', 'ease', 'press']);
+  for (const key of Object.keys(t.motion || {}))
+    if (!supportedMotion.has(key)) errors.push(`Unsupported motion setting: ${key}`);
   errors.push(
     ...validateMotionSettings(
       Object.fromEntries(motionFields.map((key) => [key, t.motion?.[key]])),
     ),
   );
-  for (const name of ['editorial', 'portfolio', 'experimental'])
-    errors.push(
-      ...validateMotionSettings(t.motionProfiles?.[name]).map((error) => `${name}: ${error}`),
-    );
   const integer = (v, key, min = 0) => {
     if (!Number.isInteger(v) || v < min) errors.push(`${key}: expected integer >= ${min}`);
   };
@@ -41,7 +42,7 @@ export function validateTokens(t) {
     ])
       integer(t.layout?.[mode]?.[k], `layout.${mode}.${k}`);
   if (!(t.breakpoints?.tablet < t.breakpoints?.desktop)) errors.push('Breakpoints must ascend');
-  for (const k of ['fast', 'normal', 'enter', 'stagger', 'delay'])
+  for (const k of ['fast', 'normal', 'enter', 'smooth', 'delay'])
     integer(t.motion?.[k], `motion.${k}`);
   integer(t.motion?.distance, 'motion.distance');
   if (
@@ -90,7 +91,7 @@ export function generateCSS(t) {
   for (const group of ['weight', 'line', 'z', 'opacity'])
     for (const [k, v] of Object.entries(t[group])) put(`${group}-${k}`, v);
   for (const [k, v] of Object.entries(t.motion))
-    put(`motion-${k}`, ['fast', 'normal', 'enter', 'stagger', 'delay'].includes(k) ? `${v}ms` : v);
+    put(`motion-${k}`, ['fast', 'normal', 'enter', 'smooth', 'delay'].includes(k) ? `${v}ms` : v);
   for (const [k, v] of Object.entries(t.headings.mobile))
     put(`font-${k}`, `calc(${v} * 1rem / 16)`);
   for (const [k, v] of Object.entries(t.layout.mobile))

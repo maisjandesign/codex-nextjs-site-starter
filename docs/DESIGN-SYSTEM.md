@@ -52,7 +52,7 @@ Use `Section` with kicker, title, description, and children. Hero has a separate
 
 Button supports primary / secondary / ghost and default / small. Minimum heights are 48 / 44; enlarged text may increase the actual height. Radius and padding are shared. ButtonLink uses the same CSS while preserving link semantics. Loading retains the label and accessible name while preventing duplicate activation.
 
-Motion uses the current values in src/design/tokens.json. Shared GSAP button fill and label roll, coordinated opening/section sequences, and reduced-motion fallbacks are implemented. Color-only hover does not satisfy the motion contract. Visible feedback must not depend on animation alone.
+The only motion contract is MOTION-DEFAULTS.md. Use the shared token source for its upward masks, GSAP object hovers and ScrollSmoother.
 
 ## Adding a token
 
@@ -90,12 +90,6 @@ Require integer source dimensions and durations, valid colors, valid ranges, and
 During desktop work, expose desktop/shared values. Add explicit mobile/tablet overrides only after adaptation is authorized, and identify whether a control changes shared values or one viewport range. Protect accepted desktop values from accidental mobile edits.
 
 During desktop review, manually demonstrate a color edit and a button-size edit affecting real site instances, saving, reloading, and cancellation/reset. This is required desktop preview inspection; focused interaction reproduction is allowed, while full automated browser regression coverage waits for stage 4. Final QA must verify propagation, invalid input, failed saves, persisted source/regenerated CSS after reload/build, and exclusion of the write endpoint from production. Existing browser tests do not cover this new editor until those scenarios are added.
-
-## Implemented GSAP baseline
-
-The September 12 revision installs GSAP and @gsap/react and adds MotionReveal (rise, child stagger, and directional mask) plus MotionShowcase with replay. The homepage uses GSAP staging and the catalog includes motion specimens. Generated variables include motion.stagger, motion.distance, and motion.library-ease. See MOTION-LIBRARIES.md for ownership, token replay, and project-specific effect selection. The September 13 studio adds editable motion values and source saving; the September 18 Design tools panel adds registered color/size/typography and spacing editing.
-
-The motion-specific editor is now implemented under MOTION-STUDIO.md, including local source saving. Real Storybook is included; registered color/size editing is included in the local Design tools panel. Do not count motion-only controls as completion of the full editor contract.
 
 ## Project rules for the Better skills
 

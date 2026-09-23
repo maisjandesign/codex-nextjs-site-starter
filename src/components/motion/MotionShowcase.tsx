@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import tokens from '../../design/tokens.json';
 import {
   motionEases,
   motionLimits,
@@ -9,16 +8,11 @@ import {
 import { useMotion, sourceMotion } from './MotionProvider';
 import { Button } from '../Button';
 import { Field } from '../Field';
-import { Card } from '../Card';
 import { MotionReveal } from './MotionReveal';
-import { MotionText } from './MotionText';
-import { FlipGallery } from './FlipGallery';
-import { MotionSequence } from './MotionSequence';
-import { MotionLink } from './MotionLink';
 const labels = {
   enter: 'Duration (ms)',
   delay: 'Delay (ms)',
-  stagger: 'Stagger (ms)',
+  smooth: 'Scroll smoothing (ms)',
   distance: 'Distance (px)',
 };
 export function MotionShowcase({
@@ -65,26 +59,11 @@ export function MotionShowcase({
   return (
     <div className="motion-example">
       <div className="card">
-        <h3>Motion studio</h3>
+        <h3>GSAP controls</h3>
         <p className="muted">
-          Choose a starting character, tune the shared values, and watch the same components used on
-          the site.
+          Edit the shared upward-mask and scroll settings. Hover enabled controls to inspect their
+          reversible GSAP interaction.
         </p>
-        <div className="row" aria-label="Motion starting profiles">
-          {Object.entries(tokens.motionProfiles).map(([name, settings]) => (
-            <Button
-              key={name}
-              variant="secondary"
-              onClick={() => {
-                setDraft(settings);
-                setError('');
-                setStatus('Profile loaded. Apply to preview.');
-              }}
-            >
-              {name[0].toUpperCase() + name.slice(1)}
-            </Button>
-          ))}
-        </div>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -176,38 +155,15 @@ export function MotionShowcase({
         Slow playback also slows button motion. Reload Overview to inspect the header and hero
         entrance.
       </p>
-      <MotionSequence className="card" id="sequence-example">
-        <span className="label muted" data-sequence-part="eyebrow" data-sequence-step="0">
-          Section sequence
-        </span>
-        <h3 data-sequence-part="heading" data-sequence-step="1">
-          One trigger. A deliberate sequence.
-        </h3>
-        <p data-sequence-part="copy" data-sequence-step="3">
-          The heading and supporting group share one timeline. Replay to compare their entry.
-        </p>
-        <div data-sequence-part="content" data-sequence-step="4">
-          <MotionLink href="#main">Back to the catalog introduction</MotionLink>
-        </div>
-      </MotionSequence>
-      <MotionText as="h3">Give every movement a clear purpose.</MotionText>
-      <MotionReveal effect="stagger" className="grid grid-three">
-        <Card title="Sequence">
-          <p>Related elements enter in a coordinated sequence.</p>
-        </Card>
-        <Card title="Rhythm">
-          <p>Timing and easing follow the selected shared values.</p>
-        </Card>
-        <Card title="Continuity">
-          <p>Elements stay connected as the layout changes.</p>
-        </Card>
-      </MotionReveal>
-      <MotionReveal effect="mask">
+      <MotionReveal as="h3">An upward entrance inside a stationary mask.</MotionReveal>
+      <MotionReveal>
         <div className="demo-panel">
-          <p className="lead">A reveal that uncovers the surface.</p>
+          <p className="lead">The content rises; the clipping wrapper stays still.</p>
         </div>
       </MotionReveal>
-      <FlipGallery />
+      <p className="muted">
+        Inspect smooth scrolling on the Next.js page. Touch and reduced motion use native scrolling.
+      </p>
     </div>
   );
 }

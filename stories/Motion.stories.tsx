@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { MotionShowcase } from '../src/components/motion/MotionShowcase';
 const meta = {
-  title: 'Motion/Studio',
+  title: 'Motion/GSAP Controls',
   component: MotionShowcase,
   args: { allowSourceSave: false },
   argTypes: { allowSourceSave: { control: false, table: { disable: true } } },
@@ -9,7 +9,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The real shared motion studio: sequences, text, masks, Flip and live timing preview. Replay, pause, finish and reduce motion here. Source saving belongs to the Next.js development token lab; Storybook Controls are previews.',
+          'Shared upward masks and GSAP hovers with live timing preview. Replay, pause, finish and reduce motion here. Source saving belongs to the Next.js development token lab; Storybook Controls are previews.',
       },
     },
   },

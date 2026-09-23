@@ -4,74 +4,86 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useMotion } from './MotionProvider';
+import { useScrollReady } from './SmoothScroll';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+/** A stationary mask owns clipping; only its inner content travels upward. */
 export function MotionReveal({
   children,
   as: Tag = 'div',
-  label,
-  effect = 'rise',
   className,
 }: {
   children: ReactNode;
-  as?: 'div' | 'header' | 'aside';
-  label?: string;
-  effect?: 'rise' | 'stagger' | 'mask';
+  as?: 'div' | 'h1' | 'h2' | 'h3' | 'p' | 'span';
   className?: string;
 }) {
+  const Inner = Tag === 'div' ? 'div' : 'span';
   const scope = useRef<HTMLElement>(null);
   const { settings, replay, register, reduced } = useMotion();
-  const mountedReplay = useRef(replay);
+  const ready = useScrollReady();
+  const seen = useRef(false);
+  const previousReplay = useRef(replay);
   useGSAP(
     () => {
-      if (reduced) return;
+      if (!ready || reduced) return;
       const media = gsap.matchMedia();
       media.add('(prefers-reduced-motion: no-preference)', () => {
         const root = scope.current;
-        if (!root) return;
+        const content = root?.firstElementChild;
+        if (!root || !content) return;
+        const explicitReplay = replay !== previousReplay.current;
+        previousReplay.current = replay;
         const { top, bottom } = root.getBoundingClientRect();
-        // Visible SSR content still moves, without being hidden after hydration.
-        const visibleOnMount =
-          replay === mountedReplay.current && top < window.innerHeight && bottom > 0;
-        if (bottom <= 0) return;
-        const targets =
-          effect === 'stagger'
-            ? Array.from(root.children).filter((child) => !child.hasAttribute('data-motion'))
-            : [root];
-        const mask = effect === 'mask' && !visibleOnMount;
+        if (bottom <= 0 || (seen.current && !explicitReplay)) return;
+        const alreadyVisible = top < window.innerHeight && !explicitReplay;
         const distance =
           (settings.distance * parseFloat(getComputedStyle(document.documentElement).fontSize)) /
           16;
-        const animation = gsap.fromTo(
-          targets,
-          mask
-            ? { clipPath: 'inset(0% 100% 0% 0%)' }
-            : { opacity: visibleOnMount ? 1 : 0, y: distance },
-          {
-            ...(mask ? { clipPath: 'inset(0% 0% 0% 0%)' } : { opacity: 1, y: 0 }),
-            duration: settings.enter / 1000,
-            delay: settings.delay / 1000,
-            ease: settings['library-ease'],
-            stagger: effect === 'stagger' ? settings.stagger / 1000 : 0,
-            clearProps: mask ? 'clipPath' : 'opacity,transform',
-            ...(top >= window.innerHeight
-              ? {
-                  scrollTrigger: {
-                    trigger: root,
-                    start: 'top bottom',
-                    once: true,
-                    onLeave: (trigger) => {
-                      trigger.animation?.progress(1);
-                    },
-                  },
-                }
-              : {}),
+        gsap.set(root, { overflow: 'clip' });
+        const animation = gsap.timeline({
+          delay: settings.delay / 1000,
+          onStart: () => {
+            seen.current = true;
           },
-        );
-        return register(animation);
+          ...(top >= window.innerHeight
+            ? {
+                scrollTrigger: {
+                  trigger: root,
+                  start: 'top bottom',
+                  once: true,
+                  onLeave: (trigger) => {
+                    trigger.animation?.progress(1);
+                  },
+                },
+              }
+            : {}),
+        });
+        animation
+          .fromTo(
+            content,
+            alreadyVisible ? { y: distance, yPercent: 0 } : { y: 0, yPercent: 100 },
+            {
+              y: 0,
+              yPercent: 0,
+              duration: settings.enter / 1000,
+              ease: settings['library-ease'],
+              clearProps: 'transform',
+            },
+          )
+          .set(root, { clearProps: 'overflow' });
+        const unregister = register(animation);
+        const finishForFocus = () => {
+          animation.progress(1);
+        };
+        root.addEventListener('focusin', finishForFocus);
+        return () => {
+          unregister();
+          root.removeEventListener('focusin', finishForFocus);
+        };
       });
       return () => media.revert();
     },
-    { scope, dependencies: [settings, replay, reduced], revertOnUpdate: true },
+    { scope, dependencies: [ready, settings, replay, reduced], revertOnUpdate: true },
   );
   return (
     <Tag
@@ -79,10 +91,9 @@ export function MotionReveal({
         scope.current = node;
       }}
       className={className}
-      aria-label={label}
-      data-motion={effect}
+      data-motion="mask-up"
     >
-      {children}
+      <Inner className="motion-reveal-content">{children}</Inner>
     </Tag>
   );
 }

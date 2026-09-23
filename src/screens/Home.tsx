@@ -1,5 +1,5 @@
 'use client';
-import { FlipGallery } from '../components/motion/FlipGallery';
+import { MotionReveal } from '../components/motion/MotionReveal';
 import { Section } from '../components/Section';
 import { useState } from 'react';
 import { Button, ButtonLink } from '../components/Button';
@@ -14,47 +14,44 @@ export function Home() {
     <>
       <section className="hero">
         <div className="hero-copy">
-          <span className="label muted" data-sequence-part="eyebrow" data-sequence-step="1">
-            The foundation for your next project
-          </span>
-          <h1 className="hero-title" data-sequence-part="heading" data-sequence-step="2">
+          <MotionReveal className="label muted">The foundation for your next project</MotionReveal>
+          <MotionReveal as="h1" className="hero-title">
             A great website starts with a system.
-          </h1>
-          <p className="lead muted" data-sequence-part="copy" data-sequence-step="4">
+          </MotionReveal>
+          <MotionReveal as="p" className="lead muted">
             Consistent spacing, clear components, and care in every detail—from the first screen to
             the last button.
-          </p>
-          <div className="row" data-sequence-part="actions" data-sequence-step="5">
-            <ButtonLink href="/design-system">Explore the design system ↗</ButtonLink>
-            <ButtonLink href="#principles" variant="secondary">
-              How it works
-            </ButtonLink>
-          </div>
+          </MotionReveal>
+          <MotionReveal>
+            <div className="row">
+              <ButtonLink href="/design-system">Explore the design system ↗</ButtonLink>
+              <ButtonLink href="#principles" variant="secondary">
+                How it works
+              </ButtonLink>
+            </div>
+          </MotionReveal>
         </div>
-        <aside
-          className="demo-panel"
-          aria-label="System example"
-          data-sequence-part="visual"
-          data-sequence-step="3"
-        >
-          <span className="badge small">● One source of truth for styles</span>
-          <h2>Fewer arbitrary decisions.</h2>
-          <div className="token-list small mono">
-            <div className="token-row">
-              <span>Typography</span>
-              <span>H1 — H6</span>
+        <MotionReveal>
+          <aside className="demo-panel" aria-label="System example">
+            <span className="badge small">● One source of truth for styles</span>
+            <h2>Fewer arbitrary decisions.</h2>
+            <div className="token-list small mono">
+              <div className="token-row">
+                <span>Typography</span>
+                <span>H1 — H6</span>
+              </div>
+              <div className="token-row">
+                <span>Base spacing unit</span>
+                <span>4 px</span>
+              </div>
+              <div className="token-row">
+                <span>Themes</span>
+                <span>Light / dark</span>
+              </div>
             </div>
-            <div className="token-row">
-              <span>Base spacing unit</span>
-              <span>4 px</span>
-            </div>
-            <div className="token-row">
-              <span>Themes</span>
-              <span>Light / dark</span>
-            </div>
-          </div>
-          <p className="muted">Change a token to update every component that uses it.</p>
-        </aside>
+            <p className="muted">Change a token to update every component that uses it.</p>
+          </aside>
+        </MotionReveal>
       </section>
       <Section id="principles" kicker="01 / Principles" title="Details that work together.">
         <div className="grid grid-three">
@@ -75,8 +72,10 @@ export function Home() {
           </Card>
         </div>
       </Section>
-      <Section kicker="02 / Motion" title="Continuity, even in change.">
-        <FlipGallery />
+      <Section kicker="02 / Motion" title="One shared upward mask.">
+        <div className="demo-panel">
+          <p className="lead">A stationary mask reveals content moving upward.</p>
+        </div>
       </Section>
       <Section
         kicker="03 / Interaction"

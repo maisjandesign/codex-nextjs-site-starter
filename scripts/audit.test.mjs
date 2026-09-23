@@ -61,7 +61,7 @@ test('integer token policy covers responsive spacing and headings', () => {
 test('library motion rejects fractional timing, distance and unregistered easing', () => {
   const baseline = JSON.parse(fs.readFileSync('src/design/tokens.json', 'utf8'));
   for (const [key, value] of [
-    ['stagger', 70.5],
+    ['smooth', 70.5],
     ['distance', -1],
     ['distance', 24.5],
     ['library-ease', 'invented'],

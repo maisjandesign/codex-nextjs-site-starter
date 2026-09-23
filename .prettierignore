@@ -8,7 +8,7 @@ next-env.d.ts
 src/styles/tokens.css
 docs/evidence
 
-# Preserve user-provided skill snapshots; validated by inventory hashes.
+# Preserve upstream formatting; local policy adaptations are recorded in the inventory.
 .agents/skills/better-accessibility/
 .agents/skills/better-colors/
 .agents/skills/better-interface/

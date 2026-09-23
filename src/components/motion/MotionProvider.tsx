@@ -13,12 +13,12 @@ import { validateMotionSettings } from '../../design/motion-settings.mjs';
 
 export type MotionSettings = Pick<
   typeof tokens.motion,
-  'enter' | 'delay' | 'stagger' | 'distance' | 'library-ease'
+  'enter' | 'delay' | 'smooth' | 'distance' | 'library-ease'
 >;
 export const sourceMotion: MotionSettings = {
   enter: tokens.motion.enter,
   delay: tokens.motion.delay,
-  stagger: tokens.motion.stagger,
+  smooth: tokens.motion.smooth,
   distance: tokens.motion.distance,
   'library-ease': tokens.motion['library-ease'],
 };

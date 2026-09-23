@@ -49,8 +49,7 @@ Components
 Patterns
   Section
 Motion
-  Studio
-  Opening Sequence
+  GSAP Controls
 Pages
   Home
     Desktop
@@ -76,13 +75,11 @@ The manager and Docs remain light. The project theme toolbar affects isolated sp
 
 Storybook Controls are temporary args previews, not source persistence. Saving stories from the UI is disabled. Foundations reads `src/design/tokens.json` and renders generated CSS values. Persistent project edits follow `tokens.json` -> `npm run tokens` -> `tokens.css`, updating both applications after rebuild/reload (HMR in development). Draft changes in the Next.js token lab are not automatically broadcast to the separate Storybook application.
 
-The Next.js `/design-system` route remains a supporting token lab and integrated preview. Its motion editor already supports validated local source saving. Storybook's Motion Studio supports preview/replay but hides that save button because Storybook has no Next.js write endpoint. Persistent color/size/typography editing is implemented in the local Next.js Design tools panel under [DESIGN-TOOLS.md](DESIGN-TOOLS.md); Controls remain a separate preview mechanism. If draft synchronization across both applications is added, implement an explicit validated bridge and verify it.
+The Next.js `/design-system` route remains a supporting token lab and integrated preview. Its motion editor already supports validated local source saving. Storybook's GSAP controls support preview/replay but hide that save button because Storybook has no Next.js write endpoint. Persistent color/size/typography editing is implemented in the local Next.js Design tools panel under [DESIGN-TOOLS.md](DESIGN-TOOLS.md); Controls remain a separate preview mechanism. If draft synchronization across both applications is added, implement an explicit validated bridge and verify it.
 
-## Motion is part of the stories
+## GSAP specimens
 
-Use the same MotionProvider, shared tokens, GSAP controls, and sequence implementations as the site. The preview toolbar offers standard, slow, and reduced motion. Opening Sequence demonstrates coordinated steps; Studio exposes replay, pause/finish, and timing preview. Reload/remount a story to inspect initialization. Test repeated hover, focus, interruption, and reduced motion in Canvas as well as on the actual page. First-screen parallax is excluded.
-
-A story rendering successfully does not establish animation quality. Before desktop completion, observe the required effects in both contexts and record the evidence under [MOTION-SEQUENCES.md](MOTION-SEQUENCES.md). Never claim an entire site's motion is complete from one isolated story.
+Use the actual upward-mask and hover components under MOTION-DEFAULTS.md. The preview toolbar offers standard, slow and reduced motion; the GSAP controls support replay and timing preview. Observe ScrollSmoother on the integrated Next.js page. Keep the documentation shell stationary. Do not introduce additional motion recipes in stories.
 
 ## Delivery and verification
 

@@ -6,7 +6,7 @@ The starter includes a persistent token editor, spacing inspector, and Storybook
 
 Run `npm run dev`, open the site or `/design-system`, and select **Design tools**. The panel is available only in Next.js development mode; its APIs return 404 in production. Storybook remains the canonical component catalog. Run it separately with `npm run storybook`.
 
-The editor exposes semantic colors for the existing themes, default/compact control minimum heights, container width, radii, body/label sizes, font family, desktop H1-H6 sizes, and desktop layout spacing. Shared values affect all viewports; mobile/tablet override values cannot be edited here. The existing Motion Studio owns duration, delay, stagger, distance and easing. Additional token groups or component aliases require explicit schema and UI support rather than accepting arbitrary CSS.
+The editor exposes semantic colors for the existing themes, default/compact control minimum heights, container width, radii, body/label sizes, font family, desktop H1-H6 sizes, and desktop layout spacing. Shared values affect all viewports; mobile/tablet override values cannot be edited here. The GSAP controls edit entrance duration/delay, scroll smoothing duration, distance and easing. Additional token groups or component aliases require explicit schema and UI support rather than accepting arbitrary CSS.
 
 Colors are labeled by their actual semantic scope. For example, accent affects all consumers of that shared color, not only one button. Add a dedicated component token when a project needs an independently editable button color. Source values are integer dimensions; layout choices come from the project's spacing scale, and heading sizes must remain descending. Invalid input retains the last valid preview and disables Save until corrected. No automatic recoloring or dimming occurs.
 
@@ -28,7 +28,7 @@ Open **Spacing inspector**, then use **Pick a block** or the keyboard-accessible
 
 The inspector lists repeated roles and their top inset, content gap, heading gap where applicable, left edge, and expected values from the active token scope. It also compares the centered container's actual left edge against the gutter and maximum-width calculation. Sections use rendered head-to-content geometry; cards and hero use computed padding and grid gap. The hero's desktop column gap is a distinct role. Measured values may be fractional because of font scaling and browser layout, even though authored dimensions are integers.
 
-**Settle motion and measure** finishes registered entrance sequences before measuring. Mid-animation results can temporarily differ. Resize observation and route changes refresh readings. A match is local evidence for these registered roles, not a complete spacing audit: custom layouts must extend the mapping and other geometry still needs normal visual review. Keep the full browser/viewport matrix at its existing final QA stage.
+**Settle motion and measure** finishes registered upward masks before measuring. Mid-animation results can temporarily differ. Resize observation and route changes refresh readings. A match is local evidence for these registered roles, not a complete spacing audit: custom layouts must extend the mapping and other geometry still needs normal visual review. Keep the full browser/viewport matrix at its existing final QA stage.
 
 ## Typography Playground
 

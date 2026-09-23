@@ -1,13 +1,13 @@
 {
   "repository": "maisjandesign/codex-nextjs-site-starter",
-  "revision": "12dc122598e0df1614187540d38507f1db971003",
+  "revision": "2a07b409e9d404a3a83d6a0d01a544f009ce95d9",
   "skills": [
     {
       "name": "better-accessibility",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "a240b853d5fcb82f70d560484100b59291fdb1eb47bfeab0cb53d586c4778c2b"
+          "sha256": "82a3ddeaa5b6a759a5a63dc7039b01c8869df81941516b5019dbd5270a2f9c14"
         },
         {
           "path": "agents/openai.yaml",
@@ -27,7 +27,7 @@
         },
         {
           "path": "motion-and-zoom.md",
-          "sha256": "8bac5b6c45133abe77aaba93ddaa70a6ad811e27647f1dab54edc8bbb46bb7c9"
+          "sha256": "94f492254985b73775435bf320ed91bb2180a47ebdc81ec7811b9ddc4455fa41"
         },
         {
           "path": "screen-readers.md",
@@ -77,7 +77,7 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "597ba2b155069cd5dc40863dbe1e950774c6580eeaff8d09c569d62a6ea70ed8"
+          "sha256": "fec8306b5f3ffb46889d6127e24b4064c9fc3d14536c92159494250bcb8baff7"
         },
         {
           "path": "agents/openai.yaml",
@@ -148,27 +148,19 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "d0ad037f2f5bdf510ad78c501745cfb96804951925339da5a834684a0f2d1b19"
+          "sha256": "325bec0f95f71ea78073bb7582692abd7460366f05b2ade10e7821a918d6b966"
         },
         {
           "path": "agents/openai.yaml",
           "sha256": "799e0b58bded32edf5c217f97e08c364660ec24234978b2e3f7dee1868bea871"
         },
         {
-          "path": "animations.md",
-          "sha256": "08a3476fde72d7399539d6885e6ad8b018962fe16764303cf835173aebba93b7"
-        },
-        {
           "path": "icons.md",
-          "sha256": "e401bdabd358825ca51b20d10635a7b42d655f13819a1d6fbfa0ddae1686245a"
-        },
-        {
-          "path": "performance.md",
-          "sha256": "8450bd42fa61ee425a07de94abba0815119e7ee481eba53ef4ff42e70ca81de5"
+          "sha256": "65259f311924e9522fdbb2cb5653cb999e843fd1fb88cb6e0799a91bef893f0e"
         },
         {
           "path": "surfaces.md",
-          "sha256": "b0276679502ab5cf3de64a65c5bc196c92b362bde04ded74c4304e711fdaecfd"
+          "sha256": "2ec4919234fbde511f8b5e8ee42411a1b5e58da22cf3b89684964c590b11c23f"
         }
       ]
     },
@@ -190,7 +182,7 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89"
+          "sha256": "14b2fb8220b85e8e20e5d68f5cc3f8390bce63da2929e92d1f9070ba8e68f67b"
         }
       ]
     },
@@ -275,7 +267,7 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "e1fee0f08dc0e8147a4d0553f60076ced45ee0df4975396e617f5b34951e456c"
+          "sha256": "21ce6448e45af2b62aa2bfca7daee0986753b71b9b8cf3f2c84ab6329493df62"
         }
       ]
     },
@@ -311,7 +303,7 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "2bcdb42958f776055840a64fb43c0ff8ee1051b107178d6d01305f16efb6692e"
+          "sha256": "717180d9aba7f99fb5472c9402be761da9214865bd7745d6860f1d1f1db4ffbc"
         }
       ]
     }

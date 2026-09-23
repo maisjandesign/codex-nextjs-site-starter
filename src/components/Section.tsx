@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { MotionSequence } from './motion/MotionSequence';
+import { MotionReveal } from './motion/MotionReveal';
 type Props = {
   id?: string;
   kicker: string;
@@ -10,27 +10,19 @@ type Props = {
 };
 export function Section({ id, kicker, title, description, children, contentMotion = true }: Props) {
   return (
-    <MotionSequence id={id} className="section">
+    <section id={id} className="section">
       <div className="section-head">
-        <span className="label muted" data-sequence-part="eyebrow" data-sequence-step="0">
+        <MotionReveal as="span" className="label muted">
           {kicker}
-        </span>
-        <h2 data-sequence-part="heading" data-sequence-step="1">
-          {title}
-        </h2>
+        </MotionReveal>
+        <MotionReveal as="h2">{title}</MotionReveal>
         {description && (
-          <p className="muted" data-sequence-part="copy" data-sequence-step="3">
+          <MotionReveal as="p" className="muted">
             {description}
-          </p>
+          </MotionReveal>
         )}
       </div>
-      {contentMotion ? (
-        <div data-sequence-part="content" data-sequence-step="4">
-          {children}
-        </div>
-      ) : (
-        children
-      )}
-    </MotionSequence>
+      {contentMotion ? <MotionReveal>{children}</MotionReveal> : children}
+    </section>
   );
 }

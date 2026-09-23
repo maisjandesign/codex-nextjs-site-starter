@@ -2,6 +2,16 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 23 removal of competing motion recipes
+
+Replaced the cumulative animation material with MOTION-DEFAULTS.md and a three-effect motion.example.json: upward masks, reversible GSAP object hovers and ScrollSmoother. Removed five legacy motion documents, the old sequence/text/Flip components and story, and the three runtime presets. The shared reveal now moves an inner layer upward inside a stationary mask. The page now initializes an actual scoped ScrollSmoother before dependent reveals, with native touch/reduced-motion fallback. The token validator rejects obsolete profile and stagger settings.
+
+Removed conflicting CSS/Motion-library recipes from the bundled Better UI, accessibility, interface-routing and design-taste copies. Deleted the two obsolete Better UI recipe resources. SKILL-INVENTORY.json records original hashes and local adaptations; global skills are unchanged. Startup retains 21 skills with 50 required files and a new committed restoration source, so missing resources cannot restore the removed recipes.
+
+Verified: Next.js build/audit, Storybook typecheck/build, six motion unit checks, eight audit checks, five token editor checks and eight setup checks. All six focused Chromium motion scenarios passed in one run: upward travel/clipping/settling and route return; reversible button fill/label hover with stable hit area; link hover and keyboard focus; reduced preview; sampled smooth scrolling, runtime preference switching and anchors; readable content without JavaScript. Test navigation uses native wheel input for the fixed scroll wrapper and waits for route completion before collecting element lists.
+
+Two focused 1440 px light-theme checks also passed for heading hierarchy, repeated spacing and overflow on the home page and token lab. The full cross-browser/viewport matrix was not run. Storybook was typechecked and built; no claim of complete manual visual review of every story is made. Older validation entries describe earlier versions; removed recipes remain available only in Git history.
+
 ## September 23 reduced skill set
 
 Reduced the bundled/required set from 28 to 21 with user approval: removed animate, animation-vocabulary and apple-design, and merged the project-specific requirements of site-spacing, site-typography, site-accessibility and site-components into DESIGN-SYSTEM.md. Routing now applies better-layout, better-typography, better-accessibility and better-ui with that contract. Integer tokens, repeated spacing, H1-H6 consistency, no-dimming accessibility, shared components, Storybook and the GSAP motion contract remain required. Global skill installations are unchanged.
@@ -18,12 +28,6 @@ Verified locally: seven setup tests for restore/idempotence/customization preser
 
 All 60 manifest files match the pinned source commit; all 50 upstream provenance hashes remain unchanged. Formatting and local Markdown links were checked. CI now performs setup from a clean checkout before its existing static checks/builds; browser QA keeps its existing readiness gate.
 
-## September 23 consolidated GSAP rules
-
-Replaced cumulative motion mandates with one contract in MOTION-DEFAULTS.md: GSAP ScrollSmoother, shared element masks and expressive GSAP button/button-link hovers. Removed duplicate coverage/sequence instructions, required gallery quotas and mandatory separate opening choreography. Retained existing-tab feedback where applicable, shared tokens, reduced-motion/native-scroll fallbacks, observed desktop motion review and the established mobile/final-QA sequence. User-authored GSAP effects are preserved and overlapping scroll/reveal/hover owners must be resolved.
-
-This is a documentation and local workflow-skill revision only. Application source, dependencies, demo animation behavior and upstream skill snapshots are unchanged. Formatting, local Markdown links, all 28 skill entrypoints and all 50 upstream snapshot hashes were checked. No local builds or browser motion tests were rerun; no fix to a previously generated site's runtime is claimed. The demo still needs actual ScrollSmoother integration before it can demonstrate the full contract.
-
 ## September 23 Graft integration
 
 Added the unmodified official Graft skill and MIT license, pinned CLI `@nanonets/graft@0.19.0`, project-local structural commands, startup/shared-change routing and CI smoke tests. There are 28 skill entrypoints. All 50 inventoried upstream files match their hashes; the previous 48 files and their inventory entries remain unchanged. Existing locked dependency entries are unchanged; Graft and its dependencies were added as development tooling.
@@ -37,16 +41,6 @@ Formatting, static design audit, eight auditor tests, five motion tests, five to
 Added startup classification for structured Figma, flat image and mixed frames. Asset rules now export original images and SVG icons/logos from meaningful structured designs, generate imagery for flat references, and combine both per region for mixed frames. Layer count and ordinary photographic image fills do not establish a flattened source; typography overlays alone do not establish structured layout. Preserve useful copy, source identity, local token normalization and all existing motion/delivery requirements.
 
 This revision changes English documentation and two authored skills only. No Figma frame was supplied for inspection and no assets were exported or generated in this task. Validate formatting, local links, changed skills and unchanged upstream hashes before publishing. Application builds in CI check the existing demo, not execution of this new source-selection workflow.
-
-## September 22 GSAP hover clarification
-
-Explicitly require GSAP-powered hovers for buttons, button-links and existing tabs in the baseline, root rules, startup prompt, skill routing and desktop acceptance checks. Cover reversible entry/exit, keyboard focus, selected-tab indicators, interruption, disabled/loading and static reduced-motion feedback. Hover does not activate panels; absent tabs remain not applicable. This is a documentation/skill-only correction, not a new tab implementation or new runtime verification. Validate changed skill entrypoints, local links, formatting and unchanged upstream hashes before publishing; CI checks the existing implementation separately.
-
-## September 22 required motion defaults
-
-Documentation and authored skill routing now require GSAP ScrollSmoother and masked text/content/media entrances during desktop implementation. Removed conflicting optional-smoothing and freely interchangeable baseline-engine guidance. Preserved native touch/reduced-motion fallbacks, visible server-rendered content, supplied composition, no first-screen parallax and the deferred full browser matrix. See MOTION-DEFAULTS.md for the implementation and observation requirements.
-
-This change does not modify application source, dependencies or tests. ScrollSmoother is not initialized by the shipped demo yet; existing mask examples do not establish full role coverage. New runtime behavior and visual motion checks were not run or claimed. Documentation formatting/links, authored skill validation and upstream snapshot hashes are checked before publishing; repository CI runs the existing static/build checks separately.
 
 ## September 18 local design tools release
 
@@ -62,96 +56,25 @@ Not run: a full browser/viewport matrix, complete accessibility audit, all motio
 
 ## September 14 native Storybook release
 
-Implemented real Storybook 10.6.0 with the Next.js Vite adapter, native light manager, Autodocs, Controls, Actions, Interactions, code display, and accessibility inspection addon. The static index contains 31 stories and 9 Docs entries across Foundations, Components, Patterns, Motion, and Pages. Stories import actual production components and token CSS. The preview transform scopes original CSS; no separate imitation of the component library was created. The Next.js /design-system route is retained and labelled as the supporting token lab. Source saving is hidden in Storybook's motion studio; its preview controls remain available.
+Implemented real Storybook 10.6.0 with the Next.js Vite adapter, native light manager, Autodocs, Controls, Actions, Interactions, code display, and accessibility inspection addon. The static index contains 31 stories and 9 Docs entries across Foundations, Components, Patterns, Motion, and Pages. Stories import actual production components and token CSS. The preview transform scopes original CSS; no separate imitation of the component library was created. The Next.js /design-system route is retained and labelled as the supporting token lab. Source saving is hidden in Storybook's GSAP controls; its preview controls remain available.
 
 Updated AGENTS.md, startup instructions, workflow, component/token/motion skills, and design-system documentation to make native Storybook the shared project documentation contract. This supersedes the older custom-shell specification. The wider persistent color/size editor remains project work. Controls do not save shared tokens or synchronize unsaved drafts across applications.
 
 Validation: Next.js production build, Storybook static build, Storybook TypeScript check, token/CSS/JSX audit, 8 auditor tests, and 5 motion validation/evidence tests passed. Installed versions: Next.js 16.3.4, React and React DOM 19.2.8, Storybook and Next.js Vite adapter 10.6.0, Vite 8.2.1. These versions built together successfully. Full viewport/browser regression and accessibility certification were not performed.
 
-Focused desktop review used the Codex in-app browser at 1440 x 900. Observed the native category/folder/component/Docs-or-story tree, generated Button Docs and source controls, Canvas, live label edits and reset, disabled=true and secondary variant propagation to the source button, theme changes confined to the project preview, and a passing Click Interaction story. Its click and callback assertion both passed in the Interactions panel; Actions displayed the onClick event. Motion Opening Sequence was replayed in slow mode and sampled over time: heading translation 32 px -> 17.5858 px -> 4.3824 px -> none, with opacity 1 throughout. Reduced story showed opaque untransformed text with no split children. This focused evidence does not claim every story or all production routes were visually audited.
+Focused desktop review used the Codex in-app browser at 1440 x 900. Observed the native category/folder/component/Docs-or-story tree, generated Button Docs and source controls, Canvas, live label edits and reset, disabled=true and secondary variant propagation to the source button, theme changes confined to the project preview, and a passing Click Interaction story. Its click and callback assertion both passed in the Interactions panel; Actions displayed the onClick event. This focused evidence does not claim every story or all production routes were visually audited.
 
 Non-blocking build warnings: local sandbox prevents writing Storybook's global settings file; the static build still completes. Vite reports large Storybook documentation/test-tool chunks. One native manager popover warns about a future Storybook 11 ariaLabel requirement. A deprecated manager layout option found during review was corrected. Rebuilding while a static preview was open invalidated cached chunk URLs; a page reload recovered it. Do not confuse that stale build session with a fresh-build runtime defect.
-
-## September 14 coordinated sequence release
-
-Implemented MotionSequence for the shared header/hero opening and each standard Section, with a real catalog specimen, scoped SplitText lines, shared ordering and ScrollTrigger ownership. Added MotionLink with reversible GSAP underline. Raised source entrance values to 600 ms, 90 ms stagger and 32 px travel; removed the separate visible-text 8 px cap. Preserved supplied composition and the current desktop-first workflow. First-screen parallax is excluded at the user's request. This release does not implement the separate design-system audit or grid-overlay proposals.
-
-Checks: production build and TypeScript passed; static token/CSS/JSX audit passed; 8/8 auditor tests and 5/5 motion validation/evidence tests passed. The evidence checker rejects stationary, endpoint-only, non-finite, trivial-noise and unfinished samples. All upstream skill snapshots and installed dependency versions remain unchanged.
-
-Focused browser review used the final production build in the Codex in-app browser at 1280 x 720. Observed initial header/hero translations, different intermediate heading-line positions and subsequent group entrances at normal and slow playback, natural settling, section entry and return scroll, route re-entry, catalog replay/pause/resume/finish, retained button fill/label motion and link keyboard/pointer response. Pause held the same observed transforms across observations. Reduced preview removed sequence transforms and left all inspected parts opaque; button moving duplicates were hidden. Final tab logs returned no warnings/errors.
-
-[Recorded sequence frames](evidence/sequence-motion.json) contain three actual layer positions: replay, an intermediate frame, and the explicit Finish result. The new checker accepted them. This validates observed travel and the finish control; natural completion was observed separately, not inferred from that forced finish. Native browser geometry may be fractional even though authored token dimensions are integers.
-
-Added four focused Playwright scenarios in tests/motion.spec.ts and the test:motion:browser command. Their TypeScript compiled, but the Playwright runner was not executed in this release. In-app browser observations above are separate evidence and do not count as a passing Playwright run. Full cross-browser/viewport QA, actual OS reduced-motion switching, font-replacement/resize stress, JavaScript-disabled runtime and performance profiling were not run. The full documentation shell and color/size editor remain separate project requirements.
-
-## September 14 required desktop motion release
-
-Strengthened AGENTS.md, the startup prompt, workflow, skill routing and authored skills: header, hero, expressive shared buttons and major-section motion are required desktop work. Implemented the baseline effects as well as their rules. Supplied-design composition, layout tokens and upstream skill snapshots are preserved.
-
-Implemented a shared GSAP fill sweep and label roll for Button and ButtonLink, including keyboard focus, reversible pointer interaction and disabled/loading fallbacks. Header and hero groups enter in sequence. Initially visible server-rendered content now settles visibly instead of skipping all movement; offscreen section content uses shared scroll entrances. Existing SplitText, Flip and motion editor remain in use.
-
-Checks: production build with TypeScript passed; static token/CSS/JSX audit passed; 8/8 auditor tests and 3/3 motion-validator tests passed. Focused runtime review used the production build in the Codex in-app browser at 1280 x 720. Formatting, skill validation, upstream hashes, local Markdown links and exact ZIP contents are checked during packaging.
-
-Observed in the browser:
-
-- Fresh header load produced changing logo/navigation/action transforms while retaining visible content. Hero copy/actions and visual entered in a coordinated sequence.
-- Slow pointer hover showed intermediate fill and label positions. At completion the replacement label occupied the original text position; pointer exit reversed to the resting state. Repeated entry/exit was exercised. Keyboard Tab focused Secondary and started the same effect.
-- Slow playback left untouched controls at rest. Disabled and loading examples retained readable labels without the interaction timeline. The local reduced-motion preview removed the library button effects; this is not an OS preference test.
-- Section content was pending offscreen, then showed intermediate stagger opacity/transforms during scroll entry. Scrolling down and back left previously revealed content visible.
-- No warning/error entries were returned by the production tab after these interactions and route changes.
-
-Fixed two defects discovered during this review: the rolled label inherited an extra CSS translation, and changing timeScale to a positive value reversed resting button timelines into an unintended hover. The implementation now resets the copied label's pixel offset and preserves playback direction when slowing it.
-
-Dependency inspection: npm ls next react react-dom gsap @gsap/react reports one deduplicated React tree. Installed Next.js 16.3.4, React/React DOM 19.2.8, GSAP 3.15.0 and @gsap/react 2.1.2 satisfy their declared peer ranges. No dependency or lockfile change was required. This verifies this starter's declared compatibility and observed runtime, not an unrelated derived project's dependencies. MOTION-LIBRARIES.md now includes React/Next.js integration diagnostics.
-
-Not run for this release: the full Playwright/axe or cross-browser/multi-viewport matrix, mobile adaptation, actual OS reduced-motion switching, JavaScript-disabled runtime, performance profiling and exhaustive route/StrictMode stress tests. The final-QA hover assertion was updated but its Playwright suite was not run. The fixed documentation shell and wider color/size token editor remain implementation requirements for each project. These focused starter checks do not approve a new project's desktop or certify all possible interactions.
 
 ## September 14 supplied-design policy revision
 
 Replaced creative interpretation with the user's Implementing supplied designs section in AGENTS.md. Synchronized the startup prompt, workflow, skill routing, brief, typography/workflow/motion skills, and system/motion/asset guidance. Structural suggestions require explicit user authorization; local normalization preserves the supplied composition and intentional role differences. Earlier creative-reference notes below are historical and superseded.
 
-This release changes Markdown instructions only. Application source, dependencies, tests, motion studio, and all 48 upstream skill snapshot files remain byte-identical to the motion-studio archive. No build or browser suite was rerun for this documentation-only revision. Packaging verifies formatting, local Markdown links, all 27 skill entrypoints, upstream hashes, English content, exact archive bytes, and unchanged non-Markdown files.
-
-## September 13 motion studio release
-
-Implemented shared MotionProvider playback/settings, SplitText headings, Flip layout/reordering, three source-defined starting profiles, validated motion editing and a development-only source-save endpoint. Added six official GSAP skill snapshots (27 total local skills), startup routing, direction selection and three researched site studies. No additional runtime animation dependency was installed. The wider color/size editor and fixed documentation shell remain project implementation requirements.
-
-Release checks: production Next.js build including TypeScript passed; token/CSS/JSX audit passed; 8/8 auditor tests and 3/3 motion-validator tests passed. Source motion duration is restored to 400 ms after save testing. Skill validation, snapshot hashes, Markdown links, formatting and exact ZIP contents are verified during packaging.
-
-Focused browser evidence: Codex in-app desktop browser, development at 1440 x 1000 and final production at 1280 x 720. These are implementation observations, not the full multi-viewport matrix.
-
-- Observed SplitText line movement and stagger/mask examples during explicit replay. Slow playback exposed intermediate transforms/opacity; pause held the same values across subsequent observations, then resume/finish settled the effects.
-- Repeated Flip layout changes interrupted active motion. Reordering during a transition retained all card identities; Enter activated the reorder control on the home page.
-- Applied Portfolio settings in the catalog and navigated to Overview; shared root duration remained 800 ms. The source remained unchanged by preview.
-- Fractional duration 600.5 was rejected visibly; active settings remained unchanged. Valid save at 640 ms updated JSON and generated CSS, passed the audit, and survived a browser reload. Restored and saved 400 ms afterward.
-- Fixed a real local-save origin mismatch caused by Next.js URL normalization. Local origin now compares against the actual Host header. Foreign origin returned 403; an invalid same-origin body returned 400. Final production POST returned 404 and the Save control was absent.
-- Local reduced-motion preview left inspected library specimens readable with no hidden/transformed remnants after replay and layout changes. This tests the studio fallback, not OS preference emulation.
-- Final production home was scrolled down and back; inspected visible motion elements remained visible. Home and catalog navigation plus Apply/replay produced no warning/error entries in the fresh production browser tab.
-- Development initially hit OS file-watcher exhaustion; polling allowed the preview to run. A transient hydration error during a live component edit was observed. Fresh final production load/navigation did not reproduce it.
-
-[Production motion editor screenshot](evidence/motion-studio-production.png) documents the UI, not animation quality by itself.
-
-Not run: full Playwright/axe and cross-browser matrix, mobile adaptation, repeated pointer-hover stress, actual OS reduced-motion switching, JavaScript-disabled browser runtime, performance/memory profiling, exhaustive route-leak checks, full typography/spacing comparison and better-interface quick/full review. Desktop completion for a new website remains pending its required review and user approval; these focused starter observations do not grant that approval. Reference-site inspection limits are separately recorded in REFERENCE-MOTION-STUDIES.md.
-
-## Desktop motion review policy revision
-
-Strengthened desktop readiness, startup routing, and first-party skills with a required observed browser motion/interaction review. Focused desktop checks now explicitly precede handoff; the full regression suite and cross-browser/multi-viewport matrix remain deferred. The brief records implementation and verification separately, and required unverified states keep readiness pending. No website code, motion implementation, dependencies, or browser tests changed from the creative-reference archive. The separate project's reported flicker fix and cursor-reactive buttons were not inspected or incorporated in this documentation revision.
-
-Release checks cover Markdown formatting/links, all 21 skill entrypoints, the 42 unchanged upstream snapshot hashes, unchanged application bytes, English text, and archive integrity. No application build or live browser motion review was run for this documentation-only change. Historical motion observations below do not satisfy the new readiness checklist.
+This release changes Markdown instructions only. Application source, dependencies, tests, the then-current demo, and all 48 upstream skill snapshot files remained unchanged. No build or browser suite was rerun for this documentation-only revision. Packaging verifies formatting, local Markdown links, all 27 skill entrypoints, upstream hashes, English content, exact archive bytes, and unchanged non-Markdown files.
 
 ## September 12 creative-reference documentation revision
 
 Updated startup instructions, workflow, skill routing, brief, design-system rules, and relevant site skills so images default to creative interpretation. Exact reproduction requires an explicit request. Accepted desktop, documentation shell, motion/image policy, and delivery order remain protected. This revision changes documentation and local skill instructions only; application code, dependencies, and tests match the preceding library-motion archive. No build or browser suite was rerun for this policy change. Release verification covers document formatting and links, all 21 skill entrypoints, the 42 unchanged upstream skill snapshot hashes, English content, and ZIP integrity/exact bytes.
-
-## September 12 library motion and generated-asset revision
-
-Implemented GSAP 3.15.0 and @gsap/react 2.1.2, shared MotionReveal rise/stagger/mask patterns, a replayable catalog showcase, and new validated timing/distance/easing tokens. Removed the previous CSS-only .enter effect and migrated its reduced-motion test to the actual library specimens. Engine selection now follows project analysis, including Anime.js/Motion and the user's component galleries as candidates; only GSAP and its React integration are installed in this baseline.
-
-Added site-assets, IMAGE-ASSETS.md, and an empty ASSET-INVENTORY.json for generating necessary high-resolution project imagery inspired by reference composition, without shipping screenshot crops. There are now 21 bundled skills. No unrelated sample image was generated. The fixed documentation shell and live token editor remain specified future project work; this revision implements motion, not those larger features.
-
-Checks for this revision: generated token audit passed; 8/8 static auditor tests passed; production Next.js build and TypeScript passed. The design-system page was opened in the in-app desktop browser and Replay motion was exercised; visible specimens rendered correctly. This was ordinary desktop preview inspection, not a browser matrix or exhaustive motion-feel review. Full Playwright/axe suites, mobile motion, JS-disabled runtime, dynamic reduced-motion changes, route-leak checks, and performance profiling were not run. The updated browser assertion is included for final QA but not reported as passed. Skill structure, document links, source snapshot hashes, formatting, and archive integrity are checked for the packaged release.
-
-All earlier browser results and screenshots below are historical baseline evidence. They do not validate this GSAP revision or the still-unimplemented editor/documentation shell.
 
 ## Verified versions
 

@@ -45,10 +45,10 @@
   --motion-enter: 600ms;
   --motion-ease: cubic-bezier(0.2, 0, 0, 1);
   --motion-press: 0.98;
-  --motion-stagger: 90ms;
   --motion-distance: 32;
   --motion-library-ease: power3.out;
   --motion-delay: 0ms;
+  --motion-smooth: 800ms;
   --font-h1: calc(40 * 1rem / 16);
   --font-h2: calc(32 * 1rem / 16);
   --font-h3: calc(24 * 1rem / 16);

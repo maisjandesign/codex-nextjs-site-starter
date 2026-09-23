@@ -39,13 +39,13 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 
 ## Motion and image plan
 
-- Motion contract: docs/MOTION-DEFAULTS.md; optional inspected references (if used):
-- First-screen header/hero masks: shared primitive/trigger, observed load result, narrow hydration fallback if needed (no separate sequence required):
+- Motion contract: docs/MOTION-DEFAULTS.md:
+- First-screen header/hero masks: shared primitive/trigger, observed load result, narrow hydration fallback if needed:
 - Shared GSAP button/button-link hover/focus beyond color, exit reversal, press, disabled/loading: implementation and observed result:
 - Existing tabs: shared GSAP hover/focus, selected indicator, interruption and keyboard/activation behavior; implementation and observed result (not applicable if absent):
 - Major section coverage: section name, heading/content/media effect, scroll-entry/back observation:
+- ScrollSmoother owner, anchor/focus/route checks and native fallback results:
 - Required motion exceptions: explicit user instruction or applicable reduced-motion state; never assume an exception from a static screenshot:
-- Motion map: surface (hero / section / control / carousel if present), effect, purpose, engine, trigger, token roles, interruption behavior, fallback, implementation status:
 - Desktop motion review: route/specimen, browser/viewport, action sequence, observed result, passed / failed / not run / not applicable (reason):
 - Motion defects, affected states rechecked, and remaining unverified scenarios:
 - Catalog specimens use actual site effects and replay:
@@ -104,22 +104,3 @@ Reset this section for each new website; historical demo checks are not approval
 - Outstanding mobile changes:
 - Browser QA: deferred until approved desktop and authorized mobile are ready
 - Explicit exceptions requested by the user:
-
-## Motion direction record
-
-- Chosen character and fit to the brief (editorial / portfolio / experimental / custom):
-- Exact inspected Osmo/Codrops/other demo URLs and selected mechanics:
-- Six official GSAP entrypoints: pending verification
-- GSAP skills actually loaded and purpose:
-- ScrollSmoother owner, token and route/anchor behavior (required):
-- Masked heading/content/media variants and role coverage (required):
-- Reduced-motion/native-touch fallbacks and visible-content exceptions:
-- Observed smoothing/mask scenarios and outstanding checks:
-- Property ownership and optional WebGL decision:
-- Motion studio source save/reload result:
-- Full color/size editor readiness (separate from motion editor):
-- Project Storybook inventory, Controls, Docs, and motion review readiness:
-
-### Sequence coverage
-
-Record scroll/reveal/hover layer ownership and observed states under MOTION-DEFAULTS.md. Separate sequence choreography is optional. Animate meaningful local groups without double-targeting parent and child properties. No first-screen parallax.

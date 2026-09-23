@@ -3,7 +3,8 @@ import { useState, useEffect, createContext, useContext, type ReactNode } from '
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from './components/Button';
-import { MotionSequence } from './components/motion/MotionSequence';
+import { MotionReveal } from './components/motion/MotionReveal';
+import { SmoothScroll } from './components/motion/SmoothScroll';
 import { MotionLink } from './components/motion/MotionLink';
 import { MotionProvider } from './components/motion/MotionProvider';
 
@@ -46,47 +47,46 @@ export function App({ children }: { children: ReactNode }) {
           <a className="skip-link" href="#main">
             Skip to content
           </a>
-          <MotionSequence key={pathname} as="div" mode="opening" className="container">
-            <header className="header">
-              <Link className="brand" href="/" data-sequence-part="header" data-sequence-step="0">
-                <span className="brand-mark" aria-hidden="true">
-                  F
-                </span>
-                Foundation
-              </Link>
-              <nav
-                className="nav"
-                aria-label="Main navigation"
-                data-sequence-part="header"
-                data-sequence-step="1"
-              >
-                <MotionLink href="/" aria-current={pathname === '/' ? 'page' : undefined}>
-                  Overview
-                </MotionLink>
-                <MotionLink href="/design-system" aria-current={isSystem ? 'page' : undefined}>
-                  Design system
-                </MotionLink>
-              </nav>
-              <div data-sequence-part="header" data-sequence-step="2">
-                <Button
-                  variant="secondary"
-                  size="small"
-                  onClick={toggleTheme}
-                  aria-label="Dark mode"
-                  aria-pressed={theme === 'dark'}
-                >
-                  Dark mode {theme === 'dark' ? 'on' : 'off'}
-                </Button>
-              </div>
-            </header>
-            <main id="main" tabIndex={-1}>
-              {children}
-            </main>
-            <footer className="footer small muted">
-              <span>Foundation / Site starter</span>
-              <span>Tokens → components → pages</span>
-            </footer>
-          </MotionSequence>
+          <SmoothScroll key={pathname}>
+            <div className="container">
+              <MotionReveal>
+                <header className="header">
+                  <Link className="brand" href="/">
+                    <span className="brand-mark" aria-hidden="true">
+                      F
+                    </span>
+                    Foundation
+                  </Link>
+                  <nav className="nav" aria-label="Main navigation">
+                    <MotionLink href="/" aria-current={pathname === '/' ? 'page' : undefined}>
+                      Overview
+                    </MotionLink>
+                    <MotionLink href="/design-system" aria-current={isSystem ? 'page' : undefined}>
+                      Design system
+                    </MotionLink>
+                  </nav>
+                  <div>
+                    <Button
+                      variant="secondary"
+                      size="small"
+                      onClick={toggleTheme}
+                      aria-label="Dark mode"
+                      aria-pressed={theme === 'dark'}
+                    >
+                      Dark mode {theme === 'dark' ? 'on' : 'off'}
+                    </Button>
+                  </div>
+                </header>
+              </MotionReveal>
+              <main id="main" tabIndex={-1}>
+                {children}
+              </main>
+              <footer className="footer small muted">
+                <span>Foundation / Site starter</span>
+                <span>Tokens → components → pages</span>
+              </footer>
+            </div>
+          </SmoothScroll>
           {process.env.NODE_ENV === 'development' && <DesignTools />}
         </MotionProvider>
       </DesignProvider>
