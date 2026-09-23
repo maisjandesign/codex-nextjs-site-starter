@@ -1,0 +1,21 @@
+{
+  "assets": [
+    {
+      "id": "demo-sculpture",
+      "source": "Original geometric SVG created for this starter",
+      "localPath": "public/assets/demo/sculpture.svg",
+      "width": 1344,
+      "height": 560,
+      "slot": "Demo home visual and Foundations/Graphics",
+      "status": "demo",
+      "prompt": null
+    },
+    {
+      "id": "manrope-variable",
+      "source": "@fontsource-variable/manrope (SIL Open Font License)",
+      "localPath": "node_modules/@fontsource-variable/manrope",
+      "slot": "Shared font imported by globals.css",
+      "status": "demo-font"
+    }
+  ]
+}

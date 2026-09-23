@@ -1,71 +1,188 @@
-# Start here
+# Build a website with this template
 
-1. Create your own repository with GitHub's **Use this template** action and clone it, or extract the entire ZIP into a separate project folder. Keep hidden folders, including `.agents` and `.storybook`.
-2. Open the project root in Codex, where `AGENTS.md`, `START-HERE.md` and `package.json` are located. Initialize Git with `git init` only if the extracted folder is not already a repository.
-3. Send the prompt below with your Figma frame or screenshots, brief, copy and original assets. Opening the folder alone does not start installation or implementation.
-4. Codex runs `npm run setup` under [docs/STARTUP.md](docs/STARTUP.md) before dependent work. It checks the 21 local skills, restores missing files, installs missing/invalid locked dependencies and verifies the Graft executable. Valid existing copies are skipped. Failed setup remains pending until resolved.
-5. After setup, Codex runs `npm run graft:build` and `npm run graft:map`, loads the relevant skills under [docs/SKILL-ROUTING.md](docs/SKILL-ROUTING.md), classifies the design source and starts desktop work. Skills are loaded by stage, not all at once.
+This guide takes you from a clean project folder to a reference-based Next.js website with GSAP motion and a separate Storybook. All project work, UI copy, instructions, and documents stay in English. Chat replies follow the language you use.
 
-The walkthrough in [README.md](README.md#how-to-use-this-template) explains what you do and what Codex does at each step. The `dev` and `storybook` npm hooks repeat the setup check automatically; they do not build the Graft graph. Newly restored skills can be read from their exact `.agents/skills` paths if automatic discovery has not refreshed yet.
+## 1. Create your project
 
-## The delivery order
+Open [codex-nextjs-site-starter](https://github.com/maisjandesign/codex-nextjs-site-starter) and choose **Use this template → Create a new repository**. Choose your project's name and visibility, then clone the new repository:
 
-1. **Desktop draft:** implement real pages and show a desktop preview quickly. Some rough edges are acceptable.
-2. **Complete desktop and design system:** use real Storybook and its native hierarchy in docs/DOCUMENTATION-TEMPLATE.md, populated with this project's real components and tokens; refine the screenshots, finish animations and shared typography/components/spacing, and complete the live catalog with a token editor. Apply your changes until you explicitly accept the desktop.
-3. **Mobile decision:** Codex asks whether to adapt mobile now and waits for your answer. If you say yes, it builds mobile/tablet while preserving the accepted desktop. If you say no or later, adaptation and combined browser QA stay deferred.
-4. **Final QA:** once desktop and mobile are ready, run browser tests, fix findings, and verify the fixes.
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT.git
+cd YOUR-PROJECT
+```
 
-The complete rules are in [docs/WORKFLOW.md](docs/WORKFLOW.md). Tokens and shared components support implementation from the start; the catalog and editor are built alongside the site and completed before desktop acceptance, without delaying the first visible draft.
+Replace both placeholders with your actual account and repository. Work in this new project so its design and commits stay separate from the canonical starter.
 
-## Ready-to-use prompt
+Alternatively, download the starter using **Code → Download ZIP**, extract it, and open the extracted folder. Keep `.agents`, `.storybook`, `.gitignore`, and the other hidden files. The correct project root contains `package.json`, `AGENTS.md`, and this guide.
 
-> Build a Next.js website from my supplied Figma frame or screenshots using this repository. Read AGENTS.md and complete docs/STARTUP.md first: run setup, restore missing local skills, verify dependencies and Graft, then build/map the code. Load skills by stage under docs/SKILL-ROUTING.md. Classify the source under docs/DESIGN-SOURCE.md; export original assets for structured Figma, generate similar imagery for flat references and decide per region for mixed frames. Preserve the supplied composition and normalize repeated elements through shared tokens. Show desktop early and build real Storybook and the editable token lab alongside it. For animation, follow only docs/MOTION-DEFAULTS.md: upward masked entrances, GSAP hovers on existing interactive objects and GSAP ScrollSmoother. Observe these in the browser while implementing desktop. Apply my revisions until desktop approval, then ask about mobile unless already authorized. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
+If you already have a local starter copy, create a clean project without dependencies or readiness markers:
 
-## Graft is part of startup
+```bash
+npm run new-project -- /absolute/path/to/my-new-site
+```
 
-For coding tasks, read docs/GRAFT.md and .agents/skills/graft/SKILL.md at startup. First run npm run setup under docs/STARTUP.md; after it succeeds, run npm run graft:build and npm run graft:map. Query relevant symbols and callers before shared implementation changes, confirm their source and consumers, and check graph freshness afterward. Use rg for text search; if Graft setup is blocked, follow STARTUP.md and continue only independent work without marking startup complete. Keep source classification and the first desktop preview moving; no global init/hooks or deep/LLM setup is required.
+The destination must not exist and must be outside the starter directory. This helper creates the folder; it does not create a GitHub repository or initialize Git.
 
-## Start the desktop preview
+## 2. Check the requirements
 
-Use Node.js 22.12+ and npm. Codex runs these commands during startup; you can also run them yourself:
+- Node.js 22.14 or newer, and npm. `.nvmrc` selects Node 22 if you use nvm.
+- Network access to install locked npm packages.
+- Codex with access to your project folder and permission to run its setup commands.
+- For Figma work: a connected Figma integration with access to the supplied file.
+- For screenshot imagery: an available image-generation tool. Supply original brand assets and fonts separately when available.
+
+Check your local runtime:
+
+```bash
+node --version
+npm --version
+```
+
+The project installs skill instructions locally. This does not sign in to Figma, install account-wide plugins, or create an image-generation connection.
+
+## 3. Open the folder in Codex and attach the reference
+
+Start a task in the project root. Attach a Figma frame/node URL or a screenshot. Include required page content, target pages, and any supplied fonts, logos, or images. When mobile designs exist, include them too.
+
+Opening the folder alone does not run setup. Send the task below to start work.
+
+### Starting prompt
+
+```text
+Follow AGENTS.md in this project.
+
+Before layout work, run npm run setup and npm run setup:check.
+Verify the official GSAP skills, better-ui, and Graft, then read the
+required installed skills and the relevant local workflow instructions.
+
+As soon as setup succeeds, implement the attached reference without
+asking for another go-ahead. Use Next.js App Router and TypeScript.
+Preserve the reference's composition, visual character, and assets.
+Keep heading styles consistent at each breakpoint and normalize authored
+dimensions and spacing to the shared 8px grid. Record material deviations.
+
+Include GSAP smooth scrolling, upward masked reveals, expressive button
+hovers, and animated text links. Use the production motion primitives.
+Create a separate Storybook containing every reusable component and state.
+Verify the site and Storybook, including responsive layouts and motion.
+
+Keep project work, UI, and documents in English. Reply in my language in chat.
+
+My brief and references:
+[Describe the website and attach the reference here.]
+```
+
+### Figma reference
+
+Provide a link to the actual frame or node. Codex should inspect the design structure, typography, spacing, and screenshots, then export available original images, icons, and SVGs to `public/assets/`. It records asset provenance in `design/assets.json` and normalization decisions in `design/decisions.md`.
+
+If Figma access is unavailable, Codex must identify the access gap. A screenshot cannot establish measurements from editable Figma layers or provide the original asset files.
+
+### Screenshot reference
+
+Attach the clearest available image, preferably at its original size. Codex reconstructs the interface as real HTML and components, measures visible relationships, and generates missing raster imagery to match the reference's subject, crop, and mood. Text, controls, and layout are implemented in code.
+
+Supply official logos and icons when available. Generated imagery should not be described as an original exported asset. Record inferred layout details and asset substitutions.
+
+## 4. Mandatory setup
+
+Codex runs these commands before editing the design. You can run them yourself too:
 
 ```bash
 npm run setup
-npm run graft:build
-npm run graft:map
+npm run setup:check
+```
+
+Setup validates the bundled files, installs nine required skill folders into `.agents/skills/`, restores pinned dependencies with `npm ci`, and prepares the local Graft CLI and code index. The nine folders contain seven official GSAP skills, better-ui, and Graft; three additional workflow skills are already included.
+
+The readiness marker belongs to this exact folder and dependency lockfile. Each new clone, extracted ZIP, or copied project needs its own setup. Installed skill copies and local caches are ignored by Git; their reproducible bundles are tracked under `tooling/`.
+
+After successful setup, Codex starts the supplied design immediately. If no reference is attached, it asks for one. If setup fails, it resolves or reports the actual failure before dependent layout work.
+
+## 5. Run both previews
+
+In the first terminal:
+
+```bash
 npm run dev
 ```
 
-In a second terminal, run `npm run storybook` for the native component catalog at http://localhost:6006. The website runs at http://localhost:3000 and the supporting token lab at http://localhost:3000/design-system. Storybook Controls preview component props; use Design tools in the Next.js preview to save shared tokens.
+Open [the website](http://localhost:3000). The additional [system specimen page](http://localhost:3000/system) shows shared styles.
 
-Run `npm run tokens` after changing token values. Formatting and targeted type/compile checks can help keep the draft runnable. Do not install test browsers or run the combined check command as a prerequisite to showing desktop.
-
-## Final QA — after desktop and mobile are ready
+In a second terminal in the same project folder:
 
 ```bash
-npx playwright install chromium firefox webkit
-npm run check
-npm run test:browsers
+npm run storybook
 ```
 
-Linux may require `npx playwright install --with-deps`. `npm run check` includes a production build and Chromium tests. `npm run start` starts the production server after building.
+Open [Storybook](http://localhost:6006). It is a separate application built from the site's real components and shared styles.
 
-Browser tests use a separate server on port 4179 and never reuse an unrelated server. If that port is occupied, free it or update both the URL and command in playwright.config.ts.
+Stop a server with `Ctrl+C` in its terminal. Stop development servers before building and serving production previews, then reload the browser to clear stale development modules and prefetched pages.
 
-In GitHub Actions, static checks run on pushes and pull requests. To run browser QA at the final stage, manually dispatch **Frontend quality** and enable **Desktop and mobile are ready for browser QA**. This confirms that desktop approval, mobile authorization, and layout completion have already happened.
+## 6. Verify the default motion
 
-## Included
+| Interaction | Expected behavior | Where to check |
+| --- | --- | --- |
+| Desktop scroll | Content gradually catches up to native scrolling; default 1.2 seconds | Scroll the website or open Motion / Presets / Scroll |
+| Heading or block entrance | Content rises from below inside a stationary mask | Scroll through the page or open Motion / Presets |
+| Button hover | Fill rises, label rolls through a mask, arrow moves diagonally | Any button story; Components / Button / Hover And Focus |
+| Text-link hover | Underline draws and the label shifts 8px | Components / Navigation / Link Hover |
+| Keyboard focus | Visible focus plus the supported GSAP interaction | Use Tab on buttons and links |
+| Pointer exit | Animation reverses from its current progress | Move in and out before a hover finishes |
+| Disabled button | No GSAP hover and no activation | Components / Button / Disabled |
 
-Next.js App Router, TypeScript, light/dark themes, a home page, a design system catalog, a 404 page, shared buttons, fields, cards, sections, local form validation, disclosure elements, motion and spacing tokens, a lockfile, audit scripts, browser tests, and CI.
+Button and link hovers work without MotionRoot, including ordinary Storybook stories and Docs. Page scrolling and entrance previews need MotionRoot; the website already has one in `src/app/layout.tsx`. Do not add another scroll engine.
 
-Implementation status: the demo includes an editable GSAP controls and local source saving. The local token editor is included; adapt its baseline and lock the project theme to the reference during project work. The demo retains OS/saved-preference theme selection.
+Touch-only devices use native scrolling. Reduced-motion preferences disable decorative animation. Hybrid devices with a hover-capable fine pointer can use smooth scrolling. Change shared durations and easing in `src/lib/motion-config.ts`.
 
-The demo already contains responsive styles as examples. They do not authorize early mobile adaptation of a new design. The starter does not change global Codex settings or require third-party skills. Figma connections depend on your environment; Playwright runs from this project.
+## 7. Keep the design system consistent
 
-## Storybook is included
+Edit shared typography, color, spacing, and size tokens in `src/styles/tokens.css`. Every H1 has one style at a given breakpoint; the same applies to each other heading level.
 
-Run `npm run storybook` after installation to open the native component catalog on port 6006. Run the Next.js preview separately with `npm run dev`. Use the hierarchy and authoring rules in docs/DOCUMENTATION-TEMPLATE.md from the first shared component onward. Do not replace it with a custom catalog page.
+Authored layout dimensions, font sizes, line heights, spacing, and radii use integer multiples of 8px. For example, 23px becomes 24px and 61px becomes 64px. Borders of 1px and focus outlines of 2px are technical exceptions. Original SVG geometry, intrinsic image ratios, and intermediate animation coordinates keep their natural values.
 
-## Included visual refinement tools
+Use `MotionButton` for actions, `MotionLink` for navigation text links, and `AnchorLink` for same-page navigation. Use `RevealText` for plain text and `Reveal` for blocks containing interactive elements. Create stories when adding components, using the production implementation rather than copied markup.
 
-Run npm run dev and open Design tools on the site or /design-system for live token preview, save/cancel/baseline reset, and spacing inspection. Storybook includes Foundations / Typography Playground. Read docs/DESIGN-TOOLS.md at startup for scope, baseline setup, reference passports, and annotated screenshot corrections. These tools preserve the native Storybook catalog and the desktop-first delivery order.
+Replace the demo's lime palette, Manrope typeface, artwork, and content with the supplied design. The demo is an implementation example, not a mandatory visual style.
+
+## 8. Check and build
+
+```bash
+npm run check
+npm run build
+npm run build-storybook
+```
+
+`check` runs TypeScript, ESLint, and the authored CSS grid/component-story checks. These checks do not replace visual comparison, actual motion testing, or accessibility review.
+
+For a production website preview after a successful build:
+
+```bash
+npm run start
+```
+
+The Storybook production build is written to `storybook-static/`; serve that folder with a static web server. Do not open its HTML directly using a `file://` URL.
+
+On GitHub, the Frontend quality workflow runs setup, checks, and both builds after pushes and pull requests. It does not run browser visual QA or publish either app. Codex should still inspect the reference viewport and relevant desktop, tablet, and mobile widths, and report actual results under `verification/`.
+
+## Troubleshooting
+
+| Symptom | Action |
+| --- | --- |
+| Setup gate says the marker is missing or belongs to another folder | Run `npm run setup`, then `npm run setup:check` in this project |
+| Skill integrity mismatch or an incomplete local skill | Compare the named installed folder with `tooling/skills/`; preserve deliberate edits, resolve the conflict, then rerun setup |
+| npm installation fails | Read the actual error; check Node version, package-registry/network access, and filesystem permissions. Keep the committed lockfile |
+| Graft index is missing | Rerun `npm run setup` to recreate and verify the local index |
+| Port 3000 or 6006 is occupied | Use `npm run dev -- --port 3100` or `npm run storybook -- -p 6106` and open that port |
+| Smooth scroll or hover appears absent | Check reduced-motion settings and input capabilities; check the correct story and browser console; confirm shared components are used |
+| Old content appears after edits or switching builds | Stop the previous server, start the intended preview, and reload the browser |
+| Figma cannot be inspected | Connect the available Figma integration and verify access to the exact file/node |
+| Screenshot imagery cannot be generated | Make an image-generation tool available or supply usable original assets; record the limitation |
+
+## Maintaining the starter
+
+Changes to this canonical template are separate from websites created from it. Review and verify a template change before committing and pushing it. Preserve shared Git history; use normal commits and avoid force pushes. Check the remote commit and GitHub Actions result after publishing.
+
+The prior implementation is retained in the `archive/before-reference-starter-20260923` branch of the canonical repository. New projects should start from the current `main` branch. Updates to the template are not automatically merged into projects created from it.
+
+Reference: [GitHub template repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).

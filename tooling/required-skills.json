@@ -1,0 +1,115 @@
+{
+  "snapshotDate": "2026-09-23",
+  "skills": [
+    {
+      "name": "better-ui",
+      "source": "User-provided installed better-ui skill snapshot",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d0ad037f2f5bdf510ad78c501745cfb96804951925339da5a834684a0f2d1b19"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "799e0b58bded32edf5c217f97e08c364660ec24234978b2e3f7dee1868bea871"
+        },
+        {
+          "path": "animations.md",
+          "sha256": "08a3476fde72d7399539d6885e6ad8b018962fe16764303cf835173aebba93b7"
+        },
+        {
+          "path": "icons.md",
+          "sha256": "e401bdabd358825ca51b20d10635a7b42d655f13819a1d6fbfa0ddae1686245a"
+        },
+        {
+          "path": "performance.md",
+          "sha256": "8450bd42fa61ee425a07de94abba0815119e7ee481eba53ef4ff42e70ca81de5"
+        },
+        {
+          "path": "surfaces.md",
+          "sha256": "b0276679502ab5cf3de64a65c5bc196c92b362bde04ded74c4304e711fdaecfd"
+        }
+      ]
+    },
+    {
+      "name": "graft",
+      "source": "https://github.com/trailhq/Graft",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "144077cd9f7a7bc25f2a04279f02e159ae40d6a9c5d8f7fb1d82d5ebd99ad3d7"
+        }
+      ]
+    },
+    {
+      "name": "gsap-core",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3"
+        }
+      ]
+    },
+    {
+      "name": "gsap-performance",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e"
+        }
+      ]
+    },
+    {
+      "name": "gsap-plugins",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4"
+        }
+      ]
+    },
+    {
+      "name": "gsap-react",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "88e2a5312b45e8cc7b3c496637ff5bc9af2ae9c925b555c8b235b34cbc989d74"
+        }
+      ]
+    },
+    {
+      "name": "gsap-scrolltrigger",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9351b6666a4749c0740406ea363aaccb99a087ff45cc5e8b99a0f367facf3ef4"
+        }
+      ]
+    },
+    {
+      "name": "gsap-timeline",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02"
+        }
+      ]
+    },
+    {
+      "name": "gsap-utils",
+      "source": "https://github.com/greensock/gsap-skills",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1927bcc4ea95b38203404ad5ea1d060b15c4a886c65ae53e885ff1793aabe0ba"
+        }
+      ]
+    }
+  ]
+}

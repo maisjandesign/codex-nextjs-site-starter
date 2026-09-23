@@ -1,0 +1,9 @@
+# Figma → Next.js
+
+1. Parse the exact file and node/frame in the supplied URL. Request context and a reference screenshot. If using `get_design_context`, load its prerequisite Figma skill first and follow its tool parameters and export mechanism. Respect Code Connect mappings when returned.
+2. Inspect visible child nodes when the result is sparse. Capture constraints/auto-layout, bounds, padding, gaps, fonts/weights/line heights, colors, strokes, radii and image crops. A screenshot alone is not evidence of invisible Figma properties.
+3. Export each static image/icon/vector through the connector's supported mechanism to `public/assets/figma/`. Preserve original SVGs and root geometry. Keep source node IDs and slot mapping in `design/assets.json`; no temporary CDN URLs in delivered code. Do not regenerate available Figma artwork.
+4. Group repeated styles before coding. Normalize typography, fixed sizes and spacing to the 8px scale. E.g. 23→24, 61→64, 28→32 (tie upward). Keep one shared style for every heading level per breakpoint. Record notable changes once, not repeated per instance. Preserve optical shape and native asset aspect ratio.
+5. Obtain the correct font files if permitted and supplied. If unavailable, report the exact missing family/weight and document any temporary substitute. Do not call a substitute an exact match.
+6. Rebuild structural layout in normal document flow with Grid/Flex. Preserve the source's hierarchy, ordering, crop and icon placement. Responsive extrapolation is derived if no responsive frames exist; label that fact.
+7. Compare a browser screenshot at the same width and visual state as the reference, then compare the normalized tokens. Finish checking lower sections, interactions, Storybook states and narrow screens. Never export the full frame and embed it as the website.

@@ -1,147 +1,63 @@
-/* GENERATED from src/design/tokens.json. Run npm run tokens. */
+/* One scale for the site AND Storybook. Design dimensions are integer multiples of 8px.
+   Stroke widths (1/2px), percentages, font weights and animation time are not layout spacing. */
 :root {
-  --space-1: calc(4 * 1rem / 16);
-  --space-2: calc(8 * 1rem / 16);
-  --space-3: calc(12 * 1rem / 16);
-  --space-4: calc(16 * 1rem / 16);
-  --space-5: calc(20 * 1rem / 16);
-  --space-6: calc(24 * 1rem / 16);
-  --space-8: calc(32 * 1rem / 16);
-  --space-10: calc(40 * 1rem / 16);
-  --space-12: calc(48 * 1rem / 16);
-  --space-16: calc(64 * 1rem / 16);
-  --space-20: calc(80 * 1rem / 16);
-  --space-24: calc(96 * 1rem / 16);
-  --radius-small: calc(8 * 1rem / 16);
-  --radius-medium: calc(12 * 1rem / 16);
-  --radius-large: calc(24 * 1rem / 16);
-  --radius-pill: calc(999 * 1rem / 16);
-  --size-control: calc(48 * 1rem / 16);
-  --size-control-small: calc(44 * 1rem / 16);
-  --size-icon: calc(20 * 1rem / 16);
-  --size-swatch: calc(80 * 1rem / 16);
-  --size-container: calc(1200 * 1rem / 16);
-  --size-sidebar: calc(240 * 1rem / 16);
-  --border-thin: calc(1 * 1rem / 16);
-  --border-focus: calc(2 * 1rem / 16);
-  --font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
-  --font-body: calc(16 * 1rem / 16);
-  --font-small: calc(14 * 1rem / 16);
-  --font-label: calc(12 * 1rem / 16);
-  --font-lead: calc(20 * 1rem / 16);
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-strong: 600;
-  --weight-bold: 700;
-  --line-heading: 1.2;
-  --line-body: 1.5;
-  --z-base: 0;
-  --z-header: 10;
-  --z-overlay: 20;
-  --opacity-disabled: 0.5;
-  --motion-fast: 140ms;
-  --motion-normal: 220ms;
-  --motion-enter: 600ms;
-  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
-  --motion-press: 0.98;
-  --motion-distance: 32;
-  --motion-library-ease: power3.out;
-  --motion-delay: 0ms;
-  --motion-smooth: 800ms;
-  --font-h1: calc(40 * 1rem / 16);
-  --font-h2: calc(32 * 1rem / 16);
-  --font-h3: calc(24 * 1rem / 16);
-  --font-h4: calc(20 * 1rem / 16);
-  --font-h5: calc(18 * 1rem / 16);
-  --font-h6: calc(16 * 1rem / 16);
-  --layout-page-gutter: calc(16 * 1rem / 16);
-  --layout-section-padding: calc(48 * 1rem / 16);
-  --layout-content-gap: calc(32 * 1rem / 16);
-  --layout-heading-gap: calc(12 * 1rem / 16);
-  --layout-card-padding: calc(24 * 1rem / 16);
-  --layout-hero-padding: calc(64 * 1rem / 16);
+  --color-bg: #f8f8f8;
+  --color-ink: #181818;
+  --color-muted: #585858;
+  --color-line: #d0d0d0;
+  --color-accent: #d0ff48;
+  --color-inverse: #ffffff;
+  --font-sans: 'Manrope Variable', Arial, sans-serif;
+  --space-0: 0px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --page-gutter: 48px;
+  --content-max: 1440px;
+  --section-space: 128px;
+  --h1-size: 96px;
+  --h1-leading: 104px;
+  --h2-size: 64px;
+  --h2-leading: 72px;
+  --h3-size: 32px;
+  --h3-leading: 40px;
+  --h4-size: 24px;
+  --h4-leading: 32px;
+  --body-size: 16px;
+  --body-leading: 24px;
+  --large-size: 24px;
+  --large-leading: 40px;
+  --button-height: 56px;
+  --radius: 0px;
+  --stroke: 1px;
+  --focus-stroke: 2px;
 }
-:root, [data-theme="light"] {
-  --color-bg: #f5f5f0;
-  --color-surface: #ffffff;
-  --color-text: #19251d;
-  --color-muted: #58625b;
-  --color-border: #d4d9d2;
-  --color-accent: #255a38;
-  --color-accent-hover: #194429;
-  --color-on-accent: #ffffff;
-  --color-soft: #e5ecdf;
-  --color-focus: #235bcb;
-  --color-danger: #a62222;
-  color-scheme: light;
-}
-[data-theme="dark"] {
-  --color-bg: #121914;
-  --color-surface: #1c261f;
-  --color-text: #f0f4ed;
-  --color-muted: #b4c0b4;
-  --color-border: #465449;
-  --color-accent: #b4dda0;
-  --color-accent-hover: #c9edb8;
-  --color-on-accent: #142313;
-  --color-soft: #2d3e30;
-  --color-focus: #96baff;
-  --color-danger: #ffacac;
-  color-scheme: dark;
-}
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
   :root {
-  --font-h1: calc(48 * 1rem / 16);
-  --font-h2: calc(36 * 1rem / 16);
-  --font-h3: calc(28 * 1rem / 16);
-  --font-h4: calc(24 * 1rem / 16);
-  --font-h5: calc(20 * 1rem / 16);
-  --font-h6: calc(18 * 1rem / 16);
-  --layout-page-gutter: calc(24 * 1rem / 16);
-  --layout-section-padding: calc(48 * 1rem / 16);
-  --layout-content-gap: calc(32 * 1rem / 16);
-  --layout-heading-gap: calc(12 * 1rem / 16);
-  --layout-card-padding: calc(24 * 1rem / 16);
-  --layout-hero-padding: calc(64 * 1rem / 16);
+    --page-gutter: 32px;
+    --section-space: 96px;
+    --h1-size: 64px;
+    --h1-leading: 72px;
+    --h2-size: 48px;
+    --h2-leading: 56px;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 640px) {
   :root {
-  --font-h1: calc(64 * 1rem / 16);
-  --font-h2: calc(48 * 1rem / 16);
-  --font-h3: calc(32 * 1rem / 16);
-  --font-h4: calc(24 * 1rem / 16);
-  --font-h5: calc(20 * 1rem / 16);
-  --font-h6: calc(18 * 1rem / 16);
-  --layout-page-gutter: calc(32 * 1rem / 16);
-  --layout-section-padding: calc(64 * 1rem / 16);
-  --layout-content-gap: calc(32 * 1rem / 16);
-  --layout-heading-gap: calc(12 * 1rem / 16);
-  --layout-card-padding: calc(24 * 1rem / 16);
-  --layout-hero-padding: calc(96 * 1rem / 16);
+    --page-gutter: 24px;
+    --section-space: 64px;
+    --h1-size: 40px;
+    --h1-leading: 48px;
+    --h2-size: 32px;
+    --h2-leading: 40px;
+    --h3-size: 24px;
+    --h3-leading: 32px;
   }
 }
-.swatch[data-token="bg"] { background: var(--color-bg); }
-.swatch[data-token="surface"] { background: var(--color-surface); }
-.swatch[data-token="text"] { background: var(--color-text); }
-.swatch[data-token="muted"] { background: var(--color-muted); }
-.swatch[data-token="border"] { background: var(--color-border); }
-.swatch[data-token="accent"] { background: var(--color-accent); }
-.swatch[data-token="accent-hover"] { background: var(--color-accent-hover); }
-.swatch[data-token="on-accent"] { background: var(--color-on-accent); }
-.swatch[data-token="soft"] { background: var(--color-soft); }
-.swatch[data-token="focus"] { background: var(--color-focus); }
-.swatch[data-token="danger"] { background: var(--color-danger); }
-.space-bar[data-token="1"] { inline-size: var(--space-1); }
-.space-bar[data-token="2"] { inline-size: var(--space-2); }
-.space-bar[data-token="3"] { inline-size: var(--space-3); }
-.space-bar[data-token="4"] { inline-size: var(--space-4); }
-.space-bar[data-token="5"] { inline-size: var(--space-5); }
-.space-bar[data-token="6"] { inline-size: var(--space-6); }
-.space-bar[data-token="8"] { inline-size: var(--space-8); }
-.space-bar[data-token="10"] { inline-size: var(--space-10); }
-.space-bar[data-token="12"] { inline-size: var(--space-12); }
-.space-bar[data-token="16"] { inline-size: var(--space-16); }
-.space-bar[data-token="20"] { inline-size: var(--space-20); }
-.space-bar[data-token="24"] { inline-size: var(--space-24); }

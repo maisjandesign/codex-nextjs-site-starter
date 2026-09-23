@@ -1,99 +1,105 @@
-# Project rules for Codex
+# Reference-first Next.js workspace
 
-This is a Next.js App Router + TypeScript starter. Build a coherent site for the specific brief; the demo's visual style is only a starting point.
+## Mandatory setup gate — before any layout work
 
-## Getting started
+All template instructions, generated UI, copy, stories, comments, metadata and reports must be in English unless the user explicitly changes the language for a later project.
 
-Before implementation or preview startup, read [STARTUP.md](docs/STARTUP.md) and run `npm run setup`. Install missing required project-local skills and locked dependencies first, including the Graft executable; skip already installed valid copies. Installation is authorized as part of project startup. If blocked, use the supported permission recovery when applicable, report the actual error and keep setup pending; continue only independent work. Do not silently substitute stale node_modules or treat Graft as optional. Then build/map the code and load the skills for the current stage. This startup rule supersedes older unavailable-tool fallback guidance.
+In chat, reply in the language the user uses. This does not change the English-only requirement for project work and documents.
 
-Read `START-HERE.md`, `docs/BRIEF.md`, `docs/SKILL-ROUTING.md`, and `.agents/skills/site-workflow/SKILL.md`. Verify Graft, the eight design skills and six official GSAP skills, and use them at their mapped stages; this is a required startup convention, not an optional recommendation. Do not repeat questions already answered in the task. Make reasonable assumptions for reversible decisions and record them in the brief. The user's requirements take precedence over the starter defaults.
+1. Before touching a supplied design or editing site UI, run `npm run setup` from this project root. It installs the bundled official GSAP skills, the user's better-ui snapshot, and the upstream Graft skill into `.agents/skills/`; restores pinned npm dependencies; and prepares the local Graft CLI, AGENTS.md integration and code index.
+2. Run `npm run setup:check`. It verifies installed skill hashes, Graft, the project-specific readiness marker and the lockfile. A marker copied from another project does not count. Missing, incomplete or conflicting installation blocks layout work; repair setup first without silently skipping a requirement.
+3. Read the installed `gsap-react`, `gsap-scrolltrigger`, `gsap-plugins`, `better-ui` and `graft` SKILL.md files. Other installed GSAP skills are available as needed. Read them by path immediately if the session's skill catalogue has not refreshed; a new turn is not required to use their instructions.
+4. Once setup is verified, immediately begin the supplied Figma/screenshot workflow below. Do not ask for a second go-ahead or stop after installation. If no reference exists yet, ask for the reference after setup.
 
-## Code orientation with Graft
+Setup is project-local: no global plugins, account-wide Codex configuration, global MCP registration or global hooks. Use `npm run graft -- <command>` for the verified local Graft CLI. Index `src/` and `scripts/` only, keeping generated Storybook bundles out of the graph.
 
-For coding tasks, read [GRAFT.md](docs/GRAFT.md) and `.agents/skills/graft/SKILL.md` at startup. After dependencies are installed, build the local graph and inspect its map. Use relevant symbol/caller queries before changing shared components, motion primitives or hooks; verify actual source, tokens, styles, pages and stories before editing. Refresh/check the graph after source changes. Graft is required code orientation after setup, not a visual review or an extra approval gate. Use `rg` for text search; source inspection does not replace installing a missing required tool. Documentation-only work does not need a graph build. The integration boundaries in GRAFT.md override the upstream skill's blanket search, trust, reporting and setup recommendations; do not run global init/hooks or deep/LLM processing by default.
+## Start here
 
-## Delivery sequence
+This is a reusable template, not the target site's visual identity. Build the user's page from the attached Figma URL or screenshot. Keep Next.js App Router + TypeScript, the shared GSAP infrastructure, and a separate Storybook. Replace the demo's content, colors, typeface, and composition with the reference. Do not carry the lime palette or demo graphics into unrelated projects.
 
-Follow `docs/WORKFLOW.md`: implement the supplied designs on desktop with local consistency corrections, including browser-verified animations and an editable design system → apply desktop revisions until approval → ask about mobile and wait for authorization → complete mobile/tablet → run browser QA and fix findings.
+Read the project-local skill `.agents/skills/reference-site/SKILL.md` before new site work. It selects the Figma or screenshot workflow. Read `.agents/skills/gsap-next-motion/SKILL.md` when wiring motion and `.agents/skills/site-component-system/SKILL.md` when creating components, tokens, stories, or running QA. These local instructions accompany the mandatory installed skills; connector tools remain environment-dependent.
 
-Once desktop is accepted, preserve that baseline during mobile adaptation and QA unless the user requests a redesign; a new image alone does not reset approval. The first visible desktop draft may be rough. Start rendering real pages promptly; do not require a finished token catalog or clean browser audit first. Desktop motion and interactive-state review in the browser is required during implementation and before a completed desktop handoff; follow docs/MOTION-DEFAULTS.md. Fix observed defects immediately. Focused browser automation may reproduce those interactions. The full regression suite and cross-browser/multi-viewport matrix wait until both layouts are ready. If mobile is declined, defer it and the combined matrix; an additional full desktop-only QA pass requires an explicit request, but the required desktop motion review still applies. Honor explicit authorization already given for the mobile step instead of asking twice.
+## User's non-negotiable defaults
 
-Record the current phase and approvals in `docs/BRIEF.md`. These scheduling rules apply to every skill listed below.
+- Next.js App Router, TypeScript, server components for layouts/content; client islands only for interaction. No migration to Vite/SPA. Storybook uses its Next.js adapter; its internal builder does not change the website framework.
+- Figma/screenshot determines composition and visual character. Export original Figma photos, icons and SVGs. For a screenshot, generate missing raster imagery inspired by the visible asset, then rebuild the actual interface in code.
+- One typography system: every H1 has the same font family, weight, size and line-height at the same breakpoint; same for H2/H3/H4. Never introduce a section-specific heading size. Change semantic role or shared tokens, not one heading's CSS.
+- Author design sizes, typography sizes/line-heights, spacing, gaps, padding, radii and fixed layout dimensions as integer multiples of 8px. Normalize reference values to the nearest 8px, ties upward; body text minimum 16px. One shared value wins across repeated components. Use integer px tokens, no fractional rem/vw/clamp font sizes.
+- Fidelity is measured after this explicit 8px normalization. Record material source → token differences in `design/decisions.md`, and match everything else. Do not silently claim pixel identity after normalization.
+- The grid applies to authored design tokens, not the browser's intermediate percentage/flex coordinates, intrinsic asset geometry, SVG paths, animation interpolation, opacity, durations, weights, ratios or z-index. Hairline borders 1px and focus outlines 2px are technical exceptions; do not thicken exported SVG strokes to 8px. If the user wants even strokes on the grid, follow that explicit request.
+- GSAP smooth scroll, upward masked reveals and expressive button/link hovers are default implementation work. Buttons use a rising fill, masked rolling label and moving arrow; text links draw an underline and shift their label. Hover components own their GSAP lifecycle and work in isolation, including every Storybook variant and Docs. Do not make hovers depend on MotionRoot. Touch-only devices use native scrolling; reduced-motion skips nonessential motion; never hide content in base CSS.
+- Deliver a separate, working Storybook containing every reusable component actually used on the site: buttons and states, links/navigation, headings/body/fonts, graphics/icons, cards, forms, section compositions and motion presets. Stories import production components and shared styles; never maintain a copied implementation.
+- A site is not finished until both site and Storybook build and the visual review is complete. The original user requests browser visual testing and responsive review as part of this reusable workflow. Store evidence under `verification/` and report real limitations.
 
-## Classify the source first
+## Work sequence
 
-Read [DESIGN-SOURCE.md](docs/DESIGN-SOURCE.md) before layout or asset generation. Inspect the actual selected Figma frame/node when supplied: meaningful editable structure, Auto Layout/spacing, text, original image fills and vectors. Classify it as structured Figma, flat image or mixed; layer count alone is insufficient. Structured designs use original exported images and SVG icons/logos. Flat references use generated similar high-resolution imagery while preserving separately supplied official assets. Mixed frames are classified per region: typography overlays and redundant layers over a flattened section do not make it a structured design. Preserve useful originals and copy. Record evidence and unavailable access in BRIEF.md; do not claim layer inspection from a screenshot alone.
+1. Complete the mandatory setup gate above. Then inspect existing files, supplied reference and accessible tools. Choose the relevant local skill and available specialist skills. Do not load every installed skill.
+2. Create `design/brief.md`, `design/assets.json`, `design/decisions.md` from observed evidence. Identify content, sections, interactive behavior, grid normalization, missing fonts/assets and target viewports. Keep these concise and current.
+3. Obtain actual assets early. Set type, spacing and color tokens in `src/styles/tokens.css`. Use matching local fonts; do not silently substitute unavailable proprietary fonts.
+4. Build the reference at its original viewport width, then derive coherent mobile/tablet layouts. Responsive sizes change only through shared breakpoint tokens. Read DOM order for semantic hierarchy; use Grid/Flex, not a canvas of absolute positions.
+5. Use `RevealText` for plain heading text, `Reveal` for text/blocks, `RevealMedia` for visual assets, `MotionButton` for actions, and `MotionLink` for navigation text links. Keep one `MotionRoot` in root layout. `AnchorLink` combines link hover with same-page scroll and focus; set `animate={false}` for skip links. Fixed headers/modals live outside the transformed content.
+6. Add stories in the same change as each component; include real states and a long-content example where relevant. Add actual site graphics to Foundations/Graphics. Build section stories by composing real components.
+7. Run `npm run check`, `npm run build`, `npm run build-storybook`. Then visually inspect site + Storybook at reference width, 1440, 768, 390 and 320px as relevant. Compare screenshots, fix demonstrated mismatches and rerun affected checks.
+8. Return runnable site, Storybook entry point, reference deviations, and a short verified QA result. Do not publish, upload, or send messages unless the user asks.
 
-## Implementing supplied designs
+## Agent roles
 
-Treat supplied Figma designs, screenshots and mockups as the design to implement.
-Preserve their section inventory and order, content hierarchy, layout,
-grid, alignment, image placement, visual character, palette, and user flows.
+Use `instructions/agent-roles.md` for bounded role briefs. On substantial multi-section work, parallel agents may handle independent asset analysis and component stories while the lead builds the page. Delegate only when the current environment and user permit it; otherwise execute the same roles sequentially. Files in `instructions/` describe roles, they do not create or configure runtime agents. The lead integrates, compares and verifies the final result.
 
-Your task is to make the supplied design consistent through shared tokens
-and components. Correct isolated inconsistencies in spacing, typography,
-alignment, sizing, radii, and repeated component states.
+## Commands and boundaries
 
-Derive the shared system from the supplied design:
+`npm ci` installs the lockfile; `npm run dev` serves the site; `npm run storybook` serves the component library. Prefer the lockfile over arbitrary package upgrades. Use the active browser skill before browser tools. Use active Figma/imagegen tool schemas, never invented tool names or downloaded secrets. No full-page screenshot as implementation, fake controls, permanent temporary Figma URLs, arbitrary stock assets, or unsupported claims of exactness.
 
-- Normalize equivalent elements to the same semantic role and token.
-- Use a coherent heading scale and consistent body and label styles.
-- Apply consistent gutters, section spacing, content gaps, and card padding
-  where the same layout role repeats.
-- Preserve intentional differences between roles, such as a large hero
-  headline, a compact label, or a distinct full-width section.
-- When values differ slightly without an apparent design reason, choose
-  the value most consistent with the surrounding references.
+Use semantic HTML, accessible names, visible keyboard focus, correct alt text, real link destinations and actual form behavior. Scope changes to the requested site. Ask only for missing information that cannot be recovered and materially blocks fidelity; keep independent work moving.
 
-Keep corrections local to the inconsistent values or elements. Do not
-add, remove, merge, reorder, or redesign sections. Do not substitute a
-different grid, composition, content, or interaction pattern merely
-because you consider it better.
+<!-- BEGIN:nextjs-agent-rules -->
 
-When intent is uncertain, preserve the supplied composition. Identify
-structural improvement suggestions separately; implement them only when
-the user explicitly requests or approves them.
+# This is NOT the Next.js you know
 
-Before desktop review, briefly record which inconsistencies were
-normalized and which shared rules were applied.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-## Visual refinement tools
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
-Read docs/DESIGN-TOOLS.md when starting desktop work or correcting supplied annotations. Capture a short reference passport in BRIEF.md, preserving the supplied structure. Use the local Design tools panel for registered shared/desktop token preview and source saving; update the explicit project baseline after deriving the initial token system. Use the spacing inspector to compare repeated roles after motion settles, and the Storybook Typography Playground to inspect wrapping before committing fonts. Marked screenshots identify the correction target; they do not authorize unrequested structural changes. Edit the affected image asset under IMAGE-ASSETS.md without regenerating the whole page. Design variations remain opt-in.
+<!-- END:nextjs-agent-rules -->
 
-## Mandatory desktop motion
+<!-- graft:start -->
+## Graft — repo context graph
 
-Follow only [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md): **upward entrances inside a stationary mask, reversible GSAP hovers on existing interactive objects, and GSAP ScrollSmoother**. Do not import additional motion recipes or presets from skills, old archives or reference sites. Implement and observe these three families during desktop work, using shared tokens and scoped React cleanup. Required unverified behavior keeps desktop completion pending; early drafts remain welcome. Full browser/viewport QA stays after approved desktop and authorized mobile.
+This repo is indexed in `graft/`: small linked markdown nodes that explain each
+system and carry exact file:line spans, kept in sync with the code through git.
 
-## Required invariants
+For ANY task here — understanding how something works, finding where code lives,
+or scoping a change — get context from the graph before grepping or opening
+source files. Re-ask freely (it's cheap) and reuse literal identifiers you
+already have (symbol, error string, file name) as the query. New to this repo?
+Run `graft map` first — a token-budgeted orientation (dir clusters, hubs,
+hotspots), no LLM, no key.
 
-- Use Next.js App Router and strict TypeScript. Do not replace the stack without a request. Default to Server Components; use client boundaries for state, events, and browser APIs.
-- The only source of design values is `src/design/tokens.json`. After changes, run `npm run tokens`. Do not edit `src/styles/tokens.css` manually.
-- Use one CSS system: tokens → base → components → layout. Do not add Tailwind, CSS-in-JS, per-element inline style overrides, or another UI kit alongside it. The token editor may update validated CSS custom properties centrally at the root for temporary preview; this is not an escape hatch for page-local values. An explicitly requested migration must also migrate the audit.
-- Authored dimensions, spacing, radii, borders, breakpoints, and durations must be integers. Do not adjust individual screens with fractional pixels. Unitless line-height, opacity, scale, and easing may be fractional. Generate rem values with `calc(N * 1rem / 16)`; do not fix the root font size in px. Fractional browser geometry caused by zoom, grids, or device scaling is not a token defect.
-- Within the project site and specimens, all H1 elements must have the same style at the same viewport and root font size; likewise H2–H6. Centralize their visual properties in scoped base.css rules. Documentation chrome has a separate fixed heading scale under `docs/DOCUMENTATION-TEMPLATE.md`; verify each scope independently. Use one H1 per page and a coherent heading outline. Give large decorative text a separate role instead of overriding an H2 in one section.
-- Use shared `Button`, `ButtonLink`, `Field`, and `Card` components, and shared navigation/menu primitives when those roles exist. Select variants through props. A new component role needs an implementation, a catalog example, and verification. Do not clone buttons into page files.
-- Standard sections use the shared `Section` component and layout tokens. Align heading left edges with the container. Repeat the section-to-heading-group inset, internal heading gap, content gap, and card padding across equivalent sections and pages. Hero is a separate named role. Do not align long headings with fixed heights or manual `<br>` elements.
-- Follow `docs/MOTION-DEFAULTS.md` for motion; do not add another animation specification. GSAP runtime styles belong in shared client primitives and must not compete with CSS or another timeline on the same property.
-- Use `site-assets`, `docs/DESIGN-SOURCE.md` and `docs/IMAGE-ASSETS.md` for assets: export original images and SVG icons/logos from structured Figma designs; generate similar high-resolution imagery for flat references; combine both per region for mixed frames. Verify actual dimensions and preserve crop/identity. Original Figma image fills are valid assets; flattened page/section screenshots are not production photo crops. Preserve separately supplied official assets.
-- Actions support default, hover, focus-visible, active, disabled, and loading states where applicable. Use the shared masked entrances required by the motion contract. Use motion tokens and enable movement only under `prefers-reduced-motion: no-preference`. Avoid transition:all, scroll hijacking, and essential content hidden until JavaScript runs.
-- Use native semantics, keyboard support, visible focus, labeled fields, clear errors, and readable contrast in the approved theme(s). Preserve the reference palette; report conflicts before a material color change. Do not automatically switch to dark mode, dim pages, add decorative scrims, or apply brightness filters as an accessibility fix. Use a modal backdrop only when the requested interaction needs one. Buttons perform actions; links navigate. Do not disable zoom.
-- Build real Storybook alongside the desktop, following `docs/DOCUMENTATION-TEMPLATE.md`: Foundations / Components / Patterns / Motion / Pages; category/folder/component/Docs-or-story hierarchy; actual source components, typed args, native Controls, event callbacks, and replayable motion. Preserve native light chrome across projects. Complete the project inventory before desktop acceptance; do not delay the first preview. `/design-system` is the supporting Next.js token lab. Before desktop acceptance, adapt the included local token editor and inspector under `docs/DESIGN-TOOLS.md`; persistent token and motion saving are included. Controls are temporary prop previews, not token persistence. Do not build a custom imitation of Storybook.
+- Run `graft ask "<your question>" --source` → ranked nodes with the relevant
+  code spans inlined (each hit's ≤8-line crux by default; `--full` for whole
+  definitions when the crux isn't enough). Match the tool to the task shape:
+  for understanding or editing, the top node IS the answer — cite its
+  `covers:` file:line spans and edit straight from `--source`. For
+  exhaustive tasks ("every occurrence / every caller of this pattern"), ranked
+  results are top-N, not complete — run `graft grep "<literal>"` instead
+  (exhaustive over indexed files, grouped by enclosing symbol), falling back
+  to raw `grep -rn` only for unindexed files.
+- `graft skeleton <file>` → every definition's signature + span, ~10× cheaper
+  than reading the file; use it to skim an API surface.
+- `graft callers <symbol>` gives precomputed, exact edges — who calls this.
+  Add `--direction out` for what it calls, or `--depth N` to walk
+  transitively for the full blast radius. For structural questions, skip
+  ranking and use this directly.
+- Or browse: `graft/INDEX.md` lists every node; follow the links.
+- Monorepos and folders of multiple repos rank fairly across sub-projects —
+  hits carry `[scope/]` labels naming which one they're from. Narrow with
+  `graft ask "<task>" --in <scope>/` once you know where you're working.
 
-## Skills to read
+If a returned span is truncated ("+N more lines"), open the file at that exact
+range before finalizing. Only open source files when a node genuinely lacks a
+needed detail, and then at the exact file:line the node points to — never
+re-read whole files.
 
-Read `docs/DESIGN-SYSTEM.md`, Project rules for the Better skills, when applying better-layout, better-typography, better-accessibility or better-ui. This is where the project-specific rules live; no separate wrapper skills are needed.
-
-Self-contained local skills live in `.agents/skills/`. `site-workflow` routes to the relevant file. Use `site-tokens` for tokens; `better-layout` for spacing; `better-typography` for text; `better-ui` for primitives; `site-responsive` for responsive layouts; `site-motion` for movement; `better-accessibility` for accessibility; `site-assets` for source-aware asset exports and generation; and `site-qa` for handoff. Load only what the task needs. The eight design skills are bundled next to the six site-* skills. Follow `docs/SKILL-ROUTING.md` for their required stage map, explicit better-interface quick/full calls, and conflict resolution. Use each when its subject applies; keep unneeded references and later-stage checks deferred. Do not substitute `interface-design` for `better-interface` or let general skill guidance override the reference-interpretation policy, the native Storybook documentation, or delivery order.
-
-## Completion
-
-Register new pages in `tests/site.config.ts`. Only after the workflow reaches stage 4, run `npm run check` and `npm run test:browsers`, then inspect mobile/desktop layouts, zoom, and keyboard behavior using `docs/QA-CHECKLIST.md`. Check shared-token changes across every route during this QA phase. For an earlier desktop handoff, report observed desktop motion/interaction results separately from the deferred full browser matrix and mobile work. Dependency presence, a build, and static screenshots cannot establish motion readiness. Required unverified motion states keep desktop readiness pending; show an explicitly unfinished preview with the gap.
-
-Do not weaken tests to obtain a passing result or hide page overflow with global overflow-x:hidden. Fix the source of the inconsistency. Document an intentional new role in `docs/DESIGN-DECISIONS.md`, then add its token, component, example, and test.
-
-Deliver the commands and observed results, screenshots, and remaining limitations. Label checks that were not performed as `not run`, never `passed`. Do not claim perfection or complete WCAG conformance based on an automated test. Do not publish unless publication is part of the user's request.
-
-## Maintaining the canonical template
-
-When the Git origin is `maisjandesign/codex-nextjs-site-starter` and the user requests a template update, follow [MAINTENANCE.md](docs/MAINTENANCE.md): validate, commit, push the authorized change, and verify the remote result. This convention applies only to the template repository, not projects created from it. No background synchronization is implied.
+After big code changes, refresh the graph with `graft build` (deterministic,
+no API key, $0).
+<!-- graft:end -->

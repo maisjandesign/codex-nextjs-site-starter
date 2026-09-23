@@ -1,19 +1,28 @@
 node_modules/
-dist/
-playwright-report/
-test-results/
-.DS_Store
-.env
-.env.*
-!.env.example
 .next/
 out/
-*.tsbuildinfo
-
+dist/
 storybook-static/
+.env*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+work/
+verification/
+*.zip
+*.log
+.template/
 
-# Graft disposable local graph.
+# Installed from tracked tooling/skills/ bundles by npm run setup.
+/.agents/skills/better-ui/
+/.agents/skills/graft/
+/.agents/skills/gsap-core/
+/.agents/skills/gsap-timeline/
+/.agents/skills/gsap-scrolltrigger/
+/.agents/skills/gsap-plugins/
+/.agents/skills/gsap-utils/
+/.agents/skills/gsap-react/
+/.agents/skills/gsap-performance/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
-
-# Serialize local setup; never publish the transient lock.
-/.starter-setup.lock/

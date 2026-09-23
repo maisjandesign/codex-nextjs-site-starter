@@ -1,22 +1,19 @@
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
-import { App } from '../App';
-import '../styles/tokens.css';
-import '../styles/base.css';
-import '../styles/components.css';
-import '../styles/layout.css';
+import type { Metadata } from "next";
+import { MotionRoot } from "@/components/motion/motion-root";
+import { AnchorLink } from "@/components/motion/anchor-link";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: 'Foundation — Next.js Starter', template: '%s — Foundation' },
-  description:
-    'A foundation for consistent interfaces: design tokens, components, and quality checks.',
+  title: { default: "Reference / Next.js starter", template: "%s / Reference" },
+  description: "A reference-first Next.js workspace with GSAP motion, Figma and screenshot workflows.",
+  robots: { index: false, follow: false }, // Replace with the project's SEO policy before launch.
 };
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <App>{children}</App>
-      </body>
-    </html>
-  );
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body>
+    <AnchorLink href="#main" className="skip-link" animate={false}>Skip to content</AnchorLink>
+    {/* Fixed headers and modal portals belong outside MotionRoot. */}
+    <MotionRoot>{children}</MotionRoot>
+    <div id="overlay-root" />
+  </body></html>;
 }

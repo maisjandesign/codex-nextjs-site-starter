@@ -1,8 +1,8 @@
-import type { NextConfig } from 'next';
-const config: NextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  agentRules: false,
-  outputFileTracingRoot: process.cwd(),
   poweredByHeader: false,
 };
-export default config;
+
+export default nextConfig;
