@@ -1,5 +1,63 @@
 # Foundation · Next.js Site Starter
 
+## How to use this template
+
+### 1. Create your own project
+
+On this GitHub page, click **Use this template → Create a new repository**, choose a name and visibility, then create the repository. Clone **your new repository**, replacing the example owner and name below:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT.git
+cd YOUR-PROJECT
+```
+
+Alternatively, use **Code → Download ZIP**, extract the entire archive, and keep hidden folders such as `.agents` and `.storybook`. Open the extracted project root, where `AGENTS.md` and `package.json` are located.
+
+### 2. Open the project in Codex and provide the design
+
+Open your project folder in Codex and start a task in that folder. Supply your brief, page content and design references:
+
+- **Structured Figma:** provide the frame/node link or identify the selected frame through an available Figma integration. Original images, SVG icons and logos are exported and reused.
+- **Screenshot or flat mockup:** attach the image. Codex analyzes the layout and generates similar high-resolution imagery for the required slots.
+- **Mixed Figma frame:** provide the frame; Codex classifies individual regions and combines original exports with generated assets.
+
+Figma layer access and image generation depend on the tools available in your Codex environment. A preview image alone does not provide access to editable layers. Include original brand assets and font files when available.
+
+### 3. Send this starting prompt
+
+> Use this repository as the starter for my website. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and GSAP button/tab hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
+
+The full starting prompt and workflow are in [START-HERE.md](START-HERE.md). The bundled demo is a starting point; the rules describe the project-specific work to complete, not proof that every required effect is already implemented.
+
+### 4. Run the website and Storybook locally
+
+Use **Node.js 22.12 or newer** and npm. From the project root:
+
+```bash
+npm ci
+npm run dev
+```
+
+In a second terminal, from the same project folder:
+
+```bash
+npm run storybook
+```
+
+- Website: [http://127.0.0.1:3000](http://127.0.0.1:3000)
+- Token lab: [http://127.0.0.1:3000/design-system](http://127.0.0.1:3000/design-system)
+- Storybook: [http://127.0.0.1:6006](http://127.0.0.1:6006)
+
+Use **Design tools** in the Next.js development preview to edit shared tokens and inspect spacing. **Save tokens** writes the source values. Storybook Controls preview individual story props; they do not save shared tokens. Run `npm run tokens` after manually editing `src/design/tokens.json`.
+
+### 5. Review and continue
+
+Review desktop and request corrections first. After desktop approval, authorize mobile adaptation when ready. Focused desktop motion checks happen during development; the full browser/viewport matrix follows completed desktop and mobile layouts. Follow [WORKFLOW.md](docs/WORKFLOW.md) for the exact order.
+
+Commit your website changes to **your own repository**. Future updates to this template are published here; they are not automatically applied to projects created from it. See [MAINTENANCE.md](docs/MAINTENANCE.md).
+
+## What the starter includes
+
 Required desktop defaults: **GSAP ScrollSmoother + masked entrances + GSAP button/tab hovers**. Read [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) at startup and verify all applicable roles before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
 
 A portable foundation for building websites in Codex: a working Next.js project, local skills, a shared token system, and executable quality checks.
