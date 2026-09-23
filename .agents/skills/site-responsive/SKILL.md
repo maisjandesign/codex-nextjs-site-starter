@@ -7,7 +7,7 @@ description: Adapt an approved desktop design for mobile and tablet after user a
 
 Read docs/WORKFLOW.md and the phase record in docs/BRIEF.md. Begin adaptation only after desktop approval and the user's authorization for mobile. If authorization is pending or mobile is deferred, preserve the desktop deliverable and do not begin responsive implementation or the browser matrix.
 
-Use the applicable Better layout/type/UI/accessibility/writing/color skills again during authorized adaptation; use animate/apple-design only for actual small-screen motion or gesture needs, under docs/SKILL-ROUTING.md.
+Use the applicable Better layout/type/UI/accessibility/writing/color skills again during authorized adaptation; use site-motion and relevant GSAP skills for actual small-screen motion or gesture needs, under docs/SKILL-ROUTING.md.
 
 Adapt the accepted desktop design using fluid containers, tokenized gutters, minmax(0, 1fr), and wrapping rows. Preserve desktop appearance. Add explicit mobile/tablet token editor scopes; keep shared values and desktop overrides identifiable so a small-screen edit cannot silently change the approved desktop. Base CSS plus media queries is an implementation choice, not permission to reverse the delivery order. Keep breakpoint values in tokens.json and structural media queries aligned with the generated CSS.
 
