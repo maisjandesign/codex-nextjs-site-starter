@@ -4,7 +4,7 @@ The canonical template repository is https://github.com/maisjandesign/codex-next
 
 ## Updating this template
 
-For user-requested template changes in this repository, update source and the relevant English documentation together, run checks appropriate to the change, review the diff, commit, and push to the canonical origin. Verify the remote commit after pushing. Preserve the 28 bundled skills and the recorded upstream snapshot hashes unless a skill update was explicitly requested. Keep generated token CSS synchronized with token JSON. If a bundled skill changes, update scripts/required-skills.json to a committed snapshot with matching file hashes under docs/STARTUP.md, so missing copies can be restored reproducibly.
+For user-requested template changes in this repository, update source and the relevant English documentation together, run checks appropriate to the change, review the diff, commit, and push to the canonical origin. Verify the remote commit after pushing. Preserve the 21 bundled skills and the recorded upstream snapshot hashes unless a skill update was explicitly requested. Keep generated token CSS synchronized with token JSON. If a bundled skill changes, update scripts/required-skills.json to a committed snapshot with matching file hashes under docs/STARTUP.md, so missing copies can be restored reproducibly.
 
 Use a feature branch when requested or when collaborating on a change that needs a pull request. Never force-push, rewrite shared history, or overwrite unrelated local work to publish an update. If GitHub CI fails, report and fix the failure rather than describing the release as passing. Full browser/viewport QA retains the readiness conditions in WORKFLOW.md.
 

@@ -40,7 +40,7 @@ npm run graft:map
 npm run dev
 ```
 
-`setup` checks all 28 project-local skills and the locked packages, restores/installs missing items and skips existing valid ones. It runs automatically before `dev` and `storybook` too. See [STARTUP.md](docs/STARTUP.md) for blocked installation handling.
+`setup` checks all 21 project-local skills and the locked packages, restores/installs missing items and skips existing valid ones. It runs automatically before `dev` and `storybook` too. See [STARTUP.md](docs/STARTUP.md) for blocked installation handling.
 
 In a second terminal, from the same project folder:
 
@@ -66,7 +66,7 @@ Motion policy: **GSAP ScrollSmoother + element masks + expressive GSAP button ho
 
 A portable foundation for building websites in Codex: a working Next.js project, local skills, a shared token system, and executable quality checks.
 
-Begin with **START-HERE.md** and the required stage map in **docs/SKILL-ROUTING.md**. The eleven requested design/motion skills and their supporting files are included locally, alongside ten site-* skills. Original global/project installations are unchanged. Verified versions and test results are recorded in **docs/VALIDATION.md**.
+Begin with **START-HERE.md** and the required stage map in **docs/SKILL-ROUTING.md**. The eight design skills and their supporting files are included locally, alongside six site-* skills. Original global/project installations are unchanged. Verified versions and test results are recorded in **docs/VALIDATION.md**.
 
 ## Delivery order
 
@@ -77,7 +77,7 @@ See **docs/WORKFLOW.md** for the phase boundaries, mobile deferral, and permitte
 ## Structure
 
 ```text
-.agents/skills/          28 skills: 10 site-* + 11 design/motion + 6 official GSAP + Graft
+.agents/skills/          21 skills: 6 site-* + 8 design + 6 official GSAP + Graft
 .github/workflows/      CI: static checks; manually enabled browser QA
 AGENTS.md               required project rules
 START-HERE.md           setup and a ready-to-use prompt
@@ -153,7 +153,7 @@ Audit limits: only registered routes and tested states are covered. The CSS chec
 
 ## Motion studio release
 
-The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Use docs/MOTION-DEFAULTS.md for required behavior; docs/MOTION-DIRECTION.md and docs/MOTION-STUDIO.md describe optional references and existing demo controls. Six official GSAP skills are included alongside the original 21 skills and Graft (28 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
+The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Use docs/MOTION-DEFAULTS.md for required behavior; docs/MOTION-DIRECTION.md and docs/MOTION-STUDIO.md describe optional references and existing demo controls. Six official GSAP skills are included alongside six site workflow skills, eight design skills and Graft (21 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
 
 Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
 

@@ -46,4 +46,4 @@ These rules qualify the preserved upstream skill:
 
 The unmodified skill is from [trailhq/Graft](https://github.com/trailhq/Graft/tree/597d82f8c2f6b1dfa2daf547073a8424b5535eb2/.claude/skills/graft), revision `597d82f8c2f6b1dfa2daf547073a8424b5535eb2`. Its [MIT license](../.agents/skills/graft/LICENSE) is included. [SKILL-INVENTORY.json](SKILL-INVENTORY.json) records snapshot hashes. The CLI is separately pinned as `@nanonets/graft@0.19.0` in package.json and package-lock.json; the skill revision and npm version are separate provenance records.
 
-There are now 28 bundled skills: ten site workflow skills, eleven original design/motion snapshots, six official GSAP snapshots, and Graft. Open a fresh task in the project if automatic skill discovery has not refreshed; the exact local skill path can also be read directly.
+There are now 21 bundled skills: six site workflow skills, eight design snapshots, six official GSAP snapshots, and Graft. Open a fresh task in the project if automatic skill discovery has not refreshed; the exact local skill path can also be read directly.

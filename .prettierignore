@@ -17,9 +17,6 @@ docs/evidence
 .agents/skills/better-ui/
 .agents/skills/better-writing/
 .agents/skills/design-taste-frontend/
-.agents/skills/animate/
-.agents/skills/animation-vocabulary/
-.agents/skills/apple-design/
 
 # Preserve official GSAP snapshots.
 .agents/skills/gsap-core/

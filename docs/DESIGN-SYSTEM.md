@@ -96,3 +96,33 @@ During desktop review, manually demonstrate a color edit and a button-size edit 
 The September 12 revision installs GSAP and @gsap/react and adds MotionReveal (rise, child stagger, and directional mask) plus MotionShowcase with replay. The homepage uses GSAP staging and the catalog includes motion specimens. Generated variables include motion.stagger, motion.distance, and motion.library-ease. See MOTION-LIBRARIES.md for ownership, token replay, and project-specific effect selection. The September 13 studio adds editable motion values and source saving; the September 18 Design tools panel adds registered color/size/typography and spacing editing.
 
 The motion-specific editor is now implemented under MOTION-STUDIO.md, including local source saving. Real Storybook is included; registered color/size editing is included in the local Design tools panel. Do not count motion-only controls as completion of the full editor contract.
+
+## Project rules for the Better skills
+
+Use better-layout, better-typography, better-accessibility and better-ui with the following project requirements. These replace separate site-specific wrapper skills; the requirements still apply from desktop implementation onward. Final automated browser/viewport checks follow WORKFLOW.md.
+
+### Repeated spacing and geometry
+
+Use the shared container and Section. Bind gutters, section padding, heading gap, content gap and card padding to semantic layout tokens. Equivalent standard sections share a left axis, top inset and internal gaps at a given breakpoint. Hero is a separate role. A justified dense/inset/full-bleed role needs a name, tokens, DESIGN-DECISIONS.md entry and its own geometry comparison group, not a local margin/transform patch.
+
+In final QA compare section border edge to heading-group top excluding border width, heading-group bottom to content top, container left to title left, and all four card padding sides. Long copy changes height without changing spacing; never force alignment with fixed heading heights or hide overflow. Register new routes in tests/site.config.ts. Use the Spacing inspector under DESIGN-TOOLS.md after motion settles; extend its registered roles when needed, and do not treat one matching row as a complete audit.
+
+### Heading scale and text
+
+Derive the integer desktop scale from the supplied reference and normalize equivalent roles locally. At the same viewport, root font size and theme, H1-H6 each share font-size, line-height, weight and family across routes through base.css. Keep one page-level H1 and a semantic outline; decorative display text gets its own role rather than a heading override. Native Storybook documentation typography is a separate scope; project specimens keep the site scale. Verify each scope without disabling heading checks.
+
+Use unitless line-height and scalable root text; do not set the root font size in px or disable zoom. Prefer natural wrapping and a suitable line measure, not manual line breaks as layout patches. Font changes require checking wrapping and page heights. License and self-host added fonts with next/font/local; a CSS font name does not bundle a font. In final QA check long headings/links, 200% text resize and mobile form inputs; mobile adaptations wait for authorization.
+
+### Accessibility without restyling
+
+Use better-accessibility while preserving the approved theme. No automatic dark mode, global brightness filters, decorative scrims or brand recoloring as an accessibility fix. A backdrop belongs only to an actual requested modal. Record contrast conflicts and seek a decision before a material palette change; unresolved contrast is not a pass.
+
+Prefer native elements and keep visible labels, accessible icon-control names, focus and keyboard operation. Associate actionable form errors, use aria-invalid and focus the first invalid field on submit. Buttons act; links navigate. Keep a skip link, one main landmark, a coherent heading outline, non-color state cues and non-overlapping targets. Menus/dialogs preserve focus behavior. Reduced motion retains readable content and feedback. Observe implemented keyboard/focus behavior during desktop work; run the full axe, zoom, form and screen-reader checks at final QA, without claiming complete conformance from automation alone.
+
+### Shared components and Storybook
+
+Use better-ui and better-writing with existing src/components primitives and semantic props. Do not clone buttons, menu roles or local styles into pages. Avoid arbitrary className/style escape hatches on core controls. Keep one icon family, currentColor, integer icon geometry and names for icon-only controls. The centralized token editor preview remains the documented exception to inline design values.
+
+Cover default, hover, focus-visible, active, disabled and loading where applicable. Retain accessible labels and target size during loading, prevent duplicate submissions and layout jumps; disabled states do not replace validation guidance. Fields have labels, errors and useful name/type/autocomplete. For new variants add real Storybook examples and meaningful state/geometry checks. Stories import source components, use typed CSF, native hierarchy/Autodocs/Controls, supported state stories and fn() callbacks. Preserve the light manager; Controls preview props and do not save tokens.
+
+Use MOTION-DEFAULTS.md for expressive shared GSAP Button/ButtonLink hovers. Keep focus rings and hit areas outside inner animated layers, and do not let entrance and hover timelines own the same property.

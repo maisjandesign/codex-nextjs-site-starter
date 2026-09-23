@@ -4,7 +4,9 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, existsSync
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
-import { restoreSkills, setup } from './setup.mjs';
+import { execute, restoreSkills, setup } from './setup.mjs';
+import { readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 const source = '---\nname: example\ndescription: A test skill.\n---\nOriginal\n';
 const hash = (value) => createHash('sha256').update(value).digest('hex');
@@ -158,4 +160,46 @@ test('a broken Graft executable is not mistaken for an installed runtime', async
     /Graft executable cannot start/,
   );
   assert.equal(installs, 1);
+});
+
+test('the shipped manifest restores exactly the current skill set and then skips it', async (t) => {
+  const { root } = fixture(t);
+  const projectRoot = fileURLToPath(new URL('../', import.meta.url));
+  const shipped = JSON.parse(
+    readFileSync(join(projectRoot, 'scripts/required-skills.json'), 'utf8'),
+  );
+  const sourceRoot = join(projectRoot, '.agents/skills');
+  const expected = readdirSync(sourceRoot)
+    .filter((name) => existsSync(join(sourceRoot, name, 'SKILL.md')))
+    .sort();
+  assert.deepEqual(shipped.skills.map((skill) => skill.name).sort(), expected);
+  const restored = await restoreSkills(root, shipped, {
+    log: quiet,
+    fetchFile: noNetwork,
+    run: (command, args) => execute(command, args, projectRoot),
+  });
+  assert.equal(
+    restored,
+    shipped.skills.reduce((count, skill) => count + skill.files.length, 0),
+  );
+  assert.deepEqual(readdirSync(join(root, '.agents/skills')).sort(), expected);
+  for (const skill of shipped.skills) {
+    for (const file of skill.files) {
+      assert.deepEqual(
+        readFileSync(join(root, '.agents/skills', skill.name, file.path)),
+        readFileSync(join(sourceRoot, skill.name, file.path)),
+        `Restore snapshot must match the shipped resource: ${skill.name}/${file.path}`,
+      );
+    }
+  }
+  assert.equal(
+    await restoreSkills(root, shipped, {
+      log: quiet,
+      fetchFile: noNetwork,
+      run: () => {
+        throw new Error('Installed skills must skip restoration');
+      },
+    }),
+    0,
+  );
 });

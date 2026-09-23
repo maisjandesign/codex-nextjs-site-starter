@@ -2,6 +2,14 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 23 reduced skill set
+
+Reduced the bundled/required set from 28 to 21 with user approval: removed animate, animation-vocabulary and apple-design, and merged the project-specific requirements of site-spacing, site-typography, site-accessibility and site-components into DESIGN-SYSTEM.md. Routing now applies better-layout, better-typography, better-accessibility and better-ui with that contract. Integer tokens, repeated spacing, H1-H6 consistency, no-dimming accessibility, shared components, Storybook and the GSAP motion contract remain required. Global skill installations are unchanged.
+
+Updated startup counts, active references, upstream inventory and the commit-pinned restoration manifest. All 21 retained entrypoints validate; all 46 retained upstream files remain byte-identical. The manifest covers 52 files. Eight setup tests passed, including restoring the complete shipped set into an empty directory, checking each file against the source and skipping installation on a second pass. Actual setup reports READY for 21 skills and skips already installed dependencies. Historical validation entries below describe their original releases.
+
+Only template instructions, skill packaging and the setup regression test changed. Application UI and dependencies are unchanged. Formatting and local Markdown links were checked; no local production builds or visual/browser QA were rerun for this reduction. CI retains its static checks and builds, fetching the pinned skill history for offline restoration tests.
+
 ## September 23 install-first startup
 
 Added dependency-free `npm run setup`, automatic predev/prestorybook hooks and a pinned restoration manifest covering all 28 skills / 60 resource files. Existing valid skill files and installed packages are skipped; missing skill resources restore from the recorded Git commit or verified GitHub bytes. Missing/invalid dependencies install through npm ci with devDependencies included. Setup verifies the Graft executable separately from its SKILL.md and exits unsuccessfully on a blocker instead of marking the environment ready. Concurrent preview starts serialize setup.

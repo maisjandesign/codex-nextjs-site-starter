@@ -73,7 +73,7 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 
 Check docs/SKILL-ROUTING.md at startup. Availability is not evidence of use.
 
-- Eleven requested entrypoints: pending verification in this project
+- 21 required local skill entrypoints: pending verification in this project
 - Skills actually loaded, source paths, stage, and purpose:
 - Deferred / not-applicable skills and reason:
 - Missing optional dependencies or references:

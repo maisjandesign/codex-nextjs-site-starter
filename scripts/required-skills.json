@@ -1,38 +1,7 @@
 {
   "repository": "maisjandesign/codex-nextjs-site-starter",
-  "revision": "7a167bea59f3fe38bf6311467f28f9fecfcab0be",
+  "revision": "12dc122598e0df1614187540d38507f1db971003",
   "skills": [
-    {
-      "name": "animate",
-      "files": [
-        {
-          "path": "RECIPES.md",
-          "sha256": "21ff63d84391db8d96ecdf9170095f55a42c836ccc36fd3269c4772bab031ba2"
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "2a99870e61971553c0af3185a194c0e557f33aaa81e0422ca2fcec52195a4341"
-        }
-      ]
-    },
-    {
-      "name": "animation-vocabulary",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "d718b48fe3c7898804d588f050a2e266d82c9f5ef51da256c8cb8b5951527757"
-        }
-      ]
-    },
-    {
-      "name": "apple-design",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "11840b24a11d7f94f39c6aaab074750ae4e4de4ef54ee4b1dd97e16ebd485e61"
-        }
-      ]
-    },
     {
       "name": "better-accessibility",
       "files": [
@@ -293,15 +262,6 @@
       ]
     },
     {
-      "name": "site-accessibility",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "5c3014c8385c664f14b86ca1ce189509ae7204ac41bf40399cbb1f307d9f014c"
-        }
-      ]
-    },
-    {
       "name": "site-assets",
       "files": [
         {
@@ -311,20 +271,11 @@
       ]
     },
     {
-      "name": "site-components",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "d3e7617f9e4614daa9bdaf3abe6a47711fc2795f9331dc85f61253b1d2f0d28e"
-        }
-      ]
-    },
-    {
       "name": "site-motion",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "e77fa740a206b01a3cbe548e71585c5bbb6444b00d6a5cf99391c8fc7ebbb970"
+          "sha256": "e1fee0f08dc0e8147a4d0553f60076ced45ee0df4975396e617f5b34951e456c"
         }
       ]
     },
@@ -342,16 +293,7 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "0bb5aae7d109147e1f2018a41f9b7b0994ce1839a1308754cd7ce817907f5151"
-        }
-      ]
-    },
-    {
-      "name": "site-spacing",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "869df10f89662da5741314130952bfd498103d8d8248ffabb2e873c8b935a42d"
+          "sha256": "bae35c086284b7f1bc62852030d1c1bfc1a9ef0b6c4d5b52bcfa08ac4451bf14"
         }
       ]
     },
@@ -365,20 +307,11 @@
       ]
     },
     {
-      "name": "site-typography",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "23eb606d74705864f668f4fa9898feeeb6c3b4db75825f6471b429dcf68bedfe"
-        }
-      ]
-    },
-    {
       "name": "site-workflow",
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "2cacfc79172094630b891eea1dcf9fd3441e25b4b080eab1658a775b9f9767d7"
+          "sha256": "2bcdb42958f776055840a64fb43c0ff8ee1051b107178d6d01305f16efb6692e"
         }
       ]
     }

@@ -211,43 +211,6 @@
       ]
     },
     {
-      "name": "animate",
-      "source": "Video Director/.agents/skills/animate (project-local)",
-      "destination": ".agents/skills/animate",
-      "files": [
-        {
-          "path": "RECIPES.md",
-          "sha256": "21ff63d84391db8d96ecdf9170095f55a42c836ccc36fd3269c4772bab031ba2"
-        },
-        {
-          "path": "SKILL.md",
-          "sha256": "2a99870e61971553c0af3185a194c0e557f33aaa81e0422ca2fcec52195a4341"
-        }
-      ]
-    },
-    {
-      "name": "animation-vocabulary",
-      "source": "Video Director/.agents/skills/animation-vocabulary (project-local)",
-      "destination": ".agents/skills/animation-vocabulary",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "d718b48fe3c7898804d588f050a2e266d82c9f5ef51da256c8cb8b5951527757"
-        }
-      ]
-    },
-    {
-      "name": "apple-design",
-      "source": "Video Director/.agents/skills/apple-design (project-local)",
-      "destination": ".agents/skills/apple-design",
-      "files": [
-        {
-          "path": "SKILL.md",
-          "sha256": "11840b24a11d7f94f39c6aaab074750ae4e4de4ef54ee4b1dd97e16ebd485e61"
-        }
-      ]
-    },
-    {
       "name": "gsap-core",
       "source": "https://github.com/greensock/gsap-skills",
       "revision": "aed9cfd3277740755f6bfc1155c7aa645403b760",
