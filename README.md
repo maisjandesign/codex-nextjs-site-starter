@@ -25,7 +25,7 @@ Figma layer access and image generation depend on the tools available in your Co
 
 ### 3. Send this starting prompt
 
-> Use this repository as the starter for my website. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and GSAP button/tab hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
+> Use this repository as the starter for my website. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and GSAP button/tab hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
 
 The full starting prompt and workflow are in [START-HERE.md](START-HERE.md). The bundled demo is a starting point; the rules describe the project-specific work to complete, not proof that every required effect is already implemented.
 
@@ -35,6 +35,8 @@ Use **Node.js 22.12 or newer** and npm. From the project root:
 
 ```bash
 npm ci
+npm run graft:build
+npm run graft:map
 npm run dev
 ```
 
@@ -73,7 +75,7 @@ See **docs/WORKFLOW.md** for the phase boundaries, mobile deferral, and permitte
 ## Structure
 
 ```text
-.agents/skills/          27 skills: 10 site-* plus 11 design/motion snapshots and 6 official GSAP skills
+.agents/skills/          28 skills: 10 site-* + 11 design/motion + 6 official GSAP + Graft
 .github/workflows/      CI: static checks; manually enabled browser QA
 AGENTS.md               required project rules
 START-HERE.md           setup and a ready-to-use prompt
@@ -89,6 +91,10 @@ docs/                   brief, Storybook contract, system contract, QA
 stories/                typed stories importing actual site components
 package-lock.json       reproducible dependency versions
 ```
+
+## Graft is included
+
+The official Graft skill and pinned local CLI are included for code orientation at startup and dependency checks before shared-component changes. Follow [GRAFT.md](docs/GRAFT.md). Structural mode needs no LLM API key; it does not replace design skills or browser motion review. No global hooks or MCP setup is required.
 
 ## Motion and imagery
 
@@ -124,6 +130,10 @@ The project deliberately uses one CSS system. Next.js and strict typing are conf
 
 | Command                 | Purpose                                                       |
 | ----------------------- | ------------------------------------------------------------- |
+| `npm run graft:build`   | Build the local structural code graph                         |
+| `npm run graft:map`     | Inspect the code map at coding startup                        |
+| `npm run graft:check`   | Check graph freshness after changes                           |
+| `npm run test:graft`    | Verify real symbol and dependency queries                     |
 | `npm run format`        | Format source files and CSS consistently                      |
 | `npm run dev`           | Start local development                                       |
 | `npm run tokens`        | Regenerate tokens.css from JSON                               |
@@ -141,7 +151,7 @@ Audit limits: only registered routes and tested states are covered. The CSS chec
 
 ## Motion studio release
 
-The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the existing 21 skills (27 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
+The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the original 21 skills and Graft (28 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
 
 Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
 

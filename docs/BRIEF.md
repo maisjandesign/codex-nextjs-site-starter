@@ -54,6 +54,14 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 - Asset origin, node/reference, export method or generation prompt, actual dimensions/SVG viewBox and saved files: docs/ASSET-INVENTORY.json
 - Pending exports/generation or unavailable references:
 
+## Graft code orientation record
+
+- Coding task or documentation/reference-only task:
+- Graft version; build/map/check status and date:
+- Relevant queries and actual source/consumer checks:
+- Shared components, hooks, tokens, styles, pages and stories affected:
+- Missing relationships, unavailable tooling or source-search fallback:
+
 ## Skill use record
 
 Check docs/SKILL-ROUTING.md at startup. Availability is not evidence of use.

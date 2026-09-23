@@ -4,7 +4,11 @@ This is a Next.js App Router + TypeScript starter. Build a coherent site for the
 
 ## Getting started
 
-Read `START-HERE.md`, `docs/BRIEF.md`, `docs/SKILL-ROUTING.md`, and `.agents/skills/site-workflow/SKILL.md`. Verify the eleven original design/motion skills and six official GSAP skills, and use them at their mapped stages; this is a required startup convention, not an optional recommendation. Do not repeat questions already answered in the task. Make reasonable assumptions for reversible decisions and record them in the brief. The user's requirements take precedence over the starter defaults.
+Read `START-HERE.md`, `docs/BRIEF.md`, `docs/SKILL-ROUTING.md`, and `.agents/skills/site-workflow/SKILL.md`. Verify Graft, the eleven original design/motion skills and six official GSAP skills, and use them at their mapped stages; this is a required startup convention, not an optional recommendation. Do not repeat questions already answered in the task. Make reasonable assumptions for reversible decisions and record them in the brief. The user's requirements take precedence over the starter defaults.
+
+## Code orientation with Graft
+
+For coding tasks, read [GRAFT.md](docs/GRAFT.md) and `.agents/skills/graft/SKILL.md` at startup. After dependencies are installed, build the local graph and inspect its map. Use relevant symbol/caller queries before changing shared components, motion primitives or hooks; verify actual source, tokens, styles, pages and stories before editing. Refresh/check the graph after source changes. Graft is required code orientation when available, not a visual review or an extra approval gate. Use `rg` for text search and as the fallback if Graft is unavailable. Documentation-only work does not need a graph build. The integration boundaries in GRAFT.md override the upstream skill's blanket search, trust, reporting and setup recommendations; do not run global init/hooks or deep/LLM processing by default.
 
 ## Delivery sequence
 
@@ -105,7 +109,7 @@ Motion baseline: GSAP ScrollSmoother, GSAP-powered masked entrances, and GSAP bu
 
 ## Motion studio release
 
-The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the existing 21 skills (27 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
+The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the original 21 skills and Graft (28 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
 
 Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
 

@@ -2,6 +2,14 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 23 Graft integration
+
+Added the unmodified official Graft skill and MIT license, pinned CLI `@nanonets/graft@0.19.0`, project-local structural commands, startup/shared-change routing and CI smoke tests. There are 28 skill entrypoints. All 50 inventoried upstream files match their hashes; the previous 48 files and their inventory entries remain unchanged. Existing locked dependency entries are unchanged; Graft and its dependencies were added as development tooling.
+
+Verified locally: structural build/map/check, targeted ask, Button/ButtonLink skeleton and a cross-file useMotion caller query. The structural graph indexed 56 files at validation time. Three Graft smoke tests passed, including rejection of global init/deep commands through the wrapper. The graph is Git-ignored; no global initialization, hooks, MCP configuration or deep/LLM processing was performed.
+
+Formatting, static design audit, eight auditor tests, five motion tests, five token-editor tests, Next.js production build, Storybook TypeScript and Storybook production build passed. Storybook retained its large-chunk build warning. Skill frontmatter validation passed for all 28 entrypoints. Browser/viewport and visual motion checks were not rerun for this tooling integration; application UI source was unchanged. These results do not establish new desktop motion readiness.
+
 ## September 23 design-source classification
 
 Added startup classification for structured Figma, flat image and mixed frames. Asset rules now export original images and SVG icons/logos from meaningful structured designs, generate imagery for flat references, and combine both per region for mixed frames. Layer count and ordinary photographic image fills do not establish a flattened source; typography overlays alone do not establish structured layout. Preserve useful copy, source identity, local token normalization and all existing motion/delivery requirements.

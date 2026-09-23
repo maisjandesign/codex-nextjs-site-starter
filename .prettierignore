@@ -30,3 +30,7 @@ docs/evidence
 .agents/skills/gsap-timeline/
 
 storybook-static/
+
+# Graft local graph and preserved upstream skill.
+graft/
+.agents/skills/graft/

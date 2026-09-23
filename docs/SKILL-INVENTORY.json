@@ -1,5 +1,5 @@
 {
-  "checked": "2026-09-08",
+  "checked": "2026-09-23",
   "purpose": "User-requested project-local snapshots; original installations unchanged.",
   "skills": [
     {
@@ -322,6 +322,24 @@
         {
           "path": "SKILL.md",
           "sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02"
+        }
+      ]
+    },
+    {
+      "name": "graft",
+      "source": "https://github.com/trailhq/Graft",
+      "revision": "597d82f8c2f6b1dfa2daf547073a8424b5535eb2",
+      "sourcePath": ".claude/skills/graft/SKILL.md",
+      "destination": ".agents/skills/graft",
+      "license": "MIT; .agents/skills/graft/LICENSE",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "144077cd9f7a7bc25f2a04279f02e159ae40d6a9c5d8f7fb1d82d5ebd99ad3d7"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "d671f52607b002fad21b4a09cf3a7bd6c507e95abfd90040c775fdd4d83e3d7c"
         }
       ]
     }

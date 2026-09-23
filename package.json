@@ -15,7 +15,7 @@
     "build": "npm run audit && next build --webpack",
     "test:e2e": "playwright test",
     "test:browsers": "playwright test --config playwright.browsers.config.ts",
-    "check": "npm run format:check && npm run test:audit && npm run test:motion && npm run test:tokens && npm run build && npm run typecheck:storybook && npm run build:storybook && npm run test:e2e",
+    "check": "npm run format:check && npm run test:graft && npm run test:audit && npm run test:motion && npm run test:tokens && npm run build && npm run typecheck:storybook && npm run build:storybook && npm run test:e2e",
     "start": "next start --hostname 127.0.0.1",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -24,7 +24,12 @@
     "storybook": "storybook dev -p 6006 --host 127.0.0.1 --no-open --disable-telemetry",
     "build:storybook": "storybook build --disable-telemetry",
     "typecheck:storybook": "tsc --noEmit -p tsconfig.storybook.json",
-    "test:tokens": "node --test scripts/token-editor.test.mjs"
+    "test:tokens": "node --test scripts/token-editor.test.mjs",
+    "graft": "node scripts/graft.mjs",
+    "graft:build": "node scripts/graft.mjs build",
+    "graft:check": "node scripts/graft.mjs check",
+    "graft:map": "node scripts/graft.mjs map",
+    "test:graft": "npm run graft:build && node --test scripts/graft.test.mjs && npm run graft:check"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",
@@ -35,6 +40,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
+    "@nanonets/graft": "0.19.0",
     "@playwright/test": "^1.55.0",
     "@storybook/addon-a11y": "10.6.0",
     "@storybook/addon-docs": "10.6.0",
