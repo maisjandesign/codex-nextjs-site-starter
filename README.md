@@ -29,7 +29,18 @@ Figma layer access and image generation depend on the tools available in your Co
 
 The full starting prompt and workflow are in [START-HERE.md](START-HERE.md). The bundled demo is a starting point; the rules describe the project-specific work to complete, not proof that every required effect is already implemented.
 
-### 4. Install missing skills/dependencies, then run locally
+### 4. Let Codex prepare the project
+
+After you send the task, Codex follows this startup sequence before dependent implementation:
+
+1. Run `npm run setup`. Check all **21 project-local skills**, restore missing files and preserve valid existing copies.
+2. Verify the locked website dependencies and the actual Graft executable. Install the locked package set if needed; skip installation when it is already valid.
+3. After successful setup, run `npm run graft:build` and `npm run graft:map` to inspect the current code. Load the skills needed for the current stage; installing all skills does not mean loading all of them at once.
+4. Inspect your design references, record their source type and begin the desktop implementation.
+
+Opening the folder alone does **not** start installation. Codex must execute setup when starting the task. The `dev` and `storybook` commands also trigger setup through npm hooks; those hooks do not build or map the Graft graph. If preparation fails, Codex reports the actual error and resolves it before dependent work. See [STARTUP.md](docs/STARTUP.md).
+
+You can also prepare and start the project yourself:
 
 Use **Node.js 22.12 or newer** and npm. From the project root:
 
@@ -54,9 +65,26 @@ npm run storybook
 
 Use **Design tools** in the Next.js development preview to edit shared tokens and inspect spacing. **Save tokens** writes the source values. Storybook Controls preview individual story props; they do not save shared tokens. Run `npm run tokens` after manually editing `src/design/tokens.json`.
 
-### 5. Review and continue
+### 5. Review the desktop while the system takes shape
 
-Review desktop and request corrections first. After desktop approval, authorize mobile adaptation when ready. Focused desktop motion checks happen during development; the full browser/viewport matrix follows completed desktop and mobile layouts. Follow [WORKFLOW.md](docs/WORKFLOW.md) for the exact order.
+Codex starts rendering real desktop pages promptly and shows an early working preview, even when some details still need refinement. A finished component catalog is not a prerequisite to seeing the first draft.
+
+Alongside the pages, Codex builds and adapts:
+
+- **Shared tokens and components:** consistent heading roles, integer source dimensions, repeated gutters and spacing, and reusable buttons, cards and navigation.
+- **Real Storybook:** the same Foundations / Components / Patterns / Motion / Pages hierarchy in every project, populated with that project's actual components and states.
+- **The token editor:** preview and save shared values so changes to a button size or color propagate to the components that use them.
+- **Desktop motion:** GSAP ScrollSmoother, masked element entrances and expressive shared button hovers, with the documented reduced-motion and touch fallbacks. First-screen parallax is not a default.
+
+Review the site, request revisions and use Storybook to inspect repeated elements. Codex checks page load, scrolling, repeated hovers and interrupted transitions in the browser during desktop work, fixes observed defects, and records which states were verified. An installed library or successful build is not proof that the effects work. The required motion and synchronized catalog must be ready before desktop is presented as complete; the shipped demo still needs project-specific implementation of the motion contract.
+
+### 6. Approve desktop, then decide on mobile
+
+After you explicitly accept the desktop, Codex asks whether to adapt mobile and waits for authorization, unless you already gave it. Mobile/tablet work preserves the accepted desktop. If you defer mobile, adaptation and the combined browser matrix remain deferred.
+
+### 7. Complete QA and keep working in your repository
+
+Once the approved desktop and authorized mobile layouts are ready, Codex runs the full browser/viewport checks, fixes confirmed problems and verifies the fixes. Desktop motion checks already happen during implementation; only the full regression matrix waits for this stage. Follow [WORKFLOW.md](docs/WORKFLOW.md) for the exact gates and [START-HERE.md](START-HERE.md) for the commands.
 
 Commit your website changes to **your own repository**. Future updates to this template are published here; they are not automatically applied to projects created from it. See [MAINTENANCE.md](docs/MAINTENANCE.md).
 

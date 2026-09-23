@@ -13,6 +13,12 @@ npm run storybook
 
 The `predev` and `prestorybook` hooks run setup automatically, so ordinary project startup cannot silently skip it. Run setup explicitly before agent implementation too; npm hooks cannot run merely because a folder was opened in Codex. Directly invoking `next`/`storybook`, disabling npm lifecycle scripts or reading instructions without executing setup bypasses this preparation.
 
+## What happens after setup
+
+Once setup reports READY, Codex builds/maps the Graft graph and loads the skills for the current implementation stage. These are separate steps; setup verifies files and executables, not the design or the finished site. The `dev` and `storybook` hooks run setup only, not graph build/map commands.
+
+Codex then classifies the supplied design source, implements an early desktop preview and builds shared tokens, Storybook and the token editor alongside the pages. It implements and observes the required GSAP effects during desktop work. After desktop revisions and approval, mobile adaptation requires authorization; the full browser/viewport matrix follows completed desktop and mobile layouts. See [the user walkthrough](../README.md#how-to-use-this-template) and [WORKFLOW.md](WORKFLOW.md).
+
 ## What is installed and what is skipped
 
 1. **All 21 required local skills:** `scripts/required-skills.json` lists their complete file sets and a pinned source commit. Complete skills under `.agents/skills` are already installed for this project; print SKIP and leave them intact. Keep valid local customizations. Restore only missing files, from the exact Git commit locally when available, otherwise from the pinned template source on GitHub. Verify downloaded bytes against the recorded SHA-256 before writing. Empty/invalid existing resources are reported for repair rather than silently overwritten.

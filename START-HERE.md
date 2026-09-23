@@ -1,10 +1,12 @@
 # Start here
 
-1. Extract the entire ZIP, including the hidden `.agents` directory, into a separate project folder.
-2. Open that folder as a project in Codex. If needed, initialize Git with `git init`.
-3. The ZIP includes the eight design skills, six site-* skills, six official GSAP skills and Graft (21 total). Codex must read docs/SKILL-ROUTING.md at startup and use the mapped skills when their stage begins.
-4. Use the prompt below with your website screenshots, brief, copy, and available original assets.
-5. Codex reads the root `AGENTS.md`; local skills are in `.agents/skills`. If they do not appear, open a new task in this folder. AGENTS.md also provides their paths.
+1. Create your own repository with GitHub's **Use this template** action and clone it, or extract the entire ZIP into a separate project folder. Keep hidden folders, including `.agents` and `.storybook`.
+2. Open the project root in Codex, where `AGENTS.md`, `START-HERE.md` and `package.json` are located. Initialize Git with `git init` only if the extracted folder is not already a repository.
+3. Send the prompt below with your Figma frame or screenshots, brief, copy and original assets. Opening the folder alone does not start installation or implementation.
+4. Codex runs `npm run setup` under [docs/STARTUP.md](docs/STARTUP.md) before dependent work. It checks the 21 local skills, restores missing files, installs missing/invalid locked dependencies and verifies the Graft executable. Valid existing copies are skipped. Failed setup remains pending until resolved.
+5. After setup, Codex runs `npm run graft:build` and `npm run graft:map`, loads the relevant skills under [docs/SKILL-ROUTING.md](docs/SKILL-ROUTING.md), classifies the design source and starts desktop work. Skills are loaded by stage, not all at once.
+
+The walkthrough in [README.md](README.md#how-to-use-this-template) explains what you do and what Codex does at each step. The `dev` and `storybook` npm hooks repeat the setup check automatically; they do not build the Graft graph. Newly restored skills can be read from their exact `.agents/skills` paths if automatic discovery has not refreshed yet.
 
 ## The delivery order
 
@@ -25,7 +27,7 @@ For coding tasks, read docs/GRAFT.md and .agents/skills/graft/SKILL.md at startu
 
 ## Start the desktop preview
 
-Use Node.js 22.12+ and npm. Install project dependencies, then start development:
+Use Node.js 22.12+ and npm. Codex runs these commands during startup; you can also run them yourself:
 
 ```bash
 npm run setup
@@ -34,7 +36,7 @@ npm run graft:map
 npm run dev
 ```
 
-Home: http://localhost:3000. Catalog: http://localhost:3000/design-system.
+In a second terminal, run `npm run storybook` for the native component catalog at http://localhost:6006. The website runs at http://localhost:3000 and the supporting token lab at http://localhost:3000/design-system. Storybook Controls preview component props; use Design tools in the Next.js preview to save shared tokens.
 
 Run `npm run tokens` after changing token values. Formatting and targeted type/compile checks can help keep the draft runnable. Do not install test browsers or run the combined check command as a prerequisite to showing desktop.
 
