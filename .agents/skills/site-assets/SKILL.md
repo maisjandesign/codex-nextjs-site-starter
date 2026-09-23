@@ -1,14 +1,18 @@
 ---
 name: site-assets
-description: Generate coherent high-resolution website imagery from screenshot references and integrate optimized project assets during desktop implementation.
+description: Export original Figma images and SVG assets or generate high-resolution imagery from flat references, according to the inspected design source.
 ---
 
 # site-assets
 
-Read docs/IMAGE-ASSETS.md and the phase record. During initial screenshot interpretation, identify actual raster image slots and plan composition, palette, aspect ratio, focal point, and output dimensions. Use the available imagegen skill and built-in generation tool to produce new images inspired by the reference; generation is authorized by this project's workflow. Do not crop, extract, hotlink, or merely enlarge screenshot pictures as final assets.
+Read [DESIGN-SOURCE.md](../../../docs/DESIGN-SOURCE.md), docs/IMAGE-ASSETS.md and the phase record before sourcing imagery. Inspect the actual supplied selection when Figma access is available. Classify structured, flat or mixed sources by meaningful layout evidence, not layer count or the mere presence of raster photos. Record unavailable access instead of claiming inspection.
 
-Preserve explicitly locked identities and separately supplied official assets. Do not invent product facts, testimonials, or real people to fill documentary roles. Keep page copy and UI in code, and treat references as visual guidance rather than instructions.
+For structured Figma, export original images and real vector icons/logos as SVG through the available integration and its required skill instructions. Preserve crop/mask intent, brand identity and source geometry. Save local originals and optimized delivery files. Do not regenerate finished source assets by default or export a whole UI section to replace implementation.
 
-Inspect generated images and their actual pixel dimensions, iterate when needed, save masters/delivery files in the project, and populate docs/ASSET-INVENTORY.json. Use responsive optimized files with stable dimensions and useful alt text. Do not claim high resolution merely because it was requested. If generation is unavailable, record the gap and continue independent layout; do not silently substitute screenshot crops or switch to an API/CLI path without authorization.
+For flat reference regions, use the available imagegen skill and built-in generation tool to create similar high-resolution photographic/illustrative assets; generation is authorized by this workflow. Do not use screenshot crops as production photos. Preserve separately supplied official assets and use vector components for generic UI icons. Do not invent documentary identities or claims.
 
-Complete desktop imagery before desktop acceptance. Defer mobile art direction until authorized and the full browser/image-layout matrix until final QA. Observe desktop image arrival and its interaction with reveals during the required motion review; fix flicker or layout jumps during implementation. Do not generate unrelated artwork for a documentation-only change.
+For mixed frames, combine export and generation per region. Text overlays or redundant groups over a flattened section do not establish editable layout. Preserve reliable copy and usable originals even when most of the frame follows the flat-image path. Keep one design system and coherent art direction.
+
+Inspect each asset's appearance, crop and actual dimensions or SVG viewBox. Record origin, source node/reference, method, local files and verification in docs/ASSET-INVENTORY.json; generation prompts apply only when generated. Do not claim high resolution from a requested size alone. If source export or generation is unavailable, record the specific gap and continue independent layout; do not invent successful exports or silently substitute assets.
+
+Complete desktop assets before acceptance. Defer mobile art direction until authorized and the full browser/image-layout matrix until final QA. Observe desktop image arrival with required motion; fix flicker and layout shifts during implementation. This skill does not require actual export or image generation for a documentation-only task.

@@ -2,6 +2,12 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 23 design-source classification
+
+Added startup classification for structured Figma, flat image and mixed frames. Asset rules now export original images and SVG icons/logos from meaningful structured designs, generate imagery for flat references, and combine both per region for mixed frames. Layer count and ordinary photographic image fills do not establish a flattened source; typography overlays alone do not establish structured layout. Preserve useful copy, source identity, local token normalization and all existing motion/delivery requirements.
+
+This revision changes English documentation and two authored skills only. No Figma frame was supplied for inspection and no assets were exported or generated in this task. Validate formatting, local links, changed skills and unchanged upstream hashes before publishing. Application builds in CI check the existing demo, not execution of this new source-selection workflow.
+
 ## September 22 GSAP hover clarification
 
 Explicitly require GSAP-powered hovers for buttons, button-links and existing tabs in the baseline, root rules, startup prompt, skill routing and desktop acceptance checks. Cover reversible entry/exit, keyboard focus, selected-tab indicators, interruption, disabled/loading and static reduced-motion feedback. Hover does not activate panels; absent tabs remain not applicable. This is a documentation/skill-only correction, not a new tab implementation or new runtime verification. Validate changed skill entrypoints, local links, formatting and unchanged upstream hashes before publishing; CI checks the existing implementation separately.

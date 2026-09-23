@@ -38,11 +38,11 @@ These are local system font stacks with platform-dependent fallbacks. No Google 
 
 ## Reference passport and annotated corrections
 
-At startup, summarize the supplied reference in 5-6 sentences in BRIEF.md: palette, type hierarchy, grid/alignment, spacing density, component treatments, and intended visual character. Mark approximate measurements and inferred fonts. Preserve composition and intentional role differences. This short record must not postpone the first desktop preview.
+First inspect and classify the source under [DESIGN-SOURCE.md](DESIGN-SOURCE.md). Use actual Figma layout values where available; distinguish confirmed measurements from estimates. At startup, summarize the supplied reference in 5-6 sentences in BRIEF.md: palette, type hierarchy, grid/alignment, spacing density, component treatments, and intended visual character. Mark approximate measurements and inferred fonts. Preserve composition and intentional role differences. This short record must not postpone the first desktop preview.
 
 For a marked-up screenshot, map each mark to its actual route, section/component, and shared role. Record the requested correction, affected equivalents, and what was observed after the fix. Fix repeated inconsistencies in the shared source; preserve a deliberately unique role. Circling a visual bug is not blanket permission to remove or redesign its section. Only explicit deletion/redesign instructions authorize structural changes. This workflow accepts user-provided annotated screenshots; an in-app drawing editor is not included.
 
-For image corrections, edit or regenerate the affected asset under IMAGE-ASSETS.md while retaining the layout slot, aspect ratio, focal intent and series art direction. Record actual output dimensions. Use design variations only when explicitly requested; never apply an automatic full-page redesign or reskin Storybook.
+For image corrections, preserve the source mode: re-export/correct originals or edit/regenerate generated assets under IMAGE-ASSETS.md while retaining the layout slot, aspect ratio, focal intent and series art direction. Record actual output dimensions. Use design variations only when explicitly requested; never apply an automatic full-page redesign or reskin Storybook.
 
 ## Verification
 

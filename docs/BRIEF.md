@@ -13,6 +13,12 @@ Capture the essentials from the user's request, then start the desktop draft. Do
 - Structural suggestions (not authorized by default):
 - Explicitly requested/approved structural changes, scope, and user evidence:
 - Explicitly locked content, flows, brand/assets/theme, and layout elements:
+- Source mode: structured Figma / flat image / mixed / unverified access:
+- Inspected Figma file/frame/node or supplied reference identity:
+- Evidence: meaningful structure, Auto Layout, spacing, components, original image fills, vectors, flattened regions:
+- Mixed-region map: section -> reliable layout evidence -> original export / generated imagery -> reason:
+- Confirmed Figma measurements versus inferred screenshot values:
+- Missing layer access or exports and the working fallback:
 - Figma / approved assets:
 - Reference theme and any explicitly requested additional themes:
 - Missing or inferred fonts/assets:
@@ -44,9 +50,9 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 - Desktop motion review: route/specimen, browser/viewport, action sequence, observed result, passed / failed / not run / not applicable (reason):
 - Motion defects, affected states rechecked, and remaining unverified scenarios:
 - Catalog specimens use actual site effects and replay:
-- Needed generated raster assets and target aspect ratios/display sizes:
-- Generation prompts, actual dimensions, and saved files: docs/ASSET-INVENTORY.json
-- Pending generation or unavailable references:
+- Needed original exports and generated assets, source mode, target aspect ratios/display sizes:
+- Asset origin, node/reference, export method or generation prompt, actual dimensions/SVG viewBox and saved files: docs/ASSET-INVENTORY.json
+- Pending exports/generation or unavailable references:
 
 ## Skill use record
 

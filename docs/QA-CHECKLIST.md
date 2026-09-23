@@ -28,7 +28,7 @@ Until these conditions are met, defer the full browser regression suite and cros
 - [ ] Library effects match the recorded motion direction and can be replayed in the catalog.
 - [ ] GSAP timelines/media contexts/ScrollTriggers clean up on repeated route changes and reduced-motion changes.
 - [ ] Essential content stays visible without JavaScript; focus and interactions remain usable during motion.
-- [ ] Needed images are generated, inspected, and recorded with actual dimensions; no final screenshot crops.
+- [ ] Structured/flat/mixed source mode and evidence are recorded; mixed regions have explicit export/generation decisions. Original Figma images and SVG icons/logos are reused where available; flat-reference imagery is generated. Files are inspected and recorded with origin and actual dimensions/SVG viewBox; no flattened UI screenshot crops as production photos.
 - [ ] Responsive image sizes, focal crops, reserved space, and alt text are verified.
 
 ## Automated checks
