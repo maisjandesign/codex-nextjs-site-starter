@@ -6,7 +6,7 @@ This sequence governs new sites built from this Next.js starter. The user's curr
 
 ## Code orientation at startup
 
-For coding tasks, follow [GRAFT.md](GRAFT.md): build/map the current checkout after dependency installation, use targeted symbol/caller queries before shared changes, verify actual source and check freshness afterward. This supports the current phase and never substitutes for design-source inspection or desktop motion review. Documentation-only work can skip it; unavailable Graft falls back to source inspection and rg.
+Before coding or launching previews, complete [STARTUP.md](STARTUP.md) with `npm run setup`: install missing local skills/dependencies and skip installed ones. Then follow [GRAFT.md](GRAFT.md): build/map the current checkout after dependency installation, use targeted symbol/caller queries before shared changes, verify actual source and check freshness afterward. This supports the current phase and never substitutes for design-source inspection or desktop motion review. Documentation-only work can skip the graph build. Missing Graft requires setup/recovery; source inspection alone cannot mark setup complete.
 
 ## 1. Implement the supplied desktop design
 

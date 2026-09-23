@@ -53,6 +53,14 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 - Asset origin, node/reference, export method or generation prompt, actual dimensions/SVG viewBox and saved files: docs/ASSET-INVENTORY.json
 - Pending exports/generation or unavailable references:
 
+## Startup installation record
+
+- npm run setup: command/date and READY / BLOCKED status:
+- Required local skills: skipped / restored / invalid or missing:
+- Locked dependencies and Graft executable: skipped / installed / blocked:
+- Exact failed command, error, permission recovery and rerun result:
+- Explicit user-authorized temporary exception, if any:
+
 ## Graft code orientation record
 
 - Coding task or documentation/reference-only task:

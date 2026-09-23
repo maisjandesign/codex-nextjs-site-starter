@@ -21,10 +21,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      - run: npm run setup
       - run: npm run format:check
       - run: npm run test:audit
       - run: npm run test:tokens
+      - run: npm run test:setup
       - run: npm run test:graft
       - run: npm run test:motion
       - run: npm run build

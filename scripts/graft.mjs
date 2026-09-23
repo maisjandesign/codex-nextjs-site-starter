@@ -21,7 +21,7 @@ let cli;
 try {
   cli = join(dirname(require.resolve('@nanonets/graft/package.json')), 'dist/cli.js');
 } catch {
-  console.error('Graft is not installed. Run npm ci in the project root, then retry.');
+  console.error('Graft is not installed. Run npm run setup in the project root, then retry.');
   process.exit(1);
 }
 const result = spawnSync(process.execPath, [cli, ...(args.length ? args : [command])], {

@@ -15,7 +15,7 @@
     "build": "npm run audit && next build --webpack",
     "test:e2e": "playwright test",
     "test:browsers": "playwright test --config playwright.browsers.config.ts",
-    "check": "npm run format:check && npm run test:graft && npm run test:audit && npm run test:motion && npm run test:tokens && npm run build && npm run typecheck:storybook && npm run build:storybook && npm run test:e2e",
+    "check": "npm run format:check && npm run test:setup && npm run test:graft && npm run test:audit && npm run test:motion && npm run test:tokens && npm run build && npm run typecheck:storybook && npm run build:storybook && npm run test:e2e",
     "start": "next start --hostname 127.0.0.1",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -29,7 +29,11 @@
     "graft:build": "node scripts/graft.mjs build",
     "graft:check": "node scripts/graft.mjs check",
     "graft:map": "node scripts/graft.mjs map",
-    "test:graft": "npm run graft:build && node --test scripts/graft.test.mjs && npm run graft:check"
+    "test:graft": "npm run graft:build && node --test scripts/graft.test.mjs && npm run graft:check",
+    "setup": "node scripts/setup.mjs",
+    "predev": "npm run setup",
+    "prestorybook": "npm run setup",
+    "test:setup": "node --test scripts/setup.test.mjs"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",

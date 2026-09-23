@@ -25,20 +25,22 @@ Figma layer access and image generation depend on the tools available in your Co
 
 ### 3. Send this starting prompt
 
-> Use this repository as the starter for my website. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and expressive GSAP button hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
+> Use this repository as the starter for my website. First run npm run setup under docs/STARTUP.md: install missing required local skills and dependencies, skip installed ones, and resolve/report setup failures before dependent work. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and expressive GSAP button hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
 
 The full starting prompt and workflow are in [START-HERE.md](START-HERE.md). The bundled demo is a starting point; the rules describe the project-specific work to complete, not proof that every required effect is already implemented.
 
-### 4. Run the website and Storybook locally
+### 4. Install missing skills/dependencies, then run locally
 
 Use **Node.js 22.12 or newer** and npm. From the project root:
 
 ```bash
-npm ci
+npm run setup
 npm run graft:build
 npm run graft:map
 npm run dev
 ```
+
+`setup` checks all 28 project-local skills and the locked packages, restores/installs missing items and skips existing valid ones. It runs automatically before `dev` and `storybook` too. See [STARTUP.md](docs/STARTUP.md) for blocked installation handling.
 
 In a second terminal, from the same project folder:
 
@@ -157,7 +159,7 @@ Real Storybook documentation and the motion editor are implemented. The local co
 
 ## Run the component catalog
 
-After `npm ci`, run `npm run storybook` and open http://127.0.0.1:6006. Run `npm run dev` in another terminal for the Next.js site and token lab on port 3000. `npm run typecheck:storybook` checks story types; `npm run build:storybook` produces the independent static catalog in `storybook-static/`. Controls edit local story props; persistent shared changes go through source tokens.
+After `npm run setup`, run `npm run storybook` and open http://127.0.0.1:6006. Run `npm run dev` in another terminal for the Next.js site and token lab on port 3000. `npm run typecheck:storybook` checks story types; `npm run build:storybook` produces the independent static catalog in `storybook-static/`. Controls edit local story props; persistent shared changes go through source tokens.
 
 ## Included visual refinement tools
 

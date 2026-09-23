@@ -4,11 +4,13 @@ This is a Next.js App Router + TypeScript starter. Build a coherent site for the
 
 ## Getting started
 
+Before implementation or preview startup, read [STARTUP.md](docs/STARTUP.md) and run `npm run setup`. Install missing required project-local skills and locked dependencies first, including the Graft executable; skip already installed valid copies. Installation is authorized as part of project startup. If blocked, use the supported permission recovery when applicable, report the actual error and keep setup pending; continue only independent work. Do not silently substitute stale node_modules or treat Graft as optional. Then build/map the code and load the skills for the current stage. This startup rule supersedes older unavailable-tool fallback guidance.
+
 Read `START-HERE.md`, `docs/BRIEF.md`, `docs/SKILL-ROUTING.md`, and `.agents/skills/site-workflow/SKILL.md`. Verify Graft, the eleven original design/motion skills and six official GSAP skills, and use them at their mapped stages; this is a required startup convention, not an optional recommendation. Do not repeat questions already answered in the task. Make reasonable assumptions for reversible decisions and record them in the brief. The user's requirements take precedence over the starter defaults.
 
 ## Code orientation with Graft
 
-For coding tasks, read [GRAFT.md](docs/GRAFT.md) and `.agents/skills/graft/SKILL.md` at startup. After dependencies are installed, build the local graph and inspect its map. Use relevant symbol/caller queries before changing shared components, motion primitives or hooks; verify actual source, tokens, styles, pages and stories before editing. Refresh/check the graph after source changes. Graft is required code orientation when available, not a visual review or an extra approval gate. Use `rg` for text search and as the fallback if Graft is unavailable. Documentation-only work does not need a graph build. The integration boundaries in GRAFT.md override the upstream skill's blanket search, trust, reporting and setup recommendations; do not run global init/hooks or deep/LLM processing by default.
+For coding tasks, read [GRAFT.md](docs/GRAFT.md) and `.agents/skills/graft/SKILL.md` at startup. After dependencies are installed, build the local graph and inspect its map. Use relevant symbol/caller queries before changing shared components, motion primitives or hooks; verify actual source, tokens, styles, pages and stories before editing. Refresh/check the graph after source changes. Graft is required code orientation after setup, not a visual review or an extra approval gate. Use `rg` for text search; source inspection does not replace installing a missing required tool. Documentation-only work does not need a graph build. The integration boundaries in GRAFT.md override the upstream skill's blanket search, trust, reporting and setup recommendations; do not run global init/hooks or deep/LLM processing by default.
 
 ## Delivery sequence
 

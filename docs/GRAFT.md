@@ -5,12 +5,12 @@ Graft is included as a project-local code navigation skill and development tool.
 ## Start a coding task
 
 1. Read this integration policy and [the official skill](../.agents/skills/graft/SKILL.md). Apply the boundaries below when the upstream instructions conflict with this project's workflow.
-2. After `npm ci`, run `npm run graft:build` for a new checkout or after a substantial source change. Run `npm run graft:map` once to orient yourself in the current project.
+2. First run `npm run setup` under [STARTUP.md](STARTUP.md); install/verify skills and the actual CLI before implementation. After setup succeeds, run `npm run graft:build` for a new checkout or after a substantial source change. Run `npm run graft:map` once to orient yourself in the current project.
 3. Query the relevant component or subsystem before implementation. Inspect the actual source and its related styles, tokens, consumers and Storybook stories before editing.
 4. Before changing a shared component, hook or motion primitive, inspect its callers and imports. Record relevant affected surfaces in the brief, then implement and verify the change at the current delivery stage.
 5. After code changes, run `npm run graft:check`. Rebuild if stale. Query commands also refresh the graph, but a successful command is not proof that every relationship was indexed.
 
-Keep this orientation brief and begin the desktop promptly. Documentation-only edits and visual reference analysis do not need a graph build. If Graft cannot run, report the specific limitation and continue with source inspection and `rg`; do not block a usable desktop preview on tool setup or claim Graft was used successfully.
+Keep this orientation brief and begin the desktop promptly. Documentation-only edits and visual reference analysis do not need a graph build. If Graft cannot run, resolve installation first under STARTUP.md. A missing CLI is not an optional fallback: record blocked setup, request environment permissions when required and continue only independent work until resolved or the user explicitly authorizes an exception.
 
 ## Commands
 
@@ -38,7 +38,7 @@ These rules qualify the preserved upstream skill:
 - Source files are the ground truth. Confirm declarations, current line locations and behavior before editing. Tree-sitter relationships can be incomplete, especially for dynamic calls and JSX usage; an empty callers result does not prove that a component is unused. Inspect imports and actual consumers too.
 - The default is structural parsing with no model credentials or LLM processing. A missing meaning/deep tier in `graft check` is expected and is not a failed setup. Do not enable `--deep`, external providers or upload/connect operations without a separate explicit request.
 - Do not run `graft init`, add global skills, modify Codex/Claude settings, install hooks, or configure MCP as part of this template's startup. None is needed for the local commands. This is a project integration, not a machine-wide installation.
-- The wrapper sets `DO_NOT_TRACK=1` for Graft commands and prevents Graft from modifying ignore files. The CLI may still check npm for a newer version; structural mode is not a guarantee of zero network traffic. To also opt out during dependency installation, set `DO_NOT_TRACK=1` in the shell before `npm ci`.
+- The wrapper sets `DO_NOT_TRACK=1` for Graft commands and prevents Graft from modifying ignore files. The CLI may still check npm for a newer version; structural mode is not a guarantee of zero network traffic. The setup command also sets DO_NOT_TRACK=1 for dependency installation.
 - Treat upstream savings, speed and accuracy claims as estimates, not measured project results. Do not add a mandatory token-savings footer or report a successful graph query as visual, motion or accessibility evidence.
 - The wrapper limits supported workflow commands; it is not a security sandbox. Read source and review dependencies as usual. Graft remains a dev dependency and must not be imported into the site's client or server runtime.
 

@@ -2,6 +2,14 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 23 install-first startup
+
+Added dependency-free `npm run setup`, automatic predev/prestorybook hooks and a pinned restoration manifest covering all 28 skills / 60 resource files. Existing valid skill files and installed packages are skipped; missing skill resources restore from the recorded Git commit or verified GitHub bytes. Missing/invalid dependencies install through npm ci with devDependencies included. Setup verifies the Graft executable separately from its SKILL.md and exits unsuccessfully on a blocker instead of marking the environment ready. Concurrent preview starts serialize setup.
+
+Verified locally: seven setup tests for restore/idempotence/customization preservation, supporting-file recovery, network/hash failures, missing Graft installation, failed installation and broken executable handling; three existing Graft tests; actual repeated setup skipped installation. Both predev/prestorybook hooks ran successfully and Next.js/Storybook returned HTTP 200 after permitted localhost binding (the initial sandboxed launches were blocked by port permissions). These were startup/HTTP checks, not visual motion or full browser QA. No application UI source or package versions changed.
+
+All 60 manifest files match the pinned source commit; all 50 upstream provenance hashes remain unchanged. Formatting and local Markdown links were checked. CI now performs setup from a clean checkout before its existing static checks/builds; browser QA keeps its existing readiness gate.
+
 ## September 23 consolidated GSAP rules
 
 Replaced cumulative motion mandates with one contract in MOTION-DEFAULTS.md: GSAP ScrollSmoother, shared element masks and expressive GSAP button/button-link hovers. Removed duplicate coverage/sequence instructions, required gallery quotas and mandatory separate opening choreography. Retained existing-tab feedback where applicable, shared tokens, reduced-motion/native-scroll fallbacks, observed desktop motion review and the established mobile/final-QA sequence. User-authored GSAP effects are preserved and overlapping scroll/reveal/hover owners must be resolved.

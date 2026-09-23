@@ -14,3 +14,6 @@ storybook-static/
 
 # Graft disposable local graph.
 /graft/
+
+# Serialize local setup; never publish the transient lock.
+/.starter-setup.lock/
