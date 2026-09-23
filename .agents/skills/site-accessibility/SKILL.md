@@ -7,7 +7,7 @@ description: Preserve semantics, keyboard access, focus, forms and reduced motio
 
 Use the bundled better-accessibility skill(s) at the current stage under docs/SKILL-ROUTING.md. Project scope and the workflow resolve conflicting defaults.
 
-Follow docs/WORKFLOW.md. Apply usability conventions during implementation; verify implemented desktop keyboard/focus and reduced-motion behavior during the motion review in docs/MOTION-LIBRARIES.md; defer the full automated accessibility/browser suites to stage 4. Do not delay the first desktop preview for an audit.
+Follow docs/WORKFLOW.md. Apply usability conventions during implementation; verify implemented desktop keyboard/focus and reduced-motion behavior during the motion review in docs/MOTION-DEFAULTS.md; defer the full automated accessibility/browser suites to stage 4. Do not delay the first desktop preview for an audit.
 
 Preserve the approved reference theme. Do not enable OS-driven dark mode, silently change brand colors, dim the page, apply global brightness filters, or add decorative scrims to address accessibility. A backdrop is appropriate only for an actual requested modal interaction. Report a contrast conflict with the affected pair and propose a targeted adjustment; obtain a decision before a material change to reference colors. Never describe an unresolved contrast issue as passed.
 

@@ -25,7 +25,7 @@ Figma layer access and image generation depend on the tools available in your Co
 
 ### 3. Send this starting prompt
 
-> Use this repository as the starter for my website. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and GSAP button/tab hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
+> Use this repository as the starter for my website. Read AGENTS.md, START-HERE.md, docs/DESIGN-SOURCE.md and docs/SKILL-ROUTING.md before implementation. Use the bundled Graft skill under docs/GRAFT.md for initial code orientation and dependency checks before shared implementation changes. Inspect my references and classify them as structured Figma, flat image or mixed. Preserve the supplied composition and normalize repeated elements through shared tokens. Export original Figma assets where available; generate imagery for flat reference regions. Build desktop first with real Storybook, the token editor, GSAP ScrollSmoother, masked entrances and expressive GSAP button hovers. Follow the documented fallbacks and do not add first-screen parallax. Show a working desktop early, apply my revisions, and verify its motion before completion. After I approve desktop, ask before adapting mobile unless I have already authorized it. Run the full browser/viewport QA after both layouts are ready. My brief and references: [add them here].
 
 The full starting prompt and workflow are in [START-HERE.md](START-HERE.md). The bundled demo is a starting point; the rules describe the project-specific work to complete, not proof that every required effect is already implemented.
 
@@ -60,7 +60,7 @@ Commit your website changes to **your own repository**. Future updates to this t
 
 ## What the starter includes
 
-Required desktop defaults: **GSAP ScrollSmoother + masked entrances + GSAP button/tab hovers**. Read [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) at startup and verify all applicable roles before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+Motion policy: **GSAP ScrollSmoother + element masks + expressive GSAP button hovers**. Follow [MOTION-DEFAULTS.md](docs/MOTION-DEFAULTS.md) as the single motion contract.
 
 A portable foundation for building websites in Codex: a working Next.js project, local skills, a shared token system, and executable quality checks.
 
@@ -151,17 +151,9 @@ Audit limits: only registered routes and tested states are covered. The CSS chec
 
 ## Motion studio release
 
-The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Read docs/MOTION-DIRECTION.md at startup and docs/MOTION-STUDIO.md for controls and persistence. Six official GSAP skills are included alongside the original 21 skills and Graft (28 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
+The starter now includes working SplitText headings, Flip layout/reorder interactions, three editable motion starting profiles, and shared replay/pause/resume/finish/slow/reduced-motion preview controls. The same components run on the home page and in the catalog. Use docs/MOTION-DEFAULTS.md for required behavior; docs/MOTION-DIRECTION.md and docs/MOTION-STUDIO.md describe optional references and existing demo controls. Six official GSAP skills are included alongside the original 21 skills and Graft (28 total); load them by task under docs/SKILL-ROUTING.md. Profiles are starting values, not a requirement to make all sites look or move alike. WebGL and additional effect libraries remain project-specific choices. ScrollSmoother is the required smoothing baseline; Lenis is an alternative only when the user explicitly requests or approves replacing it.
 
 Real Storybook documentation and the motion editor are implemented. The local color/size/typography editor and spacing inspector are implemented under docs/DESIGN-TOOLS.md; extend their registered roles for each project. Storybook Controls preview props; they do not persist shared token changes. Follow docs/DOCUMENTATION-TEMPLATE.md for the canonical catalog and token-lab boundary.
-
-## Required motion coverage
-
-Follow AGENTS.md, Mandatory desktop motion: header, hero, shared buttons/button-links and each major section must have implemented, observed motion before desktop completion. Color-only hover, press-only scale, an installed library or an isolated catalog demo does not satisfy it. Implement motion alongside the supplied layout; preserve its composition. Record actual role-by-role browser evidence and unverified states in BRIEF.md. Reduced-motion fallbacks remain required; the full cross-browser/viewport matrix stays in final QA.
-
-## Coordinated sequence implementation
-
-Use [MOTION-SEQUENCES.md](docs/MOTION-SEQUENCES.md) for the shared opening/section API and focused behavior checks. Implement header and hero as one planned opening; each major section owns its heading/content sequence. The same implementation must appear in the live catalog. First-screen parallax is excluded: do not add it as a default or inherit it from a reference sandbox. Desktop motion remains required, with full browser/viewport QA at its existing later stage.
 
 ## Run the component catalog
 

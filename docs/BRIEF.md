@@ -39,9 +39,8 @@ Do not present invented testimonials, metrics, client logos, or benefits as veri
 
 ## Motion and image plan
 
-- Motion direction and actual inspected demo URLs:
-- Header entrance: component/trigger, implemented status, observed normal/slow result:
-- Hero headline/copy/actions/visual sequence: implementation and observed load result:
+- Motion contract: docs/MOTION-DEFAULTS.md; optional inspected references (if used):
+- First-screen header/hero masks: shared primitive/trigger, observed load result, narrow hydration fallback if needed (no separate sequence required):
 - Shared GSAP button/button-link hover/focus beyond color, exit reversal, press, disabled/loading: implementation and observed result:
 - Existing tabs: shared GSAP hover/focus, selected indicator, interruption and keyboard/activation behavior; implementation and observed result (not applicable if absent):
 - Major section coverage: section name, heading/content/media effect, scroll-entry/back observation:
@@ -115,4 +114,4 @@ Reset this section for each new website; historical demo checks are not approval
 
 ### Sequence coverage
 
-Record the owner, order and observed states for the opening, each section and link/button interactions using MOTION-SEQUENCES.md. No first-screen parallax by default. For long sections, give meaningful distant content groups their own nested sequence rather than revealing an entire long page at once.
+Record scroll/reveal/hover layer ownership and observed states under MOTION-DEFAULTS.md. Separate sequence choreography is optional. Animate meaningful local groups without double-targeting parent and child properties. No first-screen parallax.

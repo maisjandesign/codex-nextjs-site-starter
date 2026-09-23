@@ -2,6 +2,12 @@
 
 Date: September 7, 2026. Environment: macOS ARM64, Node.js 22.16.0.
 
+## September 23 consolidated GSAP rules
+
+Replaced cumulative motion mandates with one contract in MOTION-DEFAULTS.md: GSAP ScrollSmoother, shared element masks and expressive GSAP button/button-link hovers. Removed duplicate coverage/sequence instructions, required gallery quotas and mandatory separate opening choreography. Retained existing-tab feedback where applicable, shared tokens, reduced-motion/native-scroll fallbacks, observed desktop motion review and the established mobile/final-QA sequence. User-authored GSAP effects are preserved and overlapping scroll/reveal/hover owners must be resolved.
+
+This is a documentation and local workflow-skill revision only. Application source, dependencies, demo animation behavior and upstream skill snapshots are unchanged. Formatting, local Markdown links, all 28 skill entrypoints and all 50 upstream snapshot hashes were checked. No local builds or browser motion tests were rerun; no fix to a previously generated site's runtime is claimed. The demo still needs actual ScrollSmoother integration before it can demonstrate the full contract.
+
 ## September 23 Graft integration
 
 Added the unmodified official Graft skill and MIT license, pinned CLI `@nanonets/graft@0.19.0`, project-local structural commands, startup/shared-change routing and CI smoke tests. There are 28 skill entrypoints. All 50 inventoried upstream files match their hashes; the previous 48 files and their inventory entries remain unchanged. Existing locked dependency entries are unchanged; Graft and its dependencies were added as development tooling.

@@ -8,7 +8,7 @@
 
 ## Desktop implementation review (before final QA)
 
-- [ ] The required desktop motion review in docs/MOTION-LIBRARIES.md has observed page load, scrolling down/back, repeated hover, interrupted transitions, applicable control/keyboard states, reduced motion, and replay of actual site effects in the catalog.
+- [ ] The required desktop motion review in docs/MOTION-DEFAULTS.md has observed page load, scrolling down/back, repeated hover, interrupted transitions, applicable control/keyboard states, reduced motion, and replay of actual site effects in the catalog.
 - [ ] Flicker, disappearing already-visible content, and conflicting property animations are resolved; affected scenarios were rechecked.
 - [ ] docs/BRIEF.md identifies the browser, viewport, routes/specimens, actual observations, and failed/unverified states. A dependency, build, or static screenshot alone is not evidence.
 
@@ -69,14 +69,6 @@ Until these conditions are met, defer the full browser regression suite and cros
 Check metadata for every public page, robots/sitemap for the real domain, OG data, image dimensions and alt text, LCP/CLS/INP on target devices, real form submissions, 404 behavior, and error handling. Core Web Vitals reference targets are LCP ≤2.5 s, CLS ≤0.1, and INP ≤200 ms. These are field metrics, not guarantees from a local build. Keep secrets in the server environment, never in NEXT_PUBLIC_* variables.
 
 After verification, update `docs/VALIDATION.md` with the environment, versions, commands, results, screenshots, and checks that remain not run. Do not check items in advance.
-
-## Required motion coverage
-
-Follow AGENTS.md, Mandatory desktop motion: header, hero, shared buttons/button-links and each major section must have implemented, observed motion before desktop completion. Color-only hover, press-only scale, an installed library or an isolated catalog demo does not satisfy it. Implement motion alongside the supplied layout; preserve its composition. Record actual role-by-role browser evidence and unverified states in BRIEF.md. Reduced-motion fallbacks remain required; the full cross-browser/viewport matrix stays in final QA.
-
-## Coordinated sequence implementation
-
-Use [MOTION-SEQUENCES.md](MOTION-SEQUENCES.md) for the shared opening/section API and focused behavior checks. Implement header and hero as one planned opening; each major section owns its heading/content sequence. The same implementation must appear in the live catalog. First-screen parallax is excluded: do not add it as a default or inherit it from a reference sandbox. Desktop motion remains required, with full browser/viewport QA at its existing later stage.
 
 ## Required smoothing and mask checks
 

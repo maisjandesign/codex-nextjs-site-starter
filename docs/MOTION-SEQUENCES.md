@@ -1,8 +1,8 @@
-# Coordinated motion
+# Existing coordinated motion examples
 
-Required desktop defaults: **GSAP ScrollSmoother + masked entrances + GSAP button/tab hovers**. Read [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md) at startup and verify all applicable roles before desktop acceptance. First-screen parallax remains excluded. This is a rules update; the shipped demo still needs the full baseline integration.
+Motion policy: **GSAP ScrollSmoother + element masks + expressive GSAP button hovers**. Follow [MOTION-DEFAULTS.md](MOTION-DEFAULTS.md) as the single motion contract.
 
-Use MotionSequence for opening compositions and major sections. Use MotionReveal for independent specimens or intentional subgroups, not as another transform owner on sequence targets. The opening has no parallax, scroll-driven translation or sticky-cover behavior. Do not add hero parallax by default; it requires an explicit project request.
+The following describes the shipped demo. Reuse MotionSequence only where it fits the project; a separate opening sequence is not required by the current contract. Use MotionReveal for independent specimens or intentional subgroups, not as another transform owner on sequence targets. The opening has no parallax, scroll-driven translation or sticky-cover behavior. Do not add hero parallax by default; it requires an explicit project request.
 
 ## Composition ownership
 

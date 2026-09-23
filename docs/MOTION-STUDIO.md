@@ -26,16 +26,14 @@ Flip captures current visual geometry before a layout mutation and uses dedicate
 
 ## Verification
 
-Follow MOTION-LIBRARIES.md for observed desktop scenarios and QA-CHECKLIST.md for final matrix coverage. Record observed evidence in VALIDATION.md. Run npm run test:motion for validator coverage; static tests do not establish motion quality. If the local OS exhausts file watchers, WATCHPACK_POLLING=1000 npm run dev -- --webpack can be used for that preview session; it is not a mandatory setting for every installation.
+Follow MOTION-DEFAULTS.md for observed desktop scenarios and QA-CHECKLIST.md for final matrix coverage. Record observed evidence in VALIDATION.md. Run npm run test:motion for validator coverage; static tests do not establish motion quality. If the local OS exhausts file watchers, WATCHPACK_POLLING=1000 npm run dev -- --webpack can be used for that preview session; it is not a mandatory setting for every installation.
 
-## Required-motion baseline implementation
+## Existing demo implementation
+
+These notes describe the demo; MOTION-DEFAULTS.md governs new implementation. Do not retain overlapping demo owners when integrating the current primitives.
 
 Button and ButtonLink share ButtonMotion: a reversible GSAP fill sweep and vertical label roll for pointer entry/exit and keyboard focus. Press scale stays on the outer control; the GSAP timeline owns separate decorative/label layers. Duplicate labels are aria-hidden. Disabled/loading and reduced-motion states bypass library movement. Button timings use motion.normal/library-ease source tokens; the studio Slow playback control also slows buttons. Global pause/finish controls govern entrance/layout timelines; interactive button states follow pointer/focus and are not forced into a hover state by Finish.
 
 The header uses semantic MotionReveal with staggered logo, navigation and action wrapper. Hero copy/actions and visual use staged movement; MotionText retains headline ownership. Section handles its heading group and content entrance. contentMotion=false is used when the actual child already implements entrance motion or when catalog specimens own their examples; it is not a blanket opt-out for project sections. Initial visible content settles instead of being skipped or hidden after hydration.
 
 Real Storybook documentation is included. The local Design tools panel now implements registered color/size/typography editing and a spacing inspector; see DESIGN-TOOLS.md. In Storybook, Studio previews and replays motion; save source values in the Next.js development token lab.
-
-## Coordinated sequence implementation
-
-Use [MOTION-SEQUENCES.md](MOTION-SEQUENCES.md) for the shared opening/section API and focused behavior checks. Implement header and hero as one planned opening; each major section owns its heading/content sequence. The same implementation must appear in the live catalog. First-screen parallax is excluded: do not add it as a default or inherit it from a reference sandbox. Desktop motion remains required, with full browser/viewport QA at its existing later stage.
