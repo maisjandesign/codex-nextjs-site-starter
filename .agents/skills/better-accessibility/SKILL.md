@@ -62,7 +62,7 @@ Status needs a redundant cue: icon, text, or underline alongside the color. Dete
 
 ### 10. Honor prefers-reduced-motion
 
-Wrap motion in `@media (prefers-reduced-motion: no-preference)` so it is opt-in. Under reduced motion, replace slides and scales with opacity crossfades; kill parallax and autoplay entirely. Independent of the preference: autoplaying media needs a visible pause control, and toasts carrying actions or errors stay until dismissed.
+Follow docs/MOTION-DEFAULTS.md: reduced motion uses fully visible, unclipped content, static interaction feedback and native scrolling. Timed UI still needs usable dismissal and controls.
 
 ### 11. Announce Dynamic Content
 

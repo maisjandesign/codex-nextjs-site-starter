@@ -148,16 +148,13 @@ In dark mode, simplify to a single white ring, since layered depth shadows aren'
 --shadow-border-hover: 0 0 0 1px oklch(1 0 0 / 0.13);
 ```
 
-### Usage with Hover Transition
+### Static hover states
 
-Apply the variable and add `transition-[box-shadow]` for a smooth hover:
+Apply the shared variable for static state feedback. GSAP hovers follow docs/MOTION-DEFAULTS.md:
 
 ```css
 .card {
   box-shadow: var(--shadow-border);
-  transition-property: box-shadow;
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
 }
 
 .card:hover {

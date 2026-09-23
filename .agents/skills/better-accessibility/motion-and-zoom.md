@@ -4,51 +4,7 @@
 
 ## prefers-reduced-motion
 
-Make motion opt-in: wrap animations in `@media (prefers-reduced-motion: no-preference)` so users who asked for reduced motion get the static version by default, instead of you chasing every animation with an override.
-
-```css
-/* Good: motion is opt-in */
-.card {
-  /* static styles */
-}
-@media (prefers-reduced-motion: no-preference) {
-  .card {
-    transition: transform 200ms ease-out;
-  }
-}
-```
-
-```tsx
-// Tailwind: motion-safe / motion-reduce variants
-<div className="motion-safe:transition-transform motion-safe:hover:-translate-y-1" />
-```
-
-For an existing codebase where opt-in isn't feasible, the global kill switch is the fallback:
-
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-```
-
-`0.01ms` rather than `none` so `animationend`/`transitionend` events still fire and JS that waits on them doesn't hang.
-
-### What to disable vs reduce
-
-Reduced motion means reduced, not eliminated: it targets vestibular triggers, not feedback.
-
-| Disable entirely | Replace | Keep |
-| --- | --- | --- |
-| Parallax scrolling | Slide/scale/zoom transitions → opacity crossfade | Loading spinners and progress |
-| Autoplaying video, GIFs, looping decoration | Smooth scrolling → instant jump | Instant state changes (hover color, focus ring) |
-| Spinning, large-scale movement across the screen | Auto-rotating carousels → start paused | Brief functional feedback (button press) |
-
-Animations must be interruptible and driven by user input; nothing should autoplay or refuse to stop. Under reduced motion, carousels start paused.
+Follow docs/MOTION-DEFAULTS.md for the three GSAP families. Use static, fully visible content and native scrolling under reduced motion. Preserve focus and state feedback.
 
 ## Autoplay and timed UI
 

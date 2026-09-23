@@ -5,6 +5,8 @@ description: Anti-slop frontend skill for landing pages, portfolios, and redesig
 
 # tasteskill: Anti-Slop Frontend Skill
 
+Project adaptation: animation follows only docs/MOTION-DEFAULTS.md. The upstream animation recipes and intensity dial have been removed from this project copy.
+
 > Landing pages, portfolios, and redesigns. Not dashboards, not data tables, not multi-step product UI.
 > Every rule below is **contextual**. None of it fires automatically. First read the brief, then pull only what fits.
 
@@ -26,8 +28,8 @@ Before touching code or tweaking dials, **infer what the user actually wants**. 
 Before any code, state in one line: **"Reading this as: \<page kind> for \<audience>, with a \<vibe> language, leaning toward \<design system or aesthetic family>."**
 
 Example reads:
-- *"Reading this as: B2B SaaS landing for technical buyers, with a Linear-style minimalist language, leaning toward Tailwind utilities + Geist + restrained motion."*
-- *"Reading this as: solo designer portfolio for hiring managers, with an editorial / kinetic-type language, leaning toward native CSS + scroll-driven animation + custom typography."*
+- *"Reading this as: B2B SaaS landing for technical buyers, with a Linear-style minimalist language, leaning toward shared tokens and clear typography."*
+- *"Reading this as: solo designer portfolio for hiring managers, with an editorial language, leaning toward shared CSS and custom typography."*
 - *"Reading this as: redesign of a public-sector service site, with a trust-first language, leaning toward GOV.UK Frontend or USWDS."*
 
 ### 0.C If the brief is ambiguous, ask one question, do not guess
@@ -36,46 +38,45 @@ Ask exactly **one** clarifying question - never a multi-question dump - and only
 If you can confidently infer from context, **do not ask**. Just declare the design read and proceed.
 
 ### 0.D Anti-Default Discipline
-Do not default to: AI-purple gradients, centered hero over dark mesh, three equal feature cards, generic glassmorphism on everything, infinite-loop micro-animations everywhere, Inter + slate-900. These are the LLM defaults. Reach past them deliberately based on the design read.
+Do not default to: AI-purple gradients, centered hero over dark mesh, three equal feature cards, generic glassmorphism on everything, Inter + slate-900. These are the LLM defaults. Reach past them deliberately based on the design read.
 
 ---
 
-## 1. THE THREE DIALS (Core Configuration)
+## 1. LAYOUT AND DENSITY (Core Configuration)
 
-After the design read, set three dials. Every layout, motion, and density decision below is gated by these.
+After the design read, set layout variance and visual density within the supplied composition.
 
 * **`DESIGN_VARIANCE: 8`** - 1 = Perfect Symmetry, 10 = Artsy Chaos
-* **`MOTION_INTENSITY: 6`** - 1 = Static, 10 = Cinematic / Physics
 * **`VISUAL_DENSITY: 4`** - 1 = Art Gallery / Airy, 10 = Cockpit / Packed Data
 
-**Baseline:** `8 / 6 / 4`. Use these unless the design read overrides them. Do not ask the user to edit this file - overrides happen conversationally.
+**Baseline:** `8 / 4`. Use these unless the design read overrides them. Do not ask the user to edit this file - overrides happen conversationally.
 
 ### 1.A Dial Inference (design read → dial values)
-| Signal | VARIANCE | MOTION | DENSITY |
-|---|---|---|---|
-| "minimalist / clean / calm / editorial / Linear-style" | 5-6 | 3-4 | 2-3 |
-| "premium consumer / Apple-y / luxury / brand" | 7-8 | 5-7 | 3-4 |
-| "playful / wild / Dribbble / Awwwards / experimental / agency" | 9-10 | 8-10 | 3-4 |
-| "landing page / portfolio / marketing site (default)" | 7-9 | 6-8 | 3-5 |
-| "trust-first / public-sector / regulated / accessibility-critical" | 3-4 | 2-3 | 4-5 |
-| "redesign - preserve" | match existing | +1 | match existing |
-| "redesign - overhaul" | +2 | +2 | match existing |
+| Signal | VARIANCE | DENSITY |
+|---|---|---|
+| "minimalist / clean / calm / editorial / Linear-style" | 5-6 | 2-3 |
+| "premium consumer / Apple-y / luxury / brand" | 7-8 | 3-4 |
+| "playful / wild / Dribbble / Awwwards / experimental / agency" | 9-10 | 3-4 |
+| "landing page / portfolio / marketing site (default)" | 7-9 | 3-5 |
+| "trust-first / public-sector / regulated / accessibility-critical" | 3-4 | 4-5 |
+| "redesign - preserve" | match existing | match existing |
+| "redesign - overhaul" | +2 | match existing |
 
 ### 1.B Use-Case Presets
-| Use case | VARIANCE | MOTION | DENSITY |
-|---|---|---|---|
-| Landing (SaaS, mainstream) | 7 | 6 | 4 |
-| Landing (Agency / creative) | 9 | 8 | 3 |
-| Landing (Premium consumer) | 7 | 6 | 3 |
-| Portfolio (Designer / studio) | 8 | 7 | 3 |
-| Portfolio (Developer) | 6 | 5 | 4 |
-| Editorial / Blog | 6 | 4 | 3 |
-| Public-sector service | 3 | 2 | 5 |
-| Redesign - preserve | match | match+1 | match |
-| Redesign - overhaul | +2 | +2 | match |
+| Use case | VARIANCE | DENSITY |
+|---|---|---|
+| Landing (SaaS, mainstream) | 7 | 4 |
+| Landing (Agency / creative) | 9 | 3 |
+| Landing (Premium consumer) | 7 | 3 |
+| Portfolio (Designer / studio) | 8 | 3 |
+| Portfolio (Developer) | 6 | 4 |
+| Editorial / Blog | 6 | 3 |
+| Public-sector service | 3 | 5 |
+| Redesign - preserve | match | match |
+| Redesign - overhaul | +2 | match |
 
 ### 1.C How the Dials Drive Output
-Use these (or user-overridden values) as global variables. Cross-references throughout this document refer to these exact variable names - never invent aliases like `LAYOUT_VARIANCE` or `ANIM_LEVEL`.
+Use these (or user-overridden values) as global variables. Cross-references throughout this document refer to these exact variable names - never invent aliases like `LAYOUT_VARIANCE`.
 
 ---
 
@@ -114,7 +115,6 @@ For these directions, there is **no single official package**. Build with native
 | Editorial / magazine | Serif type, asymmetric grid, generous whitespace. No library. |
 | Dark tech / hacker | Mono + accent neon, terminal motifs. No library. |
 | Aurora / mesh gradients | SVG or layered radial gradients. No library. |
-| Kinetic typography | Native CSS animations, scroll-driven animations, GSAP for hijacks. No library. |
 | **Apple Liquid Glass** | Apple documents this for Apple platforms only. **There is no official `liquid-glass.css`.** Web implementations are approximations using `backdrop-filter` + layered borders + highlights. Label clearly as approximation. |
 
 ---
@@ -126,16 +126,14 @@ Unless the design read picks a real design system (Section 2.A), these are the d
 ### 3.A Stack
 * **Framework:** React or Next.js. Default to Server Components (RSC).
   * **RSC SAFETY:** Global state works ONLY in Client Components. In Next.js, wrap providers in a `"use client"` component.
-  * **INTERACTIVITY ISOLATION:** Any component using Motion, scroll listeners, or pointer physics MUST be an isolated leaf with `'use client'` at the top. Server Components render static layouts only.
+  * **INTERACTIVITY ISOLATION:** Any component using browser-only APIs MUST be an isolated leaf with `'use client'` at the top. Server Components render static layouts only.
 * **Styling:** **Tailwind v4** (default). Tailwind v3 only if the existing project demands it.
   * For v4: do NOT use `tailwindcss` plugin in `postcss.config.js`. Use `@tailwindcss/postcss` or the Vite plugin.
-* **Animation:** **Motion** (the library formerly known as Framer Motion). Import from `motion/react` (`import { motion } from "motion/react"`). The `framer-motion` package still works as a legacy alias - prefer `motion/react` in new code.
 * **Fonts:** Always use `next/font` (Next.js) or self-host with `@font-face` + `font-display: swap`. Never link Google Fonts via `<link>` in production.
 
 ### 3.B State
 * Local `useState` / `useReducer` for isolated UI.
 * Global state ONLY for deep prop-drilling avoidance - Zustand, Jotai, or React context.
-* **NEVER** use `useState` to track continuous values driven by user input (mouse position, scroll progress, pointer physics, magnetic hover). Use Motion's `useMotionValue` / `useTransform` / `useScroll`. `useState` re-renders the React tree on every change and collapses on mobile.
 
 ### 3.C Icons
 * **Allowed libraries (priority order):** `@phosphor-icons/react`, `hugeicons-react`, `@radix-ui/react-icons`, `@tabler/icons-react`.
@@ -343,190 +341,12 @@ Landing pages live on the **first impression**, not the full read. Cut ruthlessl
 The page has ONE theme. Sections do not invert.
 
 * If the page is dark mode, ALL sections are dark mode. No light-mode-warm-paper section sandwiched between dark sections (or vice versa). The user must not feel they walked into a different website mid-scroll.
-* The exception: if the brief explicitly calls for a "Color Block Story" or "Theme Switch on Scroll" device AND that is a deliberate composition (one full theme switch with a strong transition, not random alternation), it is allowed once per page.
 * Default behaviour: pick light, dark, or auto (`prefers-color-scheme`) at the page level and lock it. Section-level background tints within the same theme family are fine (`bg-zinc-950` next to `bg-zinc-900`); flipping to `bg-amber-50` in the middle of a `bg-zinc-950` page is broken.
 * When using a design system with built-in theming (Radix Themes, shadcn/ui with `<Theme>`), set the theme ONCE in `layout.tsx` or the page root. Do not let individual sections override.
 
 ---
 
-## 5. CONTEXT-AWARE PROACTIVITY
-
-These are tools, not defaults. Use them when the design read calls for them. **None of these fire automatically.**
-
-* **Liquid Glass / Glassmorphism:** Appropriate for premium consumer, Apple-adjacent, luxury brand, or media-overlay vibes. Inappropriate for dashboards, public-sector, or "boring B2B." When used, go beyond `backdrop-blur`: add a 1px inner border (`border-white/10`) and a subtle inner shadow (`shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]`) for physical edge refraction. Provide a solid-fill fallback under `prefers-reduced-transparency`.
-* **Magnetic Micro-physics:** Use when `MOTION_INTENSITY > 5` AND the brief reads premium / playful / agency. Implement EXCLUSIVELY with Motion's `useMotionValue` / `useTransform` outside the React render cycle. Never `useState`. See Section 3.B.
-* **Perpetual Micro-Interactions** (Pulse, Typewriter, Float, Shimmer, Carousel): Use when `MOTION_INTENSITY > 5` AND the section actively benefits from motion (status indicators, live feeds, AI-feel). **Not every card needs an infinite loop.** If a section is informational, leave it still. Apply Spring Physics (`type: "spring", stiffness: 100, damping: 20`) - no linear easing.
-* **"Motion claimed, motion shown."** If `MOTION_INTENSITY > 4`, the page must actually move: entry transitions on hero, scroll-reveal on key sections, hover physics on CTAs, at minimum. A static page that claims `MOTION_INTENSITY: 7` is broken. Conversely, if you cannot ship working motion in the available scope, drop the dial to 3 and ship a clean static page. Never half-build motion that breaks (cut-off ScrollTriggers, jumpy enters, missing cleanups).
-* **MOTION MUST BE MOTIVATED (mandatory).** Before adding any animation, ask: "what does this animation communicate?" Valid answers: hierarchy (drawing attention to the right thing), storytelling (revealing content in sequence that matches a narrative), feedback (acknowledging a user action), state transition (showing something changed). Invalid answer: "it looked cool". GSAP everywhere because GSAP is available is amateur. Each ScrollTrigger, each marquee, each pinned section needs a reason. If you cannot articulate the reason in one sentence, drop the animation.
-* **MARQUEE MAX-ONE-PER-PAGE (mandatory).** Horizontal scrolling text marquees ("logos endlessly scrolling", "manifesto scrolling sideways", "kinetic word strip") are appropriate at most ONCE per page. Two or more marquees on the same page reads as lazy filler. Pick the one section where the marquee actually serves the content; the others get a different layout.
-* **GSAP Sticky-Stack Pattern (when scroll-stack is used).** A "card stack on scroll" must be a REAL sticky-stack, not a sequential reveal list. See Section 5.A below for the canonical code skeleton. Common failure: trigger fires halfway through scroll instead of pinning at viewport top. Fix: `start: "top top"` not `start: "top center"` or `"top 80%"`.
-* **GSAP Horizontal-Pan Pattern (when horizontal scroll-hijack is used).** See Section 5.B below for the canonical skeleton. Common failure: animation starts before the section is pinned, so the user sees half a slide. Same fix: `start: "top top"`, pin the wrapper, scrub the inner track.
-
-### 5.A Sticky-Stack - Canonical Skeleton
-
-```tsx
-"use client";
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useReducedMotion } from "motion/react";
-
-gsap.registerPlugin(ScrollTrigger);
-
-export function StickyStack({ cards }: { cards: React.ReactNode[] }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (reduce || !ref.current) return;
-    const ctx = gsap.context(() => {
-      const cardEls = gsap.utils.toArray<HTMLElement>(".stack-card");
-      cardEls.forEach((card, i) => {
-        if (i === cardEls.length - 1) return;
-        ScrollTrigger.create({
-          trigger: card,
-          start: "top top",                              // pin at viewport top
-          endTrigger: cardEls[cardEls.length - 1],
-          end: "top top",
-          pin: true,
-          pinSpacing: false,
-        });
-        gsap.to(card, {
-          scale: 0.92,
-          opacity: 0.55,
-          ease: "none",
-          scrollTrigger: {
-            trigger: cardEls[i + 1],
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-          },
-        });
-      });
-    }, ref);
-    return () => ctx.revert();
-  }, [reduce]);
-
-  return (
-    <div ref={ref} className="relative">
-      {cards.map((card, i) => (
-        <div
-          key={i}
-          className="stack-card sticky top-0 min-h-[100dvh] flex items-center justify-center"
-        >
-          {card}
-        </div>
-      ))}
-    </div>
-  );
-}
-```
-
-Critical points: `start: "top top"`, `pin: true`, every card except the last is pinned, the scale/opacity transform is driven by the NEXT card's scroll trigger (so previous card shrinks as next one arrives).
-
-### 5.B Horizontal-Pan - Canonical Skeleton
-
-```tsx
-"use client";
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useReducedMotion } from "motion/react";
-
-gsap.registerPlugin(ScrollTrigger);
-
-export function HorizontalPan({ children }: { children: React.ReactNode }) {
-  const wrap = useRef<HTMLDivElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (reduce || !wrap.current || !track.current) return;
-    const ctx = gsap.context(() => {
-      const distance = track.current!.scrollWidth - window.innerWidth;
-      gsap.to(track.current, {
-        x: -distance,
-        ease: "none",
-        scrollTrigger: {
-          trigger: wrap.current,
-          start: "top top",                              // pin starts when section top hits viewport top
-          end: () => `+=${distance}`,                    // scroll distance = track width minus viewport
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-    }, wrap);
-    return () => ctx.revert();
-  }, [reduce]);
-
-  return (
-    <section ref={wrap} className="relative overflow-hidden">
-      <div ref={track} className="flex h-[100dvh] items-center">
-        {children}
-      </div>
-    </section>
-  );
-}
-```
-
-Critical points: `start: "top top"`, `pin: true`, `end: "+=${distance}"` (scroll length = horizontal travel needed), `scrub: 1`. The wrapper is pinned, the inner track slides horizontally as the user scrolls vertically.
-
-### 5.C Scroll-Reveal Stagger - Canonical Skeleton (lighter alternative)
-
-For simple "items appear as they enter viewport" (no pinning), prefer Motion's `whileInView` over GSAP - lighter, no ScrollTrigger needed:
-
-```tsx
-"use client";
-import { motion, useReducedMotion } from "motion/react";
-
-export function RevealStagger({ items }: { items: string[] }) {
-  const reduce = useReducedMotion();
-  return (
-    <ul className="grid gap-6">
-      {items.map((item, i) => (
-        <motion.li
-          key={item}
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: 0.6,
-            delay: i * 0.06,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
-          {item}
-        </motion.li>
-      ))}
-    </ul>
-  );
-}
-```
-
-Use this for: feature lists, testimonial grids, logo walls, anything that just needs "enter on scroll." Save GSAP for actual pin/scrub work.
-
-### 5.D Forbidden Animation Patterns
-
-* **`window.addEventListener("scroll", ...)`** is banned. It runs on every scroll frame, jank-prone, no batching. Use Motion's `useScroll()`, GSAP's `ScrollTrigger`, IntersectionObserver, or CSS `scroll-driven animations` (`animation-timeline: view()`).
-* **Custom scroll progress calculations using `window.scrollY`** in React state. Same reason. Re-renders on every frame.
-* **`requestAnimationFrame` loops that touch React state.** Use motion values (`useMotionValue` + `useTransform`) instead.
-* **Layout Transitions:** Use Motion's `layout` and `layoutId` props for visible state changes (re-ordering lists, expanding modals, shared elements between routes). Do not wrap static content in `layout` props "for safety" - it costs measurement work.
-* **Staggered Orchestration:** Use `staggerChildren` (Motion) or CSS cascade (`animation-delay: calc(var(--index) * 100ms)`) for reveal moments where sequence matters. For `staggerChildren`, parent (`variants`) and children MUST share the same Client Component tree.
-
----
-
 ## 6. PERFORMANCE & ACCESSIBILITY GUARDRAILS
-
-### 6.A Hardware Acceleration
-* Animate ONLY `transform` and `opacity`. Never animate `top`, `left`, `width`, `height`.
-* Use `will-change: transform` sparingly - only on elements that will actually animate.
-
-### 6.B Reduced Motion (mandatory)
-* **Any motion above `MOTION_INTENSITY > 3` MUST honor `prefers-reduced-motion`.** This is non-negotiable.
-* In Motion: wrap with `useReducedMotion()` and degrade to static.
-* In CSS: gate animations behind `@media (prefers-reduced-motion: no-preference)` or provide an override block under `@media (prefers-reduced-motion: reduce)` that disables.
-* Infinite loops, parallax, scroll-hijack, and magnetic physics MUST collapse to static / instant under reduced motion.
 
 ### 6.C Dark Mode (mandatory for any consumer-facing page)
 * Design for **both modes from the start**. Never ship light-only or dark-only without explicit user instruction.
@@ -542,7 +362,6 @@ Use this for: feature lists, testimonial grids, logo walls, anything that just n
 
 ### 6.E DOM Cost
 * Apply grain / noise filters EXCLUSIVELY to fixed, `pointer-events-none` pseudo-elements (e.g., `fixed inset-0 z-[60] pointer-events-none`). NEVER on scrolling containers - continuous GPU repaints destroy mobile FPS.
-* Be aware of bundle size. Motion is not tiny. Three.js is large. Lazy-load anything that's not above-the-fold.
 
 ### 6.F Z-Index Restraint
 NEVER spam arbitrary `z-50` or `z-10`. Use z-index strictly for systemic layer contexts (sticky navbars, modals, overlays, grain). Document the z-index scale in a project constants file.
@@ -556,11 +375,6 @@ NEVER spam arbitrary `z-50` or `z-10`. Use z-index strictly for systemic layer c
 * **4-7 (Offset):** `margin-top: -2rem` overlaps, varied image aspect ratios (4:3 next to 16:9), left-aligned headers over center-aligned data.
 * **8-10 (Asymmetric):** Masonry layouts, CSS Grid with fractional units (`grid-template-columns: 2fr 1fr 1fr`), massive empty zones (`padding-left: 20vw`).
 * **MOBILE OVERRIDE:** For levels 4-10, asymmetric layouts above `md:` MUST collapse to strict single-column (`w-full`, `px-4`, `py-8`) on viewports `< 768px`.
-
-### MOTION_INTENSITY (Level 1-10)
-* **1-3 (Static):** No automatic animations. CSS `:hover` and `:active` states only. `prefers-reduced-motion` is the default mode anyway.
-* **4-7 (Fluid CSS):** `transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1)`. `animation-delay` cascades for load-ins. Focus on `transform` and `opacity`.
-* **8-10 (Advanced Choreography):** Complex scroll-triggered reveals, parallax, scroll-driven animation (CSS `animation-timeline` or GSAP ScrollTrigger). Use Motion hooks. **NEVER use `window.addEventListener('scroll')`** - it is a hard ban, not a "prefer-not." See Section 5.D for the allowed alternatives.
 
 ### VISUAL_DENSITY (Level 1-10)
 * **1-3 (Art Gallery):** Lots of white space. Huge section gaps (`py-32` to `py-48`). Expensive, clean.
@@ -610,7 +424,7 @@ Avoid these signatures unless the brief explicitly asks for them.
 
 ### 9.C Layout & Spacing
 * **Mathematically perfect** padding and margins. No floating elements with awkward gaps.
-* **NO 3-column equal feature cards.** The generic "three identical cards horizontally" feature row is banned. Use 2-column zig-zag, asymmetric grid, scroll-pinned, or horizontal-scroll alternative.
+* **NO 3-column equal feature cards.** The generic "three identical cards horizontally" feature row is banned. Use 2-column zig-zag, asymmetric grid, an approved composition alternative.
 
 ### 9.D Content & Data ("Jane Doe" Effect)
 * **NO generic names.** "John Doe", "Sarah Chan", "Jack Su" → use creative, realistic, locale-appropriate names.
@@ -710,75 +524,32 @@ This is a vocabulary, not a library. The agent should KNOW these pattern names t
 * **Asymmetric Split Hero** - Text on one side, asset on the other, generous white space.
 * **Editorial Manifesto Hero** - Large type, no asset, almost-poster.
 * **Video / Media Mask Hero** - Type cut out as mask over video background.
-* **Kinetic-Type Hero** - Animated typography as the primary visual.
-* **Curtain-Reveal Hero** - Hero parts on scroll like a curtain.
-* **Scroll-Pinned Hero** - Hero stays pinned while content scrolls behind.
 
 ### Navigation & Menus
-* **Mac OS Dock Magnification** - Edge nav, icons scale fluidly on hover.
 * **Magnetic Button** - Pulls toward cursor.
 * **Gooey Menu** - Sub-items detach like viscous liquid.
 * **Dynamic Island** - Morphing pill for status / alerts.
 * **Contextual Radial Menu** - Circular menu expanding at click point.
-* **Floating Speed Dial** - FAB springing into curved secondary actions.
-* **Mega Menu Reveal** - Full-screen dropdown, stagger-fade content.
 
 ### Layout & Grids
 * **Bento Grid** - Asymmetric tile grouping (Apple Control Center).
 * **Masonry Layout** - Staggered grid, no fixed row height.
-* **Chroma Grid** - Borders / tiles with subtle animating gradients.
-* **Split-Screen Scroll** - Two halves sliding in opposite directions.
-* **Sticky-Stack Sections** - Sections that pin and stack on scroll.
 
 ### Cards & Containers
-* **Parallax Tilt Card** - 3D tilt tracking mouse coordinates.
 * **Spotlight Border Card** - Borders illuminate under cursor.
 * **Glassmorphism Panel** - Frosted glass with inner refraction.
-* **Holographic Foil Card** - Iridescent rainbow shift on hover.
 * **Tinder Swipe Stack** - Physical card stack, swipe-away.
 * **Morphing Modal** - Button expands into its own dialog.
-
-### Scroll Animations
-* **Sticky Scroll Stack** - Cards stick and physically stack.
-* **Horizontal Scroll Hijack** - Vertical scroll → horizontal pan.
-* **Locomotive / Sequence Scroll** - Video / 3D sequence tied to scrollbar.
-* **Zoom Parallax** - Central background image zooming on scroll.
-* **Scroll Progress Path** - SVG line drawing along scroll.
-* **Liquid Swipe Transition** - Page transition like viscous liquid.
 
 ### Galleries & Media
 * **Dome Gallery** - 3D panoramic gallery.
 * **Coverflow Carousel** - 3D carousel with angled edges.
 * **Drag-to-Pan Grid** - Boundless draggable canvas.
-* **Accordion Image Slider** - Narrow strips expanding on hover.
-* **Hover Image Trail** - Mouse leaves popping image trail.
-* **Glitch Effect Image** - RGB-channel shift on hover.
 
 ### Typography & Text
-* **Kinetic Marquee** - Endless text bands reversing on scroll.
 * **Text Mask Reveal** - Massive type as transparent window to video.
-* **Text Scramble Effect** - Matrix-style decoding on load / hover.
 * **Circular Text Path** - Text curving along spinning circle.
-* **Gradient Stroke Animation** - Outlined text with running gradient.
 * **Kinetic Typography Grid** - Letters dodging the cursor.
-
-### Micro-Interactions & Effects
-* **Particle Explosion Button** - CTA shatters into particles on success.
-* **Liquid Pull-to-Refresh** - Reload indicator like detaching droplets.
-* **Skeleton Shimmer** - Shifting light reflection across placeholders.
-* **Directional Hover-Aware Button** - Fill enters from cursor's exact side.
-* **Ripple Click Effect** - Wave from click coordinates.
-* **Animated SVG Line Drawing** - Vectors drawing themselves in real time.
-* **Mesh Gradient Background** - Organic lava-lamp blobs.
-* **Lens Blur Depth** - Background UI blurred to focus foreground action.
-
-### Animation Library Choice
-* **Motion (`motion/react`)** - default for UI / Bento / state-change motion.
-* **GSAP + ScrollTrigger** - for full-page scrolltelling and scroll hijacks. Isolate in dedicated leaf components with `useEffect` cleanup.
-* **Three.js / WebGL** - for canvas backgrounds and 3D scenes. Same isolation rule.
-* **NEVER mix GSAP / Three.js with Motion in the same component tree.** They fight over the same frames.
-
----
 
 ## 11. REDESIGN PROTOCOL
 
@@ -798,7 +569,7 @@ Document the current state before proposing changes:
 * **Content blocks** - what exists, what's doing work, what's filler.
 * **Patterns to preserve** - signature interactions, recognisable hero, copy voice.
 * **Patterns to retire** - AI-slop tells, broken layouts, dead links, generic stock imagery, perf traps.
-* **Dial reading of the existing site** - infer current `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY`. That's your starting point, not the baseline.
+* **Dial reading of the existing site** - infer current `DESIGN_VARIANCE` / `VISUAL_DENSITY`. That's your starting point, not the baseline.
 * **SEO baseline** - current ranking pages, meta titles, structured data, OG cards. **SEO migration is the #1 redesign risk.**
 
 ### 11.C Preservation Rules
@@ -813,7 +584,6 @@ Apply in order - stop when the brief is satisfied:
 1. **Typography refresh** - biggest visual lift per unit of risk.
 2. **Spacing & rhythm** - increase section padding, fix vertical rhythm.
 3. **Color recalibration** - desaturate, unify neutrals, keep brand accent.
-4. **Motion layer** - add `MOTION_INTENSITY`-appropriate micro-interactions to existing components.
 5. **Hero & key-section recomposition** - restructure top-of-funnel using Section 10 vocabulary.
 6. **Full block replacement** - only when the existing block is unsalvageable.
 
@@ -834,7 +604,7 @@ Never modify without explicit user approval:
 
 ## 12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)
 
-The Reference Vocabulary (Section 10) names patterns. The Block Library implements them with real props, real motion specs, and real code sketches.
+The Reference Vocabulary (Section 10) names patterns. The Block Library implements static composition patterns with real props and code sketches.
 
 **Status:** schema defined here. Blocks will be added iteratively. Do not freelance new blocks without following this schema.
 
@@ -844,11 +614,9 @@ skills/taste-skill/blocks/
   hero/
     asymmetric-split.md
     editorial-manifesto.md
-    kinetic-type.md
     ...
   feature/
     bento-grid.md
-    sticky-scroll-stack.md
     zig-zag.md
     ...
   social-proof/
@@ -857,7 +625,6 @@ skills/taste-skill/blocks/
   footer/
   navigation/
   portfolio/
-  transition/
 ```
 
 ### 12.B Required Frontmatter
@@ -867,23 +634,21 @@ name: asymmetric-split-hero
 category: hero
 dial_compatibility:
   variance: [6, 10]
-  motion: [3, 10]
   density: [2, 5]
 when_to_use: "Landing pages with one strong asset and one strong message. Default hero for SaaS, agency, premium consumer."
 not_for: "Editorial / manifesto launches where the message IS the design."
-stack: ["react", "next", "tailwind", "motion"]
+stack: ["react", "next"]
 ---
 ```
 
 ### 12.C Required Body Sections
 1. **Visual sketch** - short ASCII or description of the layout.
 2. **Props API** - the component's interface.
-3. **Code sketch** - minimal working implementation (Server Component default, Client island for motion).
+3. **Code sketch** - minimal working implementation (Server Component default, Client island for interaction).
 4. **Mobile fallback** - explicit collapse rules for `< 768px`.
-5. **Motion variants** - one variant per `MOTION_INTENSITY` band (1-3, 4-7, 8-10). Reduced-motion fallback explicit.
-6. **Dark-mode notes** - token strategy specific to this block.
-7. **Anti-patterns** - common ways this block goes wrong.
-8. **References** - links to real examples in production.
+5. **Dark-mode notes** - token strategy specific to this block.
+6. **Anti-patterns** - common ways this block goes wrong.
+7. **References** - links to real examples in production.
 
 ### 12.D Block-Library Discipline
 * One block per file. No multi-block files.
@@ -938,7 +703,6 @@ Run this matrix before outputting code. This is the last filter.
 - [ ] **Bento Background Diversity**: at least 2-3 bento cells have real visual variation (image, gradient, pattern), not all white-on-white text cards?
 - [ ] **"Used by / Trusted by" logo wall** lives UNDER the hero, not inside it, uses REAL SVG logos (Simple Icons / devicon) or generated SVG marks, NOT plain text wordmarks?
 - [ ] **Copy Self-Audit**: every visible string re-read, no grammatically-broken or AI-hallucinated phrases ("free on its past" type) shipped?
-- [ ] **Motion motivated**: every animation can be justified in one sentence (hierarchy / storytelling / feedback / state transition), no GSAP-for-show?
 - [ ] **Marquee max-one-per-page**: no two horizontal marquees on the same page?
 - [ ] **Navigation on ONE line** at desktop, height ≤ 80px?
 - [ ] **Section-Layout-Repetition** check: no two sections share the same layout family (at least 4 different families across 8 sections)?
@@ -960,18 +724,12 @@ Run this matrix before outputting code. This is the last filter.
 - [ ] **No `border-t` + `border-b` on every row** of long lists / spec tables?
 - [ ] **Content density** sane: no 20-row data tables, no fake-precise specs without justification, ≤ 25-word sub-paragraphs by default?
 - [ ] **Quotes ≤ 3 lines** of body, attribution clean (no em-dash)?
-- [ ] **Motion claimed = motion shown**: if `MOTION_INTENSITY > 4`, page actually animates, not just claimed?
-- [ ] **GSAP sticky-stack / horizontal-pan** implemented per Section 5.A / 5.B canonical skeleton (`start: "top top"`, `pin: true`, correct scrub)?
-- [ ] **No `window.addEventListener('scroll')`** - using Motion `useScroll()` / ScrollTrigger / IntersectionObserver / CSS scroll-driven animations only?
-- [ ] **Reduced motion** wrapped for everything `MOTION_INTENSITY > 3`?
 - [ ] **Dark mode** tokens defined and tested in both modes?
 - [ ] **Mobile collapse** explicit (`w-full`, `px-4`, `max-w-7xl mx-auto`) for high-variance layouts?
 - [ ] **Viewport stability**: `min-h-[100dvh]`, never `h-screen`?
-- [ ] **`useEffect` animations** have strict cleanup functions?
 - [ ] **Empty / loading / error** states provided?
 - [ ] **Cards omitted** in favor of spacing where possible?
 - [ ] **Icons** from an allowed library only (Phosphor / HugeIcons / Radix / Tabler), no hand-rolled SVG paths?
-- [ ] **Motion** isolated in client-leaf components with `'use client'` at the top, memoized?
 - [ ] **No AI Tells** from Section 9 (Inter as default, AI-purple, three-equal cards, Jane Doe, Acme, "Quietly in use at")?
 - [ ] **Core Web Vitals** plausibly hit (LCP < 2.5s, INP < 200ms, CLS < 0.1)?
 - [ ] **One design system** per project (no Material + shadcn mixed)?
@@ -1099,8 +857,6 @@ npm install bootstrap
 - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme
 - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion
 - https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout
-- https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations
-- https://drafts.csswg.org/scroll-animations-1/
 
 ### Apple Liquid Glass (Apple platforms only)
 - https://developer.apple.com/design/human-interface-guidelines/materials
@@ -1132,7 +888,6 @@ A web approximation can use:
 - layered borders
 - highlight overlays
 - gradients
-- motion
 - strong contrast fallbacks
 
 But that is **web glassmorphism / frosted-glass approximation**, not official Apple Liquid Glass. Label it as such in comments.
