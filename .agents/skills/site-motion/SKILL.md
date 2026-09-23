@@ -1,16 +1,12 @@
 ---
 name: site-motion
-description: Implement or repair GSAP smooth scrolling, masked element entrances and expressive shared button hovers in Next.js sites, preserving the supplied design.
+description: Implement upward masked entrances, reversible GSAP object hovers and GSAP ScrollSmoother in this Next.js starter.
 ---
 
 # site-motion
 
-Read `AGENTS.md` and `docs/MOTION-DEFAULTS.md`. That document is the single motion contract; older demo recipes and upstream skills do not add mandatory effects.
+Read `docs/MOTION-DEFAULTS.md`. It is the sole animation specification: upward movement inside a stationary mask, GSAP hovers on existing interactive objects, and one ScrollSmoother. Do not load an older recipe, select a profile, or add effects from a gallery or generic skill example.
 
-Implement GSAP ScrollSmoother, shared masks for text/content/media, and interesting GSAP Button/ButtonLink hovers during desktop work. Color-only feedback is insufficient for the button hover. Preserve user-authored effects where supplied; resolve overlapping ownership instead of adding another animation on top.
+Use the actual shared components and `src/design/tokens.json`. Keep scroll, reveal and hover property owners separate; preserve visible content, reduced-motion/native-touch fallbacks and scoped React cleanup. Read gsap-react/core for lifecycle and tweens, gsap-scrolltrigger for entrance triggers, and only the ScrollSmoother part of gsap-plugins. Consult timeline/performance references only to implement or diagnose the three retained families.
 
-Start with one working scroll boundary, a masked text/media example and one button hover. Verify them together on the page before propagating the shared primitives. Give scroll, reveal and interactive layers separate owners. Use scoped React cleanup, shared integer duration/distance tokens, visible reduced-motion/no-JavaScript fallbacks and no first-screen parallax.
-
-Load gsap-core/gsap-react for implementation, gsap-scrolltrigger/gsap-plugins for scrolling and masks, gsap-timeline when sequencing is useful, and gsap-performance for relevant diagnostics. Use better-ui for refinement within this contract. Do not require gallery research, extra engines, SplitText, Flip or a separate header/hero timeline to start the site.
-
-Use actual components in Storybook, with replay for masks and hover/focus/state examples for buttons. Follow WORKFLOW.md: early desktop preview, observed desktop motion before completion, desktop approval, mobile decision, then full browser/viewport QA. For implementation failures consult docs/MOTION-LIBRARIES.md; never mark a build or import as browser motion verification.
+Implement and observe these effects on the desktop and in their real Storybook specimens before desktop completion. A build or imported library is not browser verification. Follow WORKFLOW.md for desktop approval, mobile authorization and the later full browser/viewport QA.
