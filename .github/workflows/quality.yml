@@ -22,6 +22,8 @@ jobs:
         run: npm run setup
       - name: Verify project setup
         run: npm run setup:check
+      - name: Test mandatory skill installation and failure gates
+        run: npm run test:setup
       - name: Check types, lint, grid, and story coverage
         run: npm run check
       - name: Build Next.js

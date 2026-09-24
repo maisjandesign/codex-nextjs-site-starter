@@ -26,3 +26,14 @@ verification/
 
 # graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
+/.agents/skills/better-accessibility/
+/.agents/skills/better-colors/
+/.agents/skills/better-interface/
+/.agents/skills/better-layout/
+/.agents/skills/better-typography/
+/.agents/skills/better-writing/
+/.agents/skills/break/
+/.agents/skills/explain-interface/
+/.agents/skills/interface-review/
+/.agents/skills/variant/
+/.agents/skills/gsap-frameworks/

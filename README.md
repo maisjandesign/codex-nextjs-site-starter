@@ -25,9 +25,9 @@ Run `npm run storybook` in a second terminal. Website: [localhost:3000](http://l
 2. Open the new project folder in Codex and attach a Figma frame URL or screenshot.
 3. Send this prompt:
 
-> Follow AGENTS.md. First run the mandatory setup and verify GSAP, better-ui, and Graft. As soon as setup succeeds, build this reference without asking for another go-ahead. Use Next.js, consistent typography, the 8px grid, default GSAP motion, and a separate Storybook containing every component. Keep project work and documents in English; reply in my language in chat. Verify both apps in the browser.
+> Follow AGENTS.md and instructions/skill-installation.md. Before reference analysis or implementation, run npm run setup and npm run setup:check. Install and verify all 11 skills from jakubkrehel/skills, all 8 official GSAP skills, and Graft. Load the relevant installed instructions while respecting explicit-only policies. As soon as setup succeeds, build this reference without asking for another go-ahead. Use Next.js, consistent typography, the 8px grid, default GSAP motion, and a separate Storybook containing every component. Keep project work and documents in English; reply in my language in chat. Verify both apps in the browser.
 
-The required order is **install skills → verify setup → start layout work**. Installation is part of the workflow, not an optional recommendation.
+The required order is **install all required skills → verify setup → load applicable instructions → start the project process**. Installation is part of the workflow, not an optional recommendation. Full rules and pinned source versions are in [Skill installation](instructions/skill-installation.md).
 
 ## Mandatory setup
 
@@ -51,11 +51,13 @@ The installed instructions can be read immediately by file path. They also becom
 
 | Requirement | Installed package |
 | --- | --- |
-| GSAP | Official `gsap-core`, `gsap-timeline`, `gsap-scrolltrigger`, `gsap-plugins`, `gsap-utils`, `gsap-react`, `gsap-performance` skills |
-| better-ui | A complete snapshot of your installed better-ui skill, including its references |
+| [Jakub's skills](https://github.com/jakubkrehel/skills) | All 11 skills: the seven `better-*` skills, `interface-review`, `explain-interface`, `break`, and `variant`, with references and invocation metadata |
+| [Official GSAP skills](https://github.com/greensock/gsap-skills) | All 8: `gsap-core`, `gsap-timeline`, `gsap-scrolltrigger`, `gsap-plugins`, `gsap-utils`, `gsap-react`, `gsap-performance`, and `gsap-frameworks` |
 | Graft | Upstream `graft` skill plus pinned `@nanonets/graft` CLI and a local source graph |
 
-Bundles and checksums live in `tooling/skills/` and `tooling/required-skills.json`. The template includes three additional local workflow skills: `reference-site`, `gsap-next-motion`, and `site-component-system`.
+All 20 required skills install before project work. Bundles, exact source commits, paths, and file checksums live in `tooling/skills/` and `tooling/required-skills.json`. The template includes three additional local workflow skills: `reference-site`, `gsap-next-motion`, and `site-component-system`. Installing explicit-only skills does not invoke them; the Next.js workflow uses the React guidance rather than switching frameworks.
+
+Setup restores missing files and upgrades unchanged known previous bundles. Unknown local edits are preserved and block setup until resolved. Run `npm run test:setup` to verify these installation and failure behaviors.
 
 ## Run the website and Storybook
 
@@ -141,4 +143,4 @@ Use `npm run graft -- map` for orientation, `npm run graft -- ask "your question
 
 Figma still requires an available connector and permission to read the supplied file. Screenshot imagery requires an available image-generation tool. Skill installation cannot create those account connections. No target reference has been supplied for this starter, so its Figma and screenshot workflows are prepared instructions rather than a claimed reconstruction.
 
-Sources: [GSAP skills](https://github.com/greensock/gsap-skills), [Graft](https://github.com/trailhq/Graft), [Next.js](https://nextjs.org/docs/app/getting-started/server-and-client-components), [ScrollSmoother](https://gsap.com/docs/v3/Plugins/ScrollSmoother/), [Storybook for Next.js](https://storybook.js.org/docs/get-started/frameworks/nextjs-vite), [Codex instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
+Sources: [Jakub's skills](https://github.com/jakubkrehel/skills), [GSAP skills](https://github.com/greensock/gsap-skills), [Graft](https://github.com/trailhq/Graft), [Next.js](https://nextjs.org/docs/app/getting-started/server-and-client-components), [ScrollSmoother](https://gsap.com/docs/v3/Plugins/ScrollSmoother/), [Storybook for Next.js](https://storybook.js.org/docs/get-started/frameworks/nextjs-vite), [Codex instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md).

@@ -5,6 +5,8 @@ description: Apply or refine this template's GSAP smooth scroll, masked line/blo
 
 # Default motion
 
+Complete the mandatory installation and verification in root `AGENTS.md` and `instructions/skill-installation.md` before motion work. Load the applicable installed GSAP skills and `better-ui`; do not substitute CSS-only hover for the requested GSAP behavior.
+
 Read `src/components/motion/` and `src/lib/motion-config.ts` before introducing new animation code. Reuse the infrastructure; do not start a second scroll engine.
 
 | Need | Use |

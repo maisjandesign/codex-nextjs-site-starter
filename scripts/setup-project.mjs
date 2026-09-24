@@ -1,14 +1,13 @@
-import { cp, mkdir, readFile, writeFile, lstat, rm } from 'node:fs/promises';
-import { createHash } from 'node:crypto';
+import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { hash, installSkills, verifySkills } from './skills.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const manifestPath = path.join(root, 'tooling/required-skills.json');
 const manifestText = await readFile(manifestPath, 'utf8');
 const manifest = JSON.parse(manifestText);
-const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const stampPath = path.join(root, '.template/setup-ready.json');
 const verifyOnly = process.argv.includes('--check');
 
@@ -18,19 +17,9 @@ function run(binary, args) {
   if (result.status !== 0) throw new Error(`${path.basename(binary)} ${args[0]} failed. Setup is incomplete; do not start layout work.`);
 }
 
-async function verifySkills(base) {
-  for (const skill of manifest.skills) {
-    for (const file of skill.files) {
-      const actual = await readFile(path.join(base, skill.name, file.path));
-      if (hash(actual) !== file.sha256) throw new Error(`Skill integrity mismatch: ${skill.name}/${file.path}`);
-    }
-    const text = await readFile(path.join(base, skill.name, 'SKILL.md'), 'utf8');
-    if (!text.startsWith('---') || !text.includes(`name: ${skill.name}`)) throw new Error(`Invalid skill: ${skill.name}`);
-  }
-}
-
 const graftPackage = path.join(root, 'node_modules/@nanonets/graft/package.json');
 const installedSkills = path.join(root, '.agents/skills');
+const bundles = path.join(root, 'tooling/skills');
 
 try {
   if (verifyOnly) {
@@ -39,37 +28,17 @@ try {
         stamp.lockHash !== hash(await readFile(path.join(root, 'package-lock.json')))) {
       throw new Error('This project needs its own setup run, or its dependencies changed.');
     }
-    await verifySkills(installedSkills);
+    await verifySkills(bundles, manifest);
+    await verifySkills(installedSkills, manifest);
     const graft = JSON.parse(await readFile(graftPackage, 'utf8'));
     if (graft.version !== stamp.graftVersion) throw new Error('Graft version changed.');
     const graphIndex = await readFile(path.join(root, 'graft/INDEX.md'), 'utf8');
     if (!graphIndex.trim()) throw new Error('Graft index is empty.');
-    console.log('Setup verified: official GSAP skills, better-ui, Graft skill + local CLI/index. Layout work may start.');
+    console.log(`Setup verified: all ${manifest.skills.length} required skills, pinned source bundles, and Graft CLI/index. Project work may start.`);
   } else {
     // Remove any previous success marker before installation; failure must stay closed.
     await rm(stampPath, { force: true });
-    const bundles = path.join(root, 'tooling/skills');
-    await verifySkills(bundles);
-    await mkdir(installedSkills, { recursive: true });
-    for (const skill of manifest.skills) {
-      const target = path.join(installedSkills, skill.name);
-      try {
-        await lstat(target);
-        for (const file of skill.files) {
-          if (hash(await readFile(path.join(target, file.path))) !== file.sha256) {
-            throw new Error(`An existing ${skill.name} skill differs from the bundled version. Resolve the difference before setup; it was not overwritten.`);
-          }
-        }
-        console.log(`Verified installed skill: ${skill.name}`);
-      } catch (error) {
-        if (error.code !== 'ENOENT') throw error;
-        // A partially existing directory must not be silently overwritten.
-        try { await lstat(target); throw new Error(`Incomplete existing skill ${skill.name}; repair or remove that project-local copy before setup.`); }
-        catch (check) { if (check.code !== 'ENOENT') throw check; }
-        await cp(path.join(bundles, skill.name), target, { recursive: true, errorOnExist: true, force: false });
-        console.log(`Installed skill: ${skill.name}`);
-      }
-    }
+    await installSkills(bundles, installedSkills, manifest);
     const npmCli = process.env.npm_execpath;
     if (npmCli) run(process.execPath, [npmCli, 'ci']);
     else run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['ci']);
@@ -78,7 +47,7 @@ try {
     // Local CLI + AGENTS.md integration only. No account-wide MCP or hook edits.
     run(process.execPath, [graftCli, 'init', '--agents', 'agents', '--no-global', '--no-mcp', '--no-hooks', '--no-build']);
     run(process.execPath, [graftCli, 'build', '--only-dir', 'src', '--only-dir', 'scripts']);
-    await verifySkills(installedSkills);
+    await verifySkills(installedSkills, manifest);
     const graphIndex = await readFile(path.join(root, 'graft/INDEX.md'), 'utf8');
     if (!graphIndex.trim()) throw new Error('Graft index is empty.');
     await mkdir(path.dirname(stampPath), { recursive: true });

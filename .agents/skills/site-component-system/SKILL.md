@@ -5,6 +5,8 @@ description: Maintain shared 8px typography/layout tokens and a separate Storybo
 
 # A single component system
 
+Before component work, complete the mandatory setup in root `AGENTS.md` and `instructions/skill-installation.md`. Apply the installed Better domain skills for layout, typography, color, writing, UI, and accessibility as their stages apply.
+
 The website and Storybook import the same components and `src/app/globals.css`, which imports `src/styles/tokens.css`. Do not duplicate JSX or CSS to make a story match. Extract reusable sections before documenting them. Every exported UI component in `src/components/` needs a meaningful story.
 
 ## Typography and grid

@@ -1,0 +1,2 @@
+# Preserve upstream bytes for SHA-256 verification, including original whitespace.
+tooling/skills/** -text -whitespace

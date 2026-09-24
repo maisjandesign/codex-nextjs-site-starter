@@ -1,17 +1,19 @@
 # Reference-first Next.js workspace
 
-## Mandatory setup gate — before any layout work
+## Mandatory setup gate — before the project process
 
 All template instructions, generated UI, copy, stories, comments, metadata and reports must be in English unless the user explicitly changes the language for a later project.
 
 In chat, reply in the language the user uses. This does not change the English-only requirement for project work and documents.
 
-1. Before touching a supplied design or editing site UI, run `npm run setup` from this project root. It installs the bundled official GSAP skills, the user's better-ui snapshot, and the upstream Graft skill into `.agents/skills/`; restores pinned npm dependencies; and prepares the local Graft CLI, AGENTS.md integration and code index.
-2. Run `npm run setup:check`. It verifies installed skill hashes, Graft, the project-specific readiness marker and the lockfile. A marker copied from another project does not count. Missing, incomplete or conflicting installation blocks layout work; repair setup first without silently skipping a requirement.
-3. Read the installed `gsap-react`, `gsap-scrolltrigger`, `gsap-plugins`, `better-ui` and `graft` SKILL.md files. Other installed GSAP skills are available as needed. Read them by path immediately if the session's skill catalogue has not refreshed; a new turn is not required to use their instructions.
+1. Before reference analysis, asset work, layout implementation or preview startup, run `npm run setup` from this project root. Installation is mandatory: all 11 skills from [jakubkrehel/skills](https://github.com/jakubkrehel/skills), all 8 from [greensock/gsap-skills](https://github.com/greensock/gsap-skills), and the existing Graft skill. The installer uses pinned, complete upstream bundles, installs them into `.agents/skills/`, restores locked npm dependencies and prepares the local Graft CLI/index. A link, a global installation, or a SKILL.md without its references does not satisfy this requirement.
+2. Run `npm run setup:check`. All 20 required skill folders and their files must verify before project work starts. The check also verifies bundled hashes, Graft, the project-specific readiness marker and the lockfile. Missing files are repaired by setup; unchanged known older snapshots can upgrade. Unknown local modifications block setup and are preserved. Do not skip a skill or weaken the gate to proceed.
+3. Read [the installation and usage rules](instructions/skill-installation.md), then load the installed instructions for the current stage. Start with Graft for code orientation, the applicable Better domain skills for the reference, and GSAP React/ScrollTrigger/plugins for motion. Read files by path immediately if the session catalogue has not refreshed. Installation is not the same as invocation: preserve explicit-only skill policies and do not automatically start variant generation, stress testing, or change reviews.
 4. Once setup is verified, immediately begin the supplied Figma/screenshot workflow below. Do not ask for a second go-ahead or stop after installation. If no reference exists yet, ask for the reference after setup.
 
 Setup is project-local: no global plugins, account-wide Codex configuration, global MCP registration or global hooks. Use `npm run graft -- <command>` for the verified local Graft CLI. Index `src/` and `scripts/` only, keeping generated Storybook bundles out of the graph.
+
+Required skills are installed before the process, then applied at the relevant stage. They are not optional recommendations. The user's Next.js, GSAP hover/scroll/mask, reference fidelity, English deliverables and 8px rules take precedence over conflicting general skill advice.
 
 ## Start here
 

@@ -18,6 +18,7 @@
     "check:design": "node scripts/check-design-system.mjs",
     "setup": "node scripts/setup-project.mjs",
     "setup:check": "node scripts/setup-project.mjs --check",
+    "test:setup": "node --test scripts/skills.test.mjs",
     "graft": "graft",
     "predev": "npm run setup:check",
     "prebuild": "npm run setup:check",

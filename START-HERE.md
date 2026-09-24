@@ -51,9 +51,11 @@ Opening the folder alone does not run setup. Send the task below to start work.
 ```text
 Follow AGENTS.md in this project.
 
-Before layout work, run npm run setup and npm run setup:check.
-Verify the official GSAP skills, better-ui, and Graft, then read the
-required installed skills and the relevant local workflow instructions.
+Before reference analysis or layout work, run npm run setup and npm run setup:check.
+Install and verify all 11 skills from jakubkrehel/skills, all 8 official
+GSAP skills from greensock/gsap-skills, and Graft. Read
+instructions/skill-installation.md and apply the installed skills for
+the current stage. Preserve explicit-only invocation policies.
 
 As soon as setup succeeds, implement the attached reference without
 asking for another go-ahead. Use Next.js App Router and TypeScript.
@@ -93,7 +95,9 @@ npm run setup
 npm run setup:check
 ```
 
-Setup validates the bundled files, installs nine required skill folders into `.agents/skills/`, restores pinned dependencies with `npm ci`, and prepares the local Graft CLI and code index. The nine folders contain seven official GSAP skills, better-ui, and Graft; three additional workflow skills are already included.
+Setup validates the bundled files, installs 20 required skill folders into `.agents/skills/`, restores pinned dependencies with `npm ci`, and prepares the local Graft CLI and code index. The required set contains all 11 skills from [jakubkrehel/skills](https://github.com/jakubkrehel/skills), all 8 from [greensock/gsap-skills](https://github.com/greensock/gsap-skills), and Graft. Three additional workflow skills are already included. See [the installation rules and complete inventory](instructions/skill-installation.md).
+
+Both requested source collections are pinned to exact commits with full file hashes. Setup skips verified current files, restores missing references, and upgrades unchanged known older snapshots. Unknown user edits are preserved and reported as conflicts. Installation does not activate explicit-only review, explanation, variant, or stress-test skills; those still need the corresponding user request.
 
 The readiness marker belongs to this exact folder and dependency lockfile. Each new clone, extracted ZIP, or copied project needs its own setup. Installed skill copies and local caches are ignored by Git; their reproducible bundles are tracked under `tooling/`.
 
@@ -149,6 +153,7 @@ Replace the demo's lime palette, Manrope typeface, artwork, and content with the
 
 ```bash
 npm run check
+npm run test:setup
 npm run build
 npm run build-storybook
 ```
@@ -163,14 +168,15 @@ npm run start
 
 The Storybook production build is written to `storybook-static/`; serve that folder with a static web server. Do not open its HTML directly using a `file://` URL.
 
-On GitHub, the Frontend quality workflow runs setup, checks, and both builds after pushes and pull requests. It does not run browser visual QA or publish either app. Codex should still inspect the reference viewport and relevant desktop, tablet, and mobile widths, and report actual results under `verification/`.
+On GitHub, the Frontend quality workflow runs setup, installation regression tests, checks, and both builds after pushes and pull requests. It does not run browser visual QA or publish either app. Codex should still inspect the reference viewport and relevant desktop, tablet, and mobile widths, and report actual results under `verification/`.
 
 ## Troubleshooting
 
 | Symptom | Action |
 | --- | --- |
 | Setup gate says the marker is missing or belongs to another folder | Run `npm run setup`, then `npm run setup:check` in this project |
-| Skill integrity mismatch or an incomplete local skill | Compare the named installed folder with `tooling/skills/`; preserve deliberate edits, resolve the conflict, then rerun setup |
+| A required skill/reference file is missing | Run `npm run setup` to restore missing files from the verified bundles |
+| Skill integrity mismatch caused by local edits | Compare the named installed folder with `tooling/skills/`; preserve deliberate edits, resolve the conflict, then rerun setup |
 | npm installation fails | Read the actual error; check Node version, package-registry/network access, and filesystem permissions. Keep the committed lockfile |
 | Graft index is missing | Rerun `npm run setup` to recreate and verify the local index |
 | Port 3000 or 6006 is occupied | Use `npm run dev -- --port 3100` or `npm run storybook -- -p 6106` and open that port |
